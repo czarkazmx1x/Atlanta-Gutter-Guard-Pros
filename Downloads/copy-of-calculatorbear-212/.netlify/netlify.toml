@@ -1,0 +1,43 @@
+functionsDirectory = "C:\\Users\\jacos\\Downloads\\copy-of-calculatorbear-212\\netlify\\functions"
+functionsDirectoryOrigin = "ui"
+redirectsOrigin = "config"
+plugins = []
+headers = []
+
+[build]
+publish = "C:\\Users\\jacos\\Downloads\\copy-of-calculatorbear-212\\dist"
+publishOrigin = "config"
+commandOrigin = "config"
+base = "C:\\Users\\jacos\\Downloads\\copy-of-calculatorbear-212"
+command = "npm run build"
+functions = "C:\\Users\\jacos\\Downloads\\copy-of-calculatorbear-212\\netlify\\functions"
+
+[build.environment]
+
+[build.processing]
+
+[build.processing.css]
+
+[build.processing.html]
+
+[build.processing.images]
+
+[build.processing.js]
+
+[build.services]
+
+[functions]
+
+[functions."*"]
+
+[[redirects]]
+from = "/*"
+to = "/index.html"
+status = 200.0
+force = false
+
+[redirects.query]
+
+[redirects.conditions]
+
+[redirects.headers]
