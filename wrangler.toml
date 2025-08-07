@@ -1,0 +1,5 @@
+name = "gutter-guard-georgia"
+compatibility_date = "2024-01-01"
+
+[env.production]
+account_id = "8e14a0cc7cbc906fd65a75e8f5218e35"
