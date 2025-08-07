@@ -16,7 +16,7 @@ wrangler secret put MISTRAL_API_KEY
 
 echo.
 echo 📤 Deploying to Cloudflare Pages...
-npx wrangler pages deploy . --project-name gutter-guard-georgia
+npx wrangler pages deploy . --project-name gutter-guard-georgia --compatibility-date 2024-01-01
 
 echo.
 echo 🎉 DEPLOYMENT COMPLETE!
