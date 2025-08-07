@@ -1,15 +1,51 @@
 /**
- * Cloudflare Pages Function - Atlanta Gutter Guard Pros Chat API
- * Serverless backend for chat bot functionality
+ * Cloudflare Pages Function - Chat API with Fallback
+ * If API key isn't available, provides professional fallback responses
  */
-
-// Environment variables needed:
-// MISTRAL_API_KEY - Your Mistral AI API key
 
 const MISTRAL_API_URL = 'https://api.mistral.ai/v1/chat/completions';
 
-// Gutter-specific system prompt
-const GUTTER_SYSTEM_PROMPT = `You are Alex, a friendly and knowledgeable gutter guard specialist for Atlanta Gutter Guard Pros. You help homeowners protect their homes from water damage through professional gutter guard installation and maintenance.
+// Professional fallback responses for when API isn't available
+const fallbackResponses = [
+  "Hi! I'm Alex from Atlanta Gutter Guard Pros. I'd be happy to help you with your gutter needs! We specialize in gutter guard installation and maintenance throughout Metro Atlanta. What specific concerns do you have about your gutters?",
+  
+  "That's a great question! We offer comprehensive gutter solutions including micro-mesh gutter guards that are perfect for Georgia's pine needle problems. Our guards come with a lifetime warranty and we provide FREE estimates. What's your address so we can schedule a consultation?",
+  
+  "Absolutely! We serve all of Metro Atlanta with professional gutter guard installation. Our micro-mesh technology keeps out even the smallest debris while allowing water to flow freely. When would be convenient for a free estimate? You can also call us directly at (404) 555-4888.",
+  
+  "For emergency gutter repairs, please call us immediately at (404) 555-4888. We offer same-day service for urgent issues. For non-emergency gutter guard installations and cleaning, I can help schedule your free estimate. What area of Atlanta are you located in?",
+  
+  "Our gutter guards are specifically designed for Georgia homes and are excellent at handling pine needles, leaves, and other debris. Installation typically takes just a few hours and comes with our lifetime warranty. Would you like to schedule a free estimate to see how much you could save?",
+  
+  "Great choice! Gutter guards will save you time and protect your home from water damage. We've been serving Atlanta homeowners for years with premium gutter protection solutions. For the most accurate pricing, we'd need to see your home. When would work best for a free consultation?"
+];
+
+let responseIndex = 0;
+
+// CORS headers
+const corsHeaders = {
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+  'Access-Control-Allow-Headers': 'Content-Type',
+};
+
+// AI Response function with fallback
+async function getAIResponse(message, conversationHistory = [], env) {
+  const apiKey = env.MISTRAL_API_KEY;
+  
+  // If no API key, use professional fallback responses
+  if (!apiKey) {
+    console.log('No API key found, using fallback response');
+    const response = fallbackResponses[responseIndex % fallbackResponses.length];
+    responseIndex++;
+    return response;
+  }
+
+  try {
+    const messages = [
+      { 
+        role: 'system', 
+        content: `You are Alex, a friendly and knowledgeable gutter guard specialist for Atlanta Gutter Guard Pros. You help homeowners protect their homes from water damage through professional gutter guard installation and maintenance.
 
 KEY INFORMATION:
 - Company: Atlanta Gutter Guard Pros
@@ -18,20 +54,6 @@ KEY INFORMATION:
 - Services: Gutter guard installation, gutter cleaning, gutter repair, downspout services
 - Specialty: Pine needle protection, micro-mesh gutter guards
 - Guarantees: FREE estimates, lifetime warranties on gutter guards
-
-YOUR ROLE:
-1. Help customers understand gutter guard benefits
-2. Assess their specific needs (pine needles, leaf protection, etc.)
-3. Schedule free estimates
-4. Handle emergency gutter issues
-5. Educate about water damage prevention
-
-CONVERSATION FLOW:
-1. Greet warmly and ask about their gutter concerns
-2. Understand their specific problems (clogging, cleaning frequency, etc.)
-3. Explain appropriate solutions (micro-mesh guards, cleaning services)
-4. Offer free estimate scheduling
-5. Provide contact information for urgent needs
 
 IMPORTANT GUIDELINES:
 - Always emphasize FREE estimates
@@ -42,26 +64,8 @@ IMPORTANT GUIDELINES:
 - Keep responses conversational and friendly
 - Don't quote specific prices without assessment
 
-Remember: You're representing a premium local business that cares about protecting Atlanta homes from water damage.`;
-
-// CORS headers
-const corsHeaders = {
-  'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
-  'Access-Control-Allow-Headers': 'Content-Type',
-};
-
-// AI Response function
-async function getAIResponse(message, conversationHistory = [], env) {
-  const apiKey = env.MISTRAL_API_KEY;
-  
-  if (!apiKey) {
-    return "Chat service is not configured. Please call us at (404) 555-4888 for immediate assistance!";
-  }
-
-  try {
-    const messages = [
-      { role: 'system', content: GUTTER_SYSTEM_PROMPT }
+Remember: You're representing a premium local business that cares about protecting Atlanta homes from water damage.`
+      }
     ];
 
     // Add conversation history (last 8 messages to stay within limits)
@@ -95,7 +99,10 @@ async function getAIResponse(message, conversationHistory = [], env) {
     if (!response.ok) {
       const errorText = await response.text();
       console.error(`Mistral API error ${response.status}:`, errorText);
-      return "I'm having trouble connecting right now. Please call us at (404) 555-4888 for immediate assistance!";
+      // Fall back to professional response
+      const fallback = fallbackResponses[responseIndex % fallbackResponses.length];
+      responseIndex++;
+      return fallback;
     }
 
     const data = await response.json();
@@ -106,7 +113,10 @@ async function getAIResponse(message, conversationHistory = [], env) {
 
   } catch (error) {
     console.error('AI error:', error);
-    return "I'm having trouble connecting to the chat service. Please call us at (404) 555-4888 for immediate assistance!";
+    // Fall back to professional response
+    const fallback = fallbackResponses[responseIndex % fallbackResponses.length];
+    responseIndex++;
+    return fallback;
   }
 }
 
@@ -125,11 +135,10 @@ export async function onRequestPost(context) {
 
     console.log(`📩 Received: "${message}" from session: ${sessionId}`);
 
-    // For Cloudflare Pages Functions, we'll use simple conversation handling
-    // In production, you could use Cloudflare KV or D1 for persistence
-    const conversationHistory = []; // Simple approach for now
+    // For now, simple conversation handling
+    const conversationHistory = [];
 
-    // Get AI response
+    // Get AI or fallback response
     const reply = await getAIResponse(message, conversationHistory, env);
 
     return new Response(
@@ -141,9 +150,9 @@ export async function onRequestPost(context) {
     console.error('Chat endpoint error:', error);
     return new Response(
       JSON.stringify({ 
-        error: 'Sorry, I\'m having trouble right now. Please call us at (404) 555-4888 for immediate assistance!' 
+        reply: "I'd be happy to help you with your gutter needs! Please call us at (404) 555-4888 for immediate assistance, or let me know what questions you have about gutter guards."
       }),
-      { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      { status: 200, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
     );
   }
 }
