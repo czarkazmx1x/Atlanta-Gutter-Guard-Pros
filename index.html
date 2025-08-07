@@ -27,6 +27,85 @@
         .blog-card { border: 1px solid #ddd; padding: 1.5rem; border-radius: 8px; }
         footer { background: #2c3e50; color: white; padding: 3rem 0; text-align: center; }
     </style>
+    
+    <!-- Local Business Schema Markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Atlanta Gutter Guard Pros",
+        "image": "https://atlantagutterguardpros.com/images/logo.jpg",
+        "telephone": "(404) 555-4888",
+        "email": "info@atlantagutterguardpros.com",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "123 Peachtree St NE",
+            "addressLocality": "Atlanta",
+            "addressRegion": "GA",
+            "postalCode": "30303",
+            "addressCountry": "US"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "33.7490",
+            "longitude": "-84.3880"
+        },
+        "url": "https://atlantagutterguardpros.com",
+        "priceRange": "$$",
+        "openingHoursSpecification": [{
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "08:00",
+            "closes": "18:00"
+        }],
+        "serviceArea": {
+            "@type": "GeoCircle",
+            "geoMidpoint": {
+                "@type": "GeoCoordinates",
+                "latitude": "33.7490",
+                "longitude": "-84.3880"
+            },
+            "geoRadius": "50000"
+        },
+        "areaServed": [
+            "Atlanta",
+            "Alpharetta", 
+            "Roswell",
+            "Johns Creek",
+            "Milton",
+            "Sandy Springs",
+            "Decatur",
+            "Stone Mountain",
+            "Tucker",
+            "Chamblee",
+            "Brookhaven",
+            "Marietta",
+            "Smyrna",
+            "Kennesaw",
+            "Woodstock",
+            "Acworth"
+        ],
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Gutter Guard Services",
+            "itemListElement": [{
+                "@type": "Offer",
+                "itemOffered": {
+                    "@type": "Service",
+                    "name": "Gutter Guard Installation",
+                    "description": "Professional gutter guard installation and protection systems"
+                }
+            }, {
+                "@type": "Offer", 
+                "itemOffered": {
+                    "@type": "Service",
+                    "name": "Gutter Guard Maintenance",
+                    "description": "Maintenance and repair services for existing gutter guards"
+                }
+            }]
+        }
+    }
+    </script>
 </head>
 <body>
     <header>
