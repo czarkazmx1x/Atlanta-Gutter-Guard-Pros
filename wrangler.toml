@@ -3,3 +3,8 @@ compatibility_date = "2024-01-01"
 
 [env.production]
 account_id = "8e14a0cc7cbc906fd65a75e8f5218e35"
+
+# Environment variables for chat bot
+[vars]
+# Add your Mistral API key here for local development
+# MISTRAL_API_KEY = "your-key-here"
