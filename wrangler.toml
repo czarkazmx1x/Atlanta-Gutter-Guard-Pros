@@ -2,7 +2,7 @@ name = "gutter-guard-georgia"
 compatibility_date = "2024-01-01"
 pages_build_output_dir = "."
 
-# Main Pages configuration
+# Production environment configuration
 [env.production]
 account_id = "8e14a0cc7cbc906fd65a75e8f5218e35"
 
@@ -14,50 +14,3 @@ account_id = "8e14a0cc7cbc906fd65a75e8f5218e35"
 [vars]
 # Add your Mistral API key here for local development only
 # MISTRAL_API_KEY = "your-key-here"
-
-# Build configuration
-[build]
-command = ""
-cwd = ""
-watch_dir = ""
-
-# Asset handling
-[assets]
-# Exclude certain files from upload
-exclude = [
-  "*.md",
-  "*.log",
-  ".git/*",
-  "node_modules/*",
-  ".wrangler/*",
-  "*.bat"
-]
-
-# Custom headers for better performance
-[[headers]]
-for = "*.css"
-[headers.values]
-"Cache-Control" = "public, max-age=31536000"
-
-[[headers]]
-for = "*.js"
-[headers.values]
-"Cache-Control" = "public, max-age=31536000"
-
-[[headers]]
-for = "*.jpg"
-[headers.values]
-"Cache-Control" = "public, max-age=31536000"
-
-[[headers]]
-for = "*.png"
-[headers.values]
-"Cache-Control" = "public, max-age=31536000"
-
-[[headers]]
-for = "*.html"
-[headers.values]
-"Cache-Control" = "public, max-age=3600"
-"X-Content-Type-Options" = "nosniff"
-"X-Frame-Options" = "DENY"
-"X-XSS-Protection" = "1; mode=block"
