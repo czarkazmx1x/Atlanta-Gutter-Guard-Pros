@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Gutter Guard Cost Calculator - Atlanta GA | Instant Estimate</title>
+    <meta name="description" content="Get an instant gutter guard cost estimate for your Atlanta home. Free calculator with accurate pricing for all guard types. Call (404) 555-GUTTER for exact quote.">
+    <meta name="keywords" content="gutter guard cost calculator atlanta, gutter guard price estimate, atlanta gutter protection cost, free gutter quote calculator">
+    <link rel="canonical" href="https://atlantagutterguardpros.com/calculator.html">
+    
+    <!-- Local SEO Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Gutter Guard Cost Calculator",
+        "description": "Free gutter guard cost calculator for Atlanta homeowners",
+        "url": "https://atlantagutterguardpros.com/calculator.html",
+        "provider": {
+            "@type": "LocalBusiness",
+            "name": "Atlanta Gutter Guard Pros",
+            "telephone": "(404) 555-GUTTER",
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Atlanta",
+                "addressRegion": "GA",
+                "addressCountry": "US"
+            }
+        }
+    }
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .nav-link {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+
+        .calculator-content {
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .input-section {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 15px;
+            border: 2px solid #e9ecef;
+        }
+
+        .results-section {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            position: sticky;
+            top: 20px;
+            height: fit-content;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #28a745;
+            box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.1);
+        }
+
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            width: auto;
+            margin-right: 0.5rem;
+            transform: scale(1.2);
+        }
+
+        .price-display {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .price-range {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .price-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .breakdown {
+            background: rgba(255,255,255,0.1);
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+        }
+
+        .breakdown-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            padding: 0.25rem 0;
+        }
+
+        .cta-section {
+            background: rgba(255,255,255,0.1);
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .cta-button {
+            background: white;
+            color: #28a745;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+
+        .cta-button:hover {
+            background: #f8f9fa;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .phone-number {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .feature-item {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+            border: 2px solid #e9ecef;
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-text {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .info-box {
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .warning-box {
+            background: #fff3e0;
+            border-left: 4px solid #ff9800;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            border-radius: 0 8px 8px 0;
+        }
+
+        @media (max-width: 768px) {
+            .calculator-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .checkbox-group {
+                grid-template-columns: 1fr;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header" style="position: relative;">
+            <a href="index.html" class="nav-link">← Back to Home</a>
+            <h1>🏠 Gutter Guard Calculator</h1>
+            <p>Get an instant estimate for your Atlanta home's gutter protection</p>
+        </div>
+
+        <div class="calculator-content">
+            <div class="input-section">
+                <h2 style="margin-bottom: 1.5rem; color: #28a745;">📏 Tell Us About Your Home</h2>
+                
+                <div class="form-group">
+                    <label for="homeType">Home Type</label>
+                    <select id="homeType">
+                        <option value="single">Single Story</option>
+                        <option value="two-story">Two Story</option>
+                        <option value="three-story">Three+ Story</option>
+                        <option value="ranch">Ranch Style</option>
+                        <option value="colonial">Colonial</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="linearFeet">Linear Feet of Gutters (estimate if unsure)</label>
+                    <input type="number" id="linearFeet" placeholder="150" value="150" min="50" max="1000">
+                </div>
+
+                <div class="form-group">
+                    <label for="guardType">Gutter Guard Type</label>
+                    <select id="guardType">
+                        <option value="mesh">Micro-Mesh Premium ($15-18/ft)</option>
+                        <option value="screen">Screen Guards ($8-12/ft)</option>
+                        <option value="foam">Foam Inserts ($3-6/ft)</option>
+                        <option value="brush">Brush Guards ($4-8/ft)</option>
+                        <option value="helmet">Gutter Helmet Style ($18-25/ft)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="gutterCondition">Current Gutter Condition</label>
+                    <select id="gutterCondition">
+                        <option value="excellent">Excellent - No repairs needed</option>
+                        <option value="good">Good - Minor cleaning needed</option>
+                        <option value="fair">Fair - Some repairs required</option>
+                        <option value="poor">Poor - Major repairs/replacement</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>🌲 Atlanta Property Challenges (check all that apply)</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="pines" value="50">
+                            <label for="pines">Pine trees nearby</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="oaks" value="30">
+                            <label for="oaks">Oak trees</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="height" value="100">
+                            <label for="height">High roofline</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="complex" value="75">
+                            <label for="complex">Complex roof design</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="timeline">Installation Timeline</label>
+                    <select id="timeline">
+                        <option value="asap">ASAP - Emergency</option>
+                        <option value="month">Within 1 month</option>
+                        <option value="season">This season</option>
+                        <option value="planning">Just planning ahead</option>
+                    </select>
+                </div>
+
+                <div class="info-box">
+                    <strong>💡 Atlanta Pro Tip:</strong> Pine needle areas need micro-mesh guards for best protection. Spring installation (March-April) is optimal timing.
+                </div>
+            </div>
+
+            <div class="results-section">
+                <div class="price-display">
+                    <div class="price-range" id="priceRange">$2,250 - $2,700</div>
+                    <div class="price-label">Professional Installation</div>
+                </div>
+
+                <div class="breakdown">
+                    <h3 style="margin-bottom: 1rem;">💰 Cost Breakdown</h3>
+                    <div class="breakdown-item">
+                        <span>Materials:</span>
+                        <span id="materialCost">$1,575</span>
+                    </div>
+                    <div class="breakdown-item">
+                        <span>Labor:</span>
+                        <span id="laborCost">$525</span>
+                    </div>
+                    <div class="breakdown-item">
+                        <span>Complexity Factors:</span>
+                        <span id="complexityCost">$150</span>
+                    </div>
+                    <div class="breakdown-item">
+                        <span>Prep Work:</span>
+                        <span id="prepCost">$0</span>
+                    </div>
+                    <div class="breakdown-item" style="border-top: 2px solid rgba(255,255,255,0.3); padding-top: 0.5rem; margin-top: 0.5rem; font-weight: bold;">
+                        <span>Total Range:</span>
+                        <span id="totalRange">$2,250 - $2,700</span>
+                    </div>
+                </div>
+
+                <div class="cta-section">
+                    <button class="cta-button" onclick="requestQuote()">📞 Get Free Exact Quote</button>
+                    <div class="phone-number">Call: (404) 555-GUTTER</div>
+                    <p style="font-size: 0.9rem; opacity: 0.9;">Free estimates • Same-day service available</p>
+                </div>
+
+                <div style="background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 10px; margin-top: 1rem;">
+                    <h4 style="margin-bottom: 0.5rem;">⏱️ Installation Time</h4>
+                    <p id="installTime">4-6 hours for average home</p>
+                    
+                    <h4 style="margin-bottom: 0.5rem; margin-top: 1rem;">✅ Includes</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li>• Lifetime warranty</li>
+                        <li>• Free gutter cleaning</li>
+                        <li>• Licensed & insured</li>
+                        <li>• Same-day installation</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-item">
+                <div class="feature-icon">🛡️</div>
+                <div class="feature-text">Lifetime Warranty</div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">🏆</div>
+                <div class="feature-text">4.9/5 Stars</div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">⚡</div>
+                <div class="feature-text">Same-Day Service</div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">💵</div>
+                <div class="feature-text">Financing Available</div>
+            </div>
+        </div>
+
+        <div class="warning-box" style="margin: 2rem;">
+            <strong>🚨 Atlanta Weather Alert:</strong> Hurricane season (June-Nov) creates high demand. Book early for best pricing and availability. Spring installations save 15-20% vs peak season.
+        </div>
+    </div>
+
+    <script>
+        function calculatePrice() {
+            const linearFeet = parseInt(document.getElementById('linearFeet').value) || 150;
+            const guardType = document.getElementById('guardType').value;
+            const homeType = document.getElementById('homeType').value;
+            const gutterCondition = document.getElementById('gutterCondition').value;
+            const timeline = document.getElementById('timeline').value;
+
+            // Base pricing per linear foot
+            const basePrices = {
+                'mesh': [15, 18],
+                'screen': [8, 12],
+                'foam': [3, 6],
+                'brush': [4, 8],
+                'helmet': [18, 25]
+            };
+
+            let [minPrice, maxPrice] = basePrices[guardType];
+
+            // Home type multipliers
+            const homeMultipliers = {
+                'single': 1.0,
+                'two-story': 1.15,
+                'three-story': 1.35,
+                'ranch': 1.05,
+                'colonial': 1.20
+            };
+
+            // Gutter condition adjustments
+            const conditionAdjustments = {
+                'excellent': 0,
+                'good': 150,
+                'fair': 350,
+                'poor': 750
+            };
+
+            // Timeline adjustments
+            const timelineMultipliers = {
+                'asap': 1.20,
+                'month': 1.0,
+                'season': 0.95,
+                'planning': 0.90
+            };
+
+            // Calculate complexity factors
+            let complexityBonus = 0;
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+            checkboxes.forEach(cb => {
+                complexityBonus += parseInt(cb.value);
+            });
+
+            // Apply calculations
+            const homeMultiplier = homeMultipliers[homeType];
+            const timelineMultiplier = timelineMultipliers[timeline];
+            const prepCost = conditionAdjustments[gutterCondition];
+
+            const materialMin = Math.round(linearFeet * minPrice * homeMultiplier * timelineMultiplier);
+            const materialMax = Math.round(linearFeet * maxPrice * homeMultiplier * timelineMultiplier);
+
+            const laborMin = Math.round(linearFeet * 3.5);
+            const laborMax = Math.round(linearFeet * 4.2);
+
+            const totalMin = materialMin + laborMin + complexityBonus + prepCost;
+            const totalMax = materialMax + laborMax + complexityBonus + prepCost;
+
+            // Update display
+            document.getElementById('priceRange').textContent = `$${totalMin.toLocaleString()} - $${totalMax.toLocaleString()}`;
+            document.getElementById('materialCost').textContent = `$${Math.round((materialMin + materialMax) / 2).toLocaleString()}`;
+            document.getElementById('laborCost').textContent = `$${Math.round((laborMin + laborMax) / 2).toLocaleString()}`;
+            document.getElementById('complexityCost').textContent = `$${complexityBonus}`;
+            document.getElementById('prepCost').textContent = `$${prepCost}`;
+            document.getElementById('totalRange').textContent = `$${totalMin.toLocaleString()} - $${totalMax.toLocaleString()}`;
+
+            // Installation time estimate
+            let installHours = Math.ceil(linearFeet / 30) + (homeType === 'three-story' ? 2 : homeType === 'two-story' ? 1 : 0);
+            if (complexityBonus > 100) installHours += 2;
+            
+            const timeText = installHours <= 6 ? `${installHours-1}-${installHours} hours` : `${Math.floor(installHours/8)}-${Math.ceil(installHours/8)} days`;
+            document.getElementById('installTime').textContent = timeText;
+        }
+
+        function requestQuote() {
+            const linearFeet = document.getElementById('linearFeet').value;
+            const guardType = document.getElementById('guardType').options[document.getElementById('guardType').selectedIndex].text;
+            const homeType = document.getElementById('homeType').options[document.getElementById('homeType').selectedIndex].text;
+            
+            // Track calculator usage
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'calculator_quote_request', {
+                    'linear_feet': linearFeet,
+                    'guard_type': guardType,
+                    'home_type': homeType
+                });
+            }
+            
+            const phone = "(404) 555-GUTTER";
+            window.open(`tel:${phone.replace(/[^0-9]/g, '')}`);
+        }
+
+        // Add event listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            const inputs = document.querySelectorAll('input, select');
+            inputs.forEach(input => {
+                input.addEventListener('change', calculatePrice);
+                input.addEventListener('input', calculatePrice);
+            });
+            
+            calculatePrice(); // Initial calculation
+        });
+    </script>
+</body>
+</html>

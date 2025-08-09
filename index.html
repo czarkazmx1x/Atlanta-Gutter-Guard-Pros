@@ -8,14 +8,298 @@
     <meta name="keywords" content="gutter guard installation atlanta, leaf filter installers near me, gutter protection atlanta ga, gutter covers atlanta">
     <link rel="canonical" href="https://atlantagutterguardpros.com/">
     
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GFC9LCQ7GJ"></script>
+    <!-- Preload critical resources -->
+    <link rel="preload" href="styles-critical.css" as="style">
+    <link rel="preload" href="images/hero/main-hero.jpg" as="image">
+    
+    <!-- Critical CSS inline -->
+    <style>
+        /* Critical above-the-fold styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-color: #1d4f1f;
+            --secondary-color: #7da05b;
+            --accent-color: #e55a2b;
+            --text-dark: #1a1a1a;
+            --text-light: #555555;
+            --bg-light: #f8f9fa;
+            --white: #ffffff;
+            --shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        .header-top {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 10px 0;
+            text-align: center;
+            font-size: 14px;
+        }
+        
+        header {
+            background: var(--white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo img {
+            height: 50px;
+            width: auto;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-menu a:hover,
+        .nav-menu a:focus {
+            color: var(--primary-color);
+        }
+        
+        .cta-button {
+            background: var(--accent-color);
+            color: var(--white) !important;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+        
+        .cta-button:hover,
+        .cta-button:focus {
+            background: #c44a1f;
+            color: var(--white) !important;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--bg-light) 0%, #e8f5e8 100%);
+            padding: 80px 0;
+            min-height: 600px;
+        }
+        
+        .hero-content-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            line-height: 1.2;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: var(--text-light);
+            margin-bottom: 30px;
+        }
+        
+        .hero-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .feature {
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+        
+        .hero-cta {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .btn-primary, .btn-secondary {
+            padding: 15px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-primary {
+            background: var(--accent-color);
+            color: var(--white);
+        }
+        
+        .btn-primary:hover,
+        .btn-primary:focus {
+            background: #c44a1f;
+        }
+        
+        .btn-secondary {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+        
+        .btn-secondary:hover,
+        .btn-secondary:focus {
+            background: #0f2f11;
+        }
+        
+        .urgency {
+            color: var(--accent-color);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+        
+        /* Trust badges */
+        .trust-badges {
+            background: var(--white);
+            padding: 30px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .badges-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            text-align: center;
+        }
+        
+        .badge {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        /* Form accessibility improvements */
+        .visually-hidden {
+            position: absolute !important;
+            width: 1px !important;
+            height: 1px !important;
+            padding: 0 !important;
+            margin: -1px !important;
+            overflow: hidden !important;
+            clip: rect(0, 0, 0, 0) !important;
+            white-space: nowrap !important;
+            border: 0 !important;
+        }
+        
+        /* Benefits Section */
+        .benefits {
+            padding: 80px 0;
+            background: var(--white);
+        }
+        
+        .benefits h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 50px;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+        
+        .benefit-card {
+            text-align: center;
+            padding: 30px;
+            background: var(--bg-light);
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .benefit-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-content-wrapper {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .hero-cta {
+                flex-direction: column;
+            }
+            
+            .badges-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+    
+    <!-- Load non-critical CSS asynchronously -->
+    <link rel="preload" href="styles-non-critical-accessible.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="styles-non-critical-accessible.css"></noscript>
+    
+    <!-- Google tag (gtag.js) - Load async -->
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'G-GFC9LCQ7GJ');
     </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GFC9LCQ7GJ"></script>
     
     <!-- Local SEO Schema -->
     <script type="application/ld+json">
@@ -48,223 +332,310 @@
             "closes": "18:00"
         }]
     }
-    </script>    
-    <link rel="stylesheet" href="styles.css">
+    </script>
 </head>
 <body>
+    <!-- Skip to main content for screen readers -->
+    <a href="#main-content" class="visually-hidden">Skip to main content</a>
+
     <!-- Header -->
-    <header>
+    <header role="banner">
         <div class="header-top">
             <div class="container">
-                📞 <strong>Call Now: (404) 555-GUTTER</strong> | 🏆 Atlanta's #1 Rated Gutter Guard Installers | ⭐ 4.8/5 Stars (127 Reviews)
+                📞 <strong>Call Now: <a href="tel:4045554888" style="color: inherit; text-decoration: underline;">(404) 555-GUTTER</a></strong> | 🏆 Atlanta's #1 Rated Gutter Guard Installers | ⭐ 4.8/5 Stars (127 Reviews)
             </div>
         </div>
-        <nav>
+        <nav role="navigation" aria-label="Main navigation">
             <div class="container nav-container">
                 <div class="logo">
-                    <img src="images/logo/logo.png" alt="Atlanta Gutter Guard Pros" data-flexible="true" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                    <h2 style="display:none;">Atlanta Gutter Guard Pros</h2>
+                    <img src="images/logo/logo.png" alt="Atlanta Gutter Guard Pros company logo" width="150" height="50" loading="eager">
                 </div>
                 <ul class="nav-menu">
                     <li><a href="/">Home</a></li>
                     <li><a href="/services.html">Services</a></li>
+                    <li><a href="calculator.html">💰 Cost Calculator</a></li>
                     <li><a href="#areas">Service Areas</a></li>
                     <li><a href="#faq">FAQs</a></li>
                     <li><a href="#contact" class="cta-button">Get Free Quote</a></li>
                 </ul>
             </div>
         </nav>
-    </header>    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content-wrapper">
-                <div class="hero-content">
-                    <h1>Professional Gutter Guard Installation in Atlanta, GA</h1>
-                    <p class="hero-subtitle">Stop Cleaning Gutters Forever! Premium Leaf Protection Systems Installed by Local Experts</p>
-                    <div class="hero-features">
-                        <div class="feature">✅ Lifetime Warranty</div>
-                        <div class="feature">✅ Free Estimates</div>
-                        <div class="feature">✅ Same-Day Service</div>
-                        <div class="feature">✅ Licensed & Insured</div>
-                    </div>
-                    <div class="hero-cta">
-                        <a href="tel:4045554888" class="btn-primary">📞 Call (404) 555-4888</a>
-                        <a href="#contact" class="btn-secondary">Get Free Quote Online</a>
-                    </div>
-                    <p class="urgency">⚡ Limited Time: 20% OFF Installation (This Month Only)</p>
-                </div>
-                <div class="hero-image">
-                    <img src="images/hero/main-hero.jpg" alt="Professional gutter guard installation service in Atlanta - Call now for a free quote" loading="eager" data-flexible="true">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Trust Badges -->
-    <section class="trust-badges">
-        <div class="container">
-            <div class="badges-grid">
-                <div class="badge">🏆 BBB A+ Rated</div>
-                <div class="badge">🛡️ Fully Licensed & Insured</div>
-                <div class="badge">⭐ 127+ 5-Star Reviews</div>
-                <div class="badge">🏠 3,000+ Homes Protected</div>
-            </div>
-        </div>
-    </section>
-    <!-- Benefits Section -->
-    <section class="benefits">
-        <div class="container">
-            <h2>Why Atlanta Homeowners Choose Our Gutter Guards</h2>
-            <div class="benefits-grid">
-                <div class="benefit-card">
-                    <div class="icon">🍂</div>
-                    <h3>No More Gutter Cleaning</h3>
-                    <p>Our premium leaf filters keep leaves, pine needles, and debris out permanently.</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="icon">💧</div>
-                    <h3>Prevent Water Damage</h3>
-                    <p>Protect your foundation, basement, and landscaping from costly water damage.</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="icon">🏠</div>
-                    <h3>Increase Home Value</h3>
-                    <p>Professional gutter protection adds value and curb appeal to your Atlanta home.</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="icon">🛡️</div>
-                    <h3>Lifetime Warranty</h3>
-                    <p>Our gutter guards come with a transferable lifetime warranty for peace of mind.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    </header>
     
-    <!-- Gallery Section -->
-    <section class="gallery" id="gallery">
-        <div class="container">
-            <h2>Before & After Gutter Guard Installation</h2>
-            <p class="section-subtitle">See the difference our gutter protection makes</p>
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="images/gallery/before-1.jpg" alt="Clogged gutters before installation" loading="lazy" data-flexible="true">
-                    <p class="gallery-label">Before</p>
-                </div>
-                <div class="gallery-item">
-                    <img src="images/gallery/after-1.jpg" alt="Clean protected gutters after installation" loading="lazy" data-flexible="true">
-                    <p class="gallery-label">After</p>
-                </div>
-                <div class="gallery-item">
-                    <img src="images/gallery/before-2.jpg" alt="Debris-filled gutters before guard installation" loading="lazy" data-flexible="true">
-                    <p class="gallery-label">Before</p>
-                </div>
-                <div class="gallery-item">
-                    <img src="images/gallery/after-2.jpg" alt="Gutter guards installed and functioning" loading="lazy" data-flexible="true">
-                    <p class="gallery-label">After</p>
-                </div>
-            </div>
-        </div>
-    </section>    
-    <!-- Service Areas -->
-    <section id="areas" class="service-areas">
-        <div class="container">
-            <h2>Gutter Guard Installation Throughout Metro Atlanta</h2>
-            <p class="section-subtitle">Proudly serving homeowners across North Georgia with professional gutter protection services</p>
-            <div class="areas-grid">
-                <div class="area-column">
-                    <h3>North Atlanta</h3>
-                    <ul>
-                        <li><a href="/leaf-filter-installation-alpharetta.html">Alpharetta</a></li>
-                        <li><a href="/gutter-guards-roswell-ga.html">Roswell</a></li>
-                        <li><a href="/gutter-guards-johns-creek-ga.html">Johns Creek</a></li>
-                        <li><a href="/milton-gutter-guards.html">Milton</a></li>
-                        <li><a href="/gutter-guards-sandy-springs-ga.html">Sandy Springs</a></li>
-                    </ul>
-                </div>
-                <div class="area-column">
-                    <h3>East Atlanta</h3>
-                    <ul>
-                        <li><a href="/gutter-protection-decatur-ga.html">Decatur</a></li>
-                        <li><a href="/stone-mountain-gutter-guards.html">Stone Mountain</a></li>
-                        <li><a href="/tucker-gutter-guards.html">Tucker</a></li>
-                        <li><a href="/chamblee-gutter-guards.html">Chamblee</a></li>
-                        <li><a href="/brookhaven-gutter-guards.html">Brookhaven</a></li>
-                    </ul>
-                </div>
-                <div class="area-column">
-                    <h3>West Atlanta</h3>
-                    <ul>
-                        <li><a href="/gutter-guards-marietta-ga.html">Marietta</a></li>
-                        <li><a href="/smyrna-gutter-guards.html">Smyrna</a></li>
-                        <li><a href="/kennesaw-gutter-guards.html">Kennesaw</a></li>
-                        <li><a href="/woodstock-gutter-guards.html">Woodstock</a></li>
-                        <li><a href="/acworth-gutter-guards.html">Acworth</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- FAQ Section -->
-    <section id="faq" class="faq">
-        <div class="container">
-            <h2>Frequently Asked Questions About Gutter Guards</h2>
-            <div class="faq-grid">
-                <div class="faq-item">
-                    <h3>How much do gutter guards cost in Atlanta?</h3>
-                    <p>Professional gutter guard installation in Atlanta typically ranges from $15-25 per linear foot, depending on your home's size and the type of system. Most homes invest $1,500-3,000 for complete protection. We offer free estimates and financing options.</p>
-                </div>
-                <div class="faq-item">
-                    <h3>Do gutter guards really work?</h3>
-                    <p>Yes! Quality gutter guards block 99% of leaves and debris while allowing water to flow freely. Our micro-mesh systems are specifically designed for Atlanta's pine needles and oak leaves.</p>
-                </div>
-                <div class="faq-item">
-                    <h3>How long does installation take?</h3>
-                    <p>Most gutter guard installations in Atlanta are completed in one day. Our experienced crew can protect an average-sized home in 4-6 hours with minimal disruption.</p>
-                </div>
-                <div class="faq-item">
-                    <h3>What's your warranty?</h3>
-                    <p>We offer a transferable lifetime warranty on all gutter guard installations. This covers materials, performance, and workmanship - adding value if you sell your home.</p>
-                </div>
-            </div>
-        </div>
-    </section>    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2>Get Your Free Gutter Guard Quote Today!</h2>
-            <p class="contact-subtitle">Join thousands of Atlanta homeowners who never clean their gutters again</p>
-            <div class="contact-grid">
-                <div class="contact-form">
-                    <form id="quote-form">
-                        <input type="text" name="name" placeholder="Your Name" required>
-                        <input type="tel" name="phone" placeholder="Phone Number" required>
-                        <input type="email" name="email" placeholder="Email Address" required>
-                        <input type="text" name="address" placeholder="Property Address">
-                        <select name="service" required>
-                            <option value="">Select Service Needed</option>
-                            <option value="new-install">New Gutter Guard Installation</option>
-                            <option value="replacement">Replace Existing Guards</option>
-                            <option value="inspection">Free Inspection</option>
-                        </select>
-                        <textarea name="message" placeholder="Tell us about your project" rows="4"></textarea>
-                        <button type="submit" class="btn-primary">Get Free Quote</button>
-                    </form>
-                </div>
-                <div class="contact-info">
-                    <h3>Call Us Now!</h3>
-                    <p class="phone-large">(404) 555-GUTTER</p>
-                    <p>Monday-Friday: 8AM-6PM<br>Saturday: 9AM-4PM</p>
-                    <div class="contact-features">
-                        <p>✅ Free Estimates</p>
-                        <p>✅ Same-Day Service Available</p>
-                        <p>✅ 100% Satisfaction Guarantee</p>
-                        <p>✅ Licensed & Insured</p>
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content-wrapper">
+                    <div class="hero-content">
+                        <h1>Professional Gutter Guard Installation in Atlanta, GA</h1>
+                        <p class="hero-subtitle">Stop Cleaning Gutters Forever! Premium Leaf Protection Systems Installed by Local Experts</p>
+                        <div class="hero-features">
+                            <div class="feature">✅ Lifetime Warranty</div>
+                            <div class="feature">✅ Free Estimates</div>
+                            <div class="feature">✅ Same-Day Service</div>
+                            <div class="feature">✅ Licensed & Insured</div>
+                        </div>
+                        <div class="hero-cta">
+                            <a href="tel:4045554888" class="btn-primary" aria-label="Call Atlanta Gutter Guard Pros at (404) 555-4888">📞 Call (404) 555-4888</a>
+                            <a href="calculator.html" class="btn-secondary" style="background: #17a2b8; color: white;">💰 Get Instant Price</a>
+                            <a href="#contact" class="btn-secondary">Get Free Quote Online</a>
+                        </div>
+                        <p class="urgency">⚡ Limited Time: 20% OFF Installation (This Month Only)</p>
+                    </div>
+                    <div class="hero-image">
+                        <picture>
+                            <img src="images/hero/main-hero.jpg" 
+                                 alt="Professional gutter guard installation service in Atlanta - Call now for a free quote" 
+                                 width="600" 
+                                 height="400" 
+                                 loading="eager"
+                                 data-flexible="true">
+                        </picture>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <!-- Trust Badges -->
+        <section class="trust-badges">
+            <div class="container">
+                <div class="badges-grid">
+                    <div class="badge">🏆 BBB A+ Rated</div>
+                    <div class="badge">🛡️ Fully Licensed & Insured</div>
+                    <div class="badge">⭐ 127+ 5-Star Reviews</div>
+                    <div class="badge">🏠 3,000+ Homes Protected</div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Benefits Section -->
+        <section class="benefits">
+            <div class="container">
+                <h2>Why Atlanta Homeowners Choose Our Gutter Guards</h2>
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <div class="icon" aria-hidden="true">🍂</div>
+                        <h3>No More Gutter Cleaning</h3>
+                        <p>Our premium leaf filters keep leaves, pine needles, and debris out permanently.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="icon" aria-hidden="true">💧</div>
+                        <h3>Prevent Water Damage</h3>
+                        <p>Protect your foundation, basement, and landscaping from costly water damage.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="icon" aria-hidden="true">🏠</div>
+                        <h3>Increase Home Value</h3>
+                        <p>Professional gutter protection adds value and curb appeal to your Atlanta home.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="icon" aria-hidden="true">🛡️</div>
+                        <h3>Lifetime Warranty</h3>
+                        <p>Our gutter guards come with a transferable lifetime warranty for peace of mind.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Gallery Section -->
+        <section class="gallery" id="gallery">
+            <div class="container">
+                <h2>Before & After Gutter Guard Installation</h2>
+                <p class="section-subtitle">See the difference our gutter protection makes</p>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="images/gallery/before-1.jpg" 
+                             alt="Clogged gutters filled with leaves and debris before gutter guard installation" 
+                             width="300" 
+                             height="200" 
+                             loading="lazy"
+                             data-flexible="true">
+                        <p class="gallery-label">Before</p>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/gallery/after-1.jpg" 
+                             alt="Clean protected gutters with gutter guards installed, no debris visible" 
+                             width="300" 
+                             height="200" 
+                             loading="lazy"
+                             data-flexible="true">
+                        <p class="gallery-label">After</p>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/gallery/before-2.jpg" 
+                             alt="Heavily debris-filled gutters overflowing with leaves before guard installation" 
+                             width="300" 
+                             height="200" 
+                             loading="lazy"
+                             data-flexible="true">
+                        <p class="gallery-label">Before</p>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/gallery/after-2.jpg" 
+                             alt="Professional gutter guards installed and functioning properly, keeping gutters clean" 
+                             width="300" 
+                             height="200" 
+                             loading="lazy"
+                             data-flexible="true">
+                        <p class="gallery-label">After</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Service Areas -->
+        <section id="areas" class="service-areas">
+            <div class="container">
+                <h2>Gutter Guard Installation Throughout Metro Atlanta</h2>
+                <p class="section-subtitle">Proudly serving homeowners across North Georgia with professional gutter protection services</p>
+                <div class="areas-grid">
+                    <div class="area-column">
+                        <h3>North Atlanta</h3>
+                        <ul>
+                            <li><a href="/leaf-filter-installation-alpharetta.html">Alpharetta</a></li>
+                            <li><a href="/gutter-guards-roswell-ga.html">Roswell</a></li>
+                            <li><a href="/gutter-guards-johns-creek-ga.html">Johns Creek</a></li>
+                            <li><a href="/milton-gutter-guards.html">Milton</a></li>
+                            <li><a href="/gutter-guards-sandy-springs-ga.html">Sandy Springs</a></li>
+                        </ul>
+                    </div>
+                    <div class="area-column">
+                        <h3>East Atlanta</h3>
+                        <ul>
+                            <li><a href="/gutter-protection-decatur-ga.html">Decatur</a></li>
+                            <li><a href="/stone-mountain-gutter-guards.html">Stone Mountain</a></li>
+                            <li><a href="/tucker-gutter-guards.html">Tucker</a></li>
+                            <li><a href="/chamblee-gutter-guards.html">Chamblee</a></li>
+                            <li><a href="/brookhaven-gutter-guards.html">Brookhaven</a></li>
+                        </ul>
+                    </div>
+                    <div class="area-column">
+                        <h3>West Atlanta</h3>
+                        <ul>
+                            <li><a href="/gutter-guards-marietta-ga.html">Marietta</a></li>
+                            <li><a href="/smyrna-gutter-guards.html">Smyrna</a></li>
+                            <li><a href="/kennesaw-gutter-guards.html">Kennesaw</a></li>
+                            <li><a href="/woodstock-gutter-guards.html">Woodstock</a></li>
+                            <li><a href="/acworth-gutter-guards.html">Acworth</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- FAQ Section -->
+        <section id="faq" class="faq">
+            <div class="container">
+                <h2>Frequently Asked Questions About Gutter Guards</h2>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <h3>How much do gutter guards cost in Atlanta?</h3>
+                        <p>Professional gutter guard installation in Atlanta typically ranges from $15-25 per linear foot, depending on your home's size and the type of system. Most homes invest $1,500-3,000 for complete protection. We offer free estimates and financing options.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Do gutter guards really work?</h3>
+                        <p>Yes! Quality gutter guards block 99% of leaves and debris while allowing water to flow freely. Our micro-mesh systems are specifically designed for Atlanta's pine needles and oak leaves.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>How long does installation take?</h3>
+                        <p>Most gutter guard installations in Atlanta are completed in one day. Our experienced crew can protect an average-sized home in 4-6 hours with minimal disruption.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>What's your warranty?</h3>
+                        <p>We offer a transferable lifetime warranty on all gutter guard installations. This covers materials, performance, and workmanship - adding value if you sell your home.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2>Get Your Free Gutter Guard Quote Today!</h2>
+                <p class="contact-subtitle">Join thousands of Atlanta homeowners who never clean their gutters again</p>
+                <div class="contact-grid">
+                    <div class="contact-form">
+                        <form id="quote-form" role="form" aria-labelledby="contact-form-heading">
+                            <h3 id="contact-form-heading" class="visually-hidden">Request Free Quote Form</h3>
+                            
+                            <label for="customer-name">Full Name <span aria-label="required">*</span></label>
+                            <input type="text" 
+                                   id="customer-name" 
+                                   name="name" 
+                                   placeholder="Your Name" 
+                                   required 
+                                   aria-required="true"
+                                   autocomplete="name">
+                            
+                            <label for="customer-phone">Phone Number <span aria-label="required">*</span></label>
+                            <input type="tel" 
+                                   id="customer-phone" 
+                                   name="phone" 
+                                   placeholder="Phone Number" 
+                                   required 
+                                   aria-required="true"
+                                   autocomplete="tel">
+                            
+                            <label for="customer-email">Email Address <span aria-label="required">*</span></label>
+                            <input type="email" 
+                                   id="customer-email" 
+                                   name="email" 
+                                   placeholder="Email Address" 
+                                   required 
+                                   aria-required="true"
+                                   autocomplete="email">
+                            
+                            <label for="customer-address">Property Address</label>
+                            <input type="text" 
+                                   id="customer-address" 
+                                   name="address" 
+                                   placeholder="Property Address"
+                                   autocomplete="street-address">
+                            
+                            <label for="service-type">Service Needed <span aria-label="required">*</span></label>
+                            <select id="service-type" 
+                                    name="service" 
+                                    required 
+                                    aria-required="true">
+                                <option value="">Select Service Needed</option>
+                                <option value="new-install">New Gutter Guard Installation</option>
+                                <option value="replacement">Replace Existing Guards</option>
+                                <option value="inspection">Free Inspection</option>
+                            </select>
+                            
+                            <label for="project-message">Tell us about your project</label>
+                            <textarea id="project-message" 
+                                      name="message" 
+                                      placeholder="Tell us about your project" 
+                                      rows="4"></textarea>
+                            
+                            <button type="submit" class="btn-primary">Get Free Quote</button>
+                        </form>
+                    </div>
+                    <div class="contact-info">
+                        <h3>Call Us Now!</h3>
+                        <p class="phone-large">
+                            <a href="tel:4045554888" aria-label="Call Atlanta Gutter Guard Pros at (404) 555-GUTTER">
+                                (404) 555-GUTTER
+                            </a>
+                        </p>
+                        <p>Monday-Friday: 8AM-6PM<br>Saturday: 9AM-4PM</p>
+                        <div class="contact-features">
+                            <p>✅ Free Estimates</p>
+                            <p>✅ Same-Day Service Available</p>
+                            <p>✅ 100% Satisfaction Guarantee</p>
+                            <p>✅ Licensed & Insured</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
     <!-- Footer -->
-    <footer>
+    <footer role="contentinfo">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
@@ -296,7 +667,20 @@
             </div>
         </div>
     </footer>
-    <script src="script.js"></script>
-    <script src="flexible-images.js"></script>
+    
+    <!-- Load JavaScript after page load -->
+    <script>
+        // Load scripts after page load to prevent render blocking
+        window.addEventListener('load', function() {
+            var script1 = document.createElement('script');
+            script1.src = 'script-optimized.js';
+            document.head.appendChild(script1);
+            
+            // Temporarily disabled - causing images to disappear
+            // var script2 = document.createElement('script');
+            // script2.src = 'flexible-images-optimized.js';
+            // document.head.appendChild(script2);
+        });
+    </script>
 </body>
 </html>
