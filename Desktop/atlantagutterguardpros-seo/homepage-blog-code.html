@@ -1,0 +1,311 @@
+<!-- HOMEPAGE BLOG INTEGRATION CODE -->
+<!-- Add this section to your main homepage (index.html) -->
+
+<section class="homepage-blog-section">
+    <div class="container">
+        <h2>Latest Expert Tips for Atlanta Homeowners</h2>
+        <p class="section-subtitle">Professional advice to protect your home investment</p>
+        
+        <div class="blog-preview-grid">
+            <article class="preview-card">
+                <div class="preview-image">
+                    <div class="preview-icon">📋</div>
+                </div>
+                <h3><a href="/blog/posts/complete-guide-gutter-guard-installation-atlanta/">
+                    Complete Guide to Gutter Guard Installation in Atlanta
+                </a></h3>
+                <p class="preview-excerpt">Everything Atlanta homeowners need to know about professional gutter guard installation, including local weather considerations and expert tips.</p>
+                <div class="preview-meta">
+                    <span class="read-time">8 min read</span>
+                    <span class="post-date">Jan 15, 2025</span>
+                </div>
+                <a href="/blog/posts/complete-guide-gutter-guard-installation-atlanta/" class="read-more-link">Read Complete Guide →</a>
+            </article>
+            
+            <article class="preview-card">
+                <div class="preview-image">
+                    <div class="preview-icon">⚠️</div>
+                </div>
+                <h3><a href="/blog/posts/signs-atlanta-home-needs-gutter-guards/">
+                    5 Signs Your Atlanta Home Needs Gutter Guards
+                </a></h3>
+                <p class="preview-excerpt">Don't wait for costly damage. Learn the warning signs that indicate your Atlanta home needs professional gutter guard protection.</p>
+                <div class="preview-meta">
+                    <span class="read-time">5 min read</span>
+                    <span class="post-date">Jan 8, 2025</span>
+                </div>
+                <a href="/blog/posts/signs-atlanta-home-needs-gutter-guards/" class="read-more-link">Learn the Signs →</a>
+            </article>
+            
+            <article class="preview-card">
+                <div class="preview-image">
+                    <div class="preview-icon">🛠️</div>
+                </div>
+                <h3><a href="/blog/posts/gutter-guard-installation-mistakes-avoid/">
+                    Common Installation Mistakes to Avoid
+                </a></h3>
+                <p class="preview-excerpt">Learn from professional installers' expertise to avoid costly mistakes and ensure your gutter guards perform optimally.</p>
+                <div class="preview-meta">
+                    <span class="read-time">6 min read</span>
+                    <span class="post-date">Jan 1, 2025</span>
+                </div>
+                <a href="/blog/posts/gutter-guard-installation-mistakes-avoid/" class="read-more-link">Avoid Mistakes →</a>
+            </article>
+        </div>
+        
+        <div class="blog-cta">
+            <p class="cta-text">Get expert tips delivered to your inbox every month</p>
+            <div class="cta-buttons">
+                <a href="/blog/" class="view-all-button">View All Expert Tips</a>
+                <a href="/contact/" class="consultation-button">Free Consultation</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ADD THIS CSS TO YOUR MAIN STYLESHEET -->
+<style>
+/* Homepage Blog Section */
+.homepage-blog-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    position: relative;
+}
+
+.homepage-blog-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #28a745 0%, #20c997 100%);
+}
+
+.homepage-blog-section h2 {
+    text-align: center;
+    color: #1e7e34;
+    margin-bottom: 1rem;
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 4rem;
+    font-size: 1.2rem;
+}
+
+.blog-preview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2.5rem;
+    margin-bottom: 4rem;
+}
+
+.preview-card {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    border-left: 5px solid #28a745;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.preview-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+.preview-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #28a745, #20c997);
+    border-radius: 0 16px 0 100%;
+    opacity: 0.1;
+}
+
+.preview-image {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.preview-icon {
+    font-size: 2.5rem;
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #28a745, #20c997);
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.preview-card h3 {
+    margin-bottom: 1rem;
+    line-height: 1.3;
+}
+
+.preview-card h3 a {
+    color: #1e7e34;
+    text-decoration: none;
+    font-size: 1.4rem;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.preview-card h3 a:hover {
+    color: #28a745;
+}
+
+.preview-excerpt {
+    color: #666;
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+    font-size: 1rem;
+}
+
+.preview-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+    color: #888;
+}
+
+.read-time, .post-date {
+    padding: 0.25rem 0.75rem;
+    background: #f8f9fa;
+    border-radius: 20px;
+    font-weight: 500;
+}
+
+.read-more-link {
+    color: #28a745;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.read-more-link:hover {
+    color: #218838;
+}
+
+.blog-cta {
+    text-align: center;
+    padding: 3rem 2rem;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.cta-text {
+    color: #666;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.view-all-button {
+    display: inline-block;
+    background: linear-gradient(135deg, #28a745, #20c997);
+    color: white;
+    padding: 1rem 2.5rem;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+}
+
+.view-all-button:hover {
+    background: linear-gradient(135deg, #218838, #1ea876);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(40, 167, 69, 0.4);
+}
+
+.consultation-button {
+    display: inline-block;
+    background: transparent;
+    color: #28a745;
+    padding: 1rem 2.5rem;
+    text-decoration: none;
+    border: 2px solid #28a745;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.consultation-button:hover {
+    background: #28a745;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .homepage-blog-section {
+        padding: 60px 0;
+    }
+    
+    .homepage-blog-section h2 {
+        font-size: 2rem;
+    }
+    
+    .blog-preview-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .preview-card {
+        padding: 2rem;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .view-all-button,
+    .consultation-button {
+        width: 100%;
+        max-width: 300px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .preview-card {
+        padding: 1.5rem;
+    }
+    
+    .preview-card h3 a {
+        font-size: 1.2rem;
+    }
+    
+    .blog-cta {
+        padding: 2rem 1rem;
+    }
+}
+</style>

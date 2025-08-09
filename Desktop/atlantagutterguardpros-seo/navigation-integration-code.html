@@ -1,0 +1,218 @@
+<!-- NAVIGATION INTEGRATION CODE -->
+<!-- Add this to your main site navigation -->
+
+<!-- Option 1: Simple Navigation Link -->
+<li><a href="/blog/">Expert Tips</a></li>
+
+<!-- Option 2: Enhanced Navigation with Icon -->
+<li class="nav-item-blog">
+    <a href="/blog/" class="nav-link-enhanced">
+        <span class="nav-icon">📚</span>
+        <span class="nav-text">Expert Tips</span>
+    </a>
+</li>
+
+<!-- Option 3: Dropdown Navigation Menu -->
+<li class="dropdown">
+    <a href="/blog/" class="dropdown-toggle">Resources <span class="dropdown-arrow">▼</span></a>
+    <ul class="dropdown-menu">
+        <li><a href="/blog/">All Expert Tips</a></li>
+        <li><a href="/blog/categories/installation/">Installation Guides</a></li>
+        <li><a href="/blog/categories/maintenance/">Maintenance Tips</a></li>
+        <li><a href="/blog/categories/troubleshooting/">Problem Solving</a></li>
+    </ul>
+</li>
+
+<!-- COMPLETE NAVIGATION EXAMPLE -->
+<nav class="main-navigation">
+    <div class="nav-container">
+        <div class="logo">
+            <a href="/">Atlanta Gutter Guard Pros</a>
+        </div>
+        
+        <ul class="nav-menu">
+            <li><a href="/">Home</a></li>
+            <li><a href="/services/">Services</a></li>
+            <li><a href="/service-areas/">Service Areas</a></li>
+            <li><a href="/blog/">Expert Tips</a></li> <!-- BLOG LINK -->
+            <li><a href="/about/">About</a></li>
+            <li><a href="/contact/">Contact</a></li>
+            <li><a href="/contact/" class="cta-button">Free Quote</a></li>
+        </ul>
+        
+        <!-- Mobile menu button -->
+        <button class="mobile-menu-toggle">☰</button>
+    </div>
+    
+    <!-- Mobile navigation -->
+    <div class="mobile-nav">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/services/">Services</a></li>
+            <li><a href="/service-areas/">Service Areas</a></li>
+            <li><a href="/blog/">Expert Tips</a></li> <!-- BLOG LINK -->
+            <li><a href="/about/">About</a></li>
+            <li><a href="/contact/">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- NAVIGATION CSS -->
+<style>
+/* Enhanced navigation styling */
+.nav-item-blog .nav-link-enhanced {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.nav-item-blog .nav-link-enhanced:hover {
+    background-color: rgba(40, 167, 69, 0.2);
+    color: #28a745;
+}
+
+.nav-icon {
+    font-size: 1.1rem;
+}
+
+/* Dropdown navigation */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s ease;
+}
+
+.dropdown-arrow {
+    font-size: 0.8rem;
+    transition: transform 0.3s ease;
+}
+
+.dropdown:hover .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    min-width: 200px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    border-radius: 8px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    list-style: none;
+    padding: 0.5rem 0;
+    margin: 0;
+}
+
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-menu li {
+    margin: 0;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 0.75rem 1.5rem;
+    color: #333;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-left: 3px solid transparent;
+}
+
+.dropdown-menu a:hover {
+    background-color: #f8f9fa;
+    color: #28a745;
+    border-left-color: #28a745;
+}
+
+/* Mobile navigation */
+.mobile-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.mobile-nav {
+    display: none;
+    background: #1e7e34;
+    padding: 1rem 0;
+}
+
+.mobile-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.mobile-nav li {
+    margin: 0;
+}
+
+.mobile-nav a {
+    display: block;
+    padding: 1rem 2rem;
+    color: white;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    transition: background-color 0.3s ease;
+}
+
+.mobile-nav a:hover {
+    background-color: rgba(40, 167, 69, 0.2);
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none;
+    }
+    
+    .mobile-menu-toggle {
+        display: block;
+    }
+    
+    .mobile-nav.active {
+        display: block;
+    }
+}
+</style>
+
+<!-- MOBILE MENU JAVASCRIPT -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const mobileToggle = document.querySelector('.mobile-menu-toggle');
+    const mobileNav = document.querySelector('.mobile-nav');
+    
+    if (mobileToggle && mobileNav) {
+        mobileToggle.addEventListener('click', function() {
+            mobileNav.classList.toggle('active');
+            this.textContent = mobileNav.classList.contains('active') ? '✕' : '☰';
+        });
+    }
+});
+</script>
