@@ -1,0 +1,11 @@
+# Set correct MIME type for sitemap
+/sitemap.xml
+  Content-Type: application/xml
+
+# Set correct MIME types for other files
+/*.xml
+  Content-Type: application/xml
+
+# Cache sitemap for 1 hour
+/sitemap.xml
+  Cache-Control: public, max-age=3600
