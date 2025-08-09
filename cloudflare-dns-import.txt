@@ -1,0 +1,9 @@
+;; Domain: atlantagutterguardpros.com
+;; Exported at: 2025-08-08
+;; This file is intended for import into Cloudflare
+
+;; CNAME Records for Cloudflare Pages
+atlantagutterguardpros.com.	1	IN	CNAME	atlanta-gutter-guard-pros.pages.dev.
+www.atlantagutterguardpros.com.	1	IN	CNAME	atlanta-gutter-guard-pros.pages.dev.
+
+;; Remove any AAAA records if they exist
