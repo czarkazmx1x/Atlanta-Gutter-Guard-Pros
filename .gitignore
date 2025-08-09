@@ -7,3 +7,23 @@ node_modules/
 *.log
 .wrangler/
 dist/
+
+# Cleanup folders
+docs/unused/
+docs/archive/
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+
+# OS generated files
+Thumbs.db
+.DS_Store?
+ehthumbs.db
+Icon?
+
+# Editor files
+.vscode/
+.idea/
+*.sublime-*
