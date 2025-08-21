@@ -8,8 +8,8 @@
 (function() {
     'use strict';
     
-    // Configuration - UPDATE THIS WITH YOUR N8N WEBHOOK URL
-    const N8N_WEBHOOK_URL = 'YOUR_N8N_WEBHOOK_URL_HERE'; // Replace with actual webhook
+    // Configuration - N8N WEBHOOK URL (CONNECTED!)
+    const N8N_WEBHOOK_URL = 'https://czarkamxxx.app.n8n.cloud/webhook/65afb57e-1c89-44a3-b9bb-84013a4511d7/chat';
     
     // Remove any existing chat widgets
     function removeExistingChats() {
@@ -288,36 +288,25 @@
             const typingIndicator = showTypingIndicator();
             
             try {
-                // Simulate AI call (replace with actual n8n webhook)
-                if (N8N_WEBHOOK_URL === 'YOUR_N8N_WEBHOOK_URL_HERE') {
-                    // Demo mode - simulate responses
-                    await new Promise(resolve => setTimeout(resolve, 1500));
-                    
-                    const demoResponse = generateDemoResponse(message, conversationContext);
-                    typingIndicator.remove();
-                    addMessage(demoResponse);
-                    conversationContext.push({role: 'assistant', content: demoResponse});
-                } else {
-                    // Real n8n integration
-                    const response = await fetch(N8N_WEBHOOK_URL, {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify({
-                            chatInput: message,
-                            sessionId: sessionId,
-                            context: conversationContext
-                        })
-                    });
-                    
-                    const data = await response.json();
-                    typingIndicator.remove();
-                    
-                    const aiResponse = data.output || data.response || 'Thanks for your message! How can I help you with your gutter guard needs?';
-                    addMessage(aiResponse);
-                    conversationContext.push({role: 'assistant', content: aiResponse});
-                }
+                // Send to n8n webhook - LIVE AI CONNECTION
+                const response = await fetch(N8N_WEBHOOK_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        chatInput: message,
+                        sessionId: sessionId,
+                        context: conversationContext
+                    })
+                });
+                
+                const data = await response.json();
+                typingIndicator.remove();
+                
+                const aiResponse = data.output || data.response || 'Thanks for your message! How can I help you with your gutter guard needs?';
+                addMessage(aiResponse);
+                conversationContext.push({role: 'assistant', content: aiResponse});
                 
             } catch (error) {
                 console.error('Chat error:', error);
@@ -372,7 +361,7 @@
         createGutterChatWidget();
         
         console.log('🏠 Atlanta Gutter Guard Pros AI Chat loaded successfully!');
-        console.log('📝 Update N8N_WEBHOOK_URL to connect to your n8n instance');
+        console.log('🤖 Connected to n8n AI system - ready for live conversations!');
     }
     
     // Start when DOM is ready
