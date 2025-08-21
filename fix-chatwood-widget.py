@@ -1,5 +1,8 @@
-﻿<!DOCTYPE html><html><head><title>Brookhaven Gutter Guards</title><style>body{font-family:Arial;margin:0;padding:2rem;text-align:center}header{background:#2c5aa0;color:white;padding:1rem;margin-bottom:2rem}</style></head><body><header><h1>Gutter Guards in Brookhaven, GA</h1></header><main><p>Professional gutter protection for Brookhaven and North DeKalb homes.</p><a href="tel:4708516780" style="background:#ff6b35;color:white;padding:10px 20px;text-decoration:none;border-radius:5px">Call: (470) 851-6780</a></main>
-    
+import os
+import re
+
+# Updated Chatwoot widget code with inline styles (no external CSS)
+chatwood_widget_fixed = '''
     <!-- Chatwoot Widget for Atlanta Gutter Guard Pros -->
     <script>
         // Chatwoot Widget - Mixed Content Safe Version
@@ -67,4 +70,40 @@
         })();
     </script>
     <!-- End Chatwoot Widget -->
-</body></html>
+</body>'''
+
+def fix_chatwood_widget(filepath):
+    """Replace old Chatwoot widget with the fixed version"""
+    try:
+        with open(filepath, 'r', encoding='utf-8') as f:
+            content = f.read()
+        
+        # Remove old widget implementation
+        # Pattern to match the old widget code
+        pattern = r'<!-- Chatwoot Widget for Atlanta Gutter Guard Pros -->.*?<!-- End Chatwoot Widget -->\s*</body>'
+        
+        if re.search(pattern, content, re.DOTALL):
+            # Replace with new implementation
+            new_content = re.sub(pattern, chatwood_widget_fixed, content, flags=re.DOTALL)
+            
+            with open(filepath, 'w', encoding='utf-8') as f:
+                f.write(new_content)
+            
+            print(f"[FIXED] Updated widget in: {filepath}")
+            return True
+        else:
+            print(f"[SKIP] No widget found in: {filepath}")
+            return False
+            
+    except Exception as e:
+        print(f"[ERROR] Error processing {filepath}: {str(e)}")
+        return False
+
+# Process all HTML files
+updated_count = 0
+for filename in os.listdir('.'):
+    if filename.endswith('.html'):
+        if fix_chatwood_widget(filename):
+            updated_count += 1
+
+print(f"\n[COMPLETE] Fixed {updated_count} HTML files with updated Chatwoot widget!")
