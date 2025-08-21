@@ -293,26 +293,7 @@
     <script src="script.js"></script>
     <script src="flexible-images.js"></script>
     
-    <!-- Contact Widget -->
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Create contact button
-        var btn = document.createElement('button');
-        btn.innerHTML = '💬 Chat';
-        btn.style.cssText = 'position:fixed;bottom:20px;right:20px;padding:12px 24px;border-radius:25px;background:#2e7d32;color:white;border:none;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,0.2);z-index:999999;font-size:16px;font-weight:bold;';
-        
-        // Create contact menu
-        var menu = document.createElement('div');
-        menu.style.cssText = 'position:fixed;bottom:80px;right:20px;background:white;border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,0.15);padding:10px;display:none;z-index:999998;min-width:200px;';
-        menu.innerHTML = '<a href="tel:4708516780" style="display:flex;align-items:center;gap:10px;padding:12px;text-decoration:none;color:#333;border-radius:8px;" onmouseover="this.style.background=\'#f5f5f5\'" onmouseout="this.style.background=\'none\'"><span>📞</span> Call Now</a><a href="sms:4708516780" style="display:flex;align-items:center;gap:10px;padding:12px;text-decoration:none;color:#333;border-radius:8px;" onmouseover="this.style.background=\'#f5f5f5\'" onmouseout="this.style.background=\'none\'"><span>💬</span> Text Us</a>';
-        
-        // Toggle menu
-        btn.onclick = function() { menu.style.display = menu.style.display === 'none' ? 'block' : 'none'; };
-        document.addEventListener('click', function(e) { if (!btn.contains(e.target) && !menu.contains(e.target)) menu.style.display = 'none'; });
-        
-        document.body.appendChild(menu);
-        document.body.appendChild(btn);
-    });
-    </script>
+    <!-- Atlanta Gutter Guard Pros AI Chatbot -->
+    <script src="atlanta-gutter-ai-chat.js"></script>
 </body>
 </html>

@@ -1,39 +1,4 @@
 
 
-<script>
-window.addEventListener('DOMContentLoaded', function() {
-  // Only add fallback if SDK didn't load
-  setTimeout(function() {
-    if (!window.chatwootSDK || !document.querySelector('.woot-widget-bubble')) {
-      // Create fallback button
-      const button = document.createElement('button');
-      button.innerHTML = '💬';
-      button.style.cssText = `
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        background: #1f93ff;
-        color: white;
-        border: none;
-        cursor: pointer;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-        z-index: 99999;
-        font-size: 28px;
-      `;
-      
-      button.onclick = function() {
-        window.open(
-          'http://142.93.194.30:3000/widget?website_token=vK8J1K7q3xvDcXBnfenqVhaG',
-          'chatwoot',
-          'width=400,height=600'
-        );
-      };
-      
-      document.body.appendChild(button);
-    }
-  }, 3000);
-});
-</script>
+<!-- Atlanta Gutter Guard Pros AI Chatbot -->
+<script src="atlanta-gutter-ai-chat.js"></script>

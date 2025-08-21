@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atlanta Gutter Guard Pros - AI Chatbot Demo</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #e8f5e8, #f1f8e9);
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .logo {
+            font-size: 32px;
+            font-weight: bold;
+            color: #2e7d32;
+            margin-bottom: 16px;
+        }
+        .tagline {
+            color: #666;
+            font-size: 18px;
+            margin-bottom: 32px;
+        }
+        .demo-info {
+            background: linear-gradient(135deg, #2e7d32, #4caf50);
+            color: white;
+            padding: 24px;
+            border-radius: 12px;
+            margin-bottom: 32px;
+        }
+        .demo-info h2 {
+            margin-top: 0;
+            font-size: 24px;
+        }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            margin: 32px 0;
+        }
+        .feature {
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            border-left: 4px solid #4caf50;
+        }
+        .feature h3 {
+            margin-top: 0;
+            color: #2e7d32;
+        }
+        .cta {
+            text-align: center;
+            padding: 32px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            border: 2px dashed #4caf50;
+        }
+        .chat-pointer {
+            position: fixed;
+            bottom: 90px;
+            right: 90px;
+            background: #2e7d32;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            animation: bounce 2s infinite;
+            z-index: 999997;
+        }
+        .chat-pointer::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            right: 20px;
+            width: 0;
+            height: 0;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-top: 8px solid #2e7d32;
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">🏠 Atlanta Gutter Guard Pros</div>
+            <div class="tagline">AI Chatbot Demo - Smart Lead Generation</div>
+        </div>
+
+        <div class="demo-info">
+            <h2>✨ AI Chatbot is Live!</h2>
+            <p>Your new AI-powered chatbot is now active on your website. It will:</p>
+            <ul>
+                <li><strong>Capture leads 24/7</strong> - Never miss a potential customer</li>
+                <li><strong>Generate instant quotes</strong> - Customers get pricing immediately</li>
+                <li><strong>Qualify prospects</strong> - Collects contact info and project details</li>
+                <li><strong>Schedule appointments</strong> - Books free inspections automatically</li>
+            </ul>
+        </div>
+
+        <div class="features">
+            <div class="feature">
+                <h3>🤖 Smart Conversations</h3>
+                <p>Understands gutter problems, provides expert advice, and guides customers to the right solution.</p>
+            </div>
+            <div class="feature">
+                <h3>💰 Instant Quotes</h3>
+                <p>Calculates custom pricing based on home size, stories, and location. Sends detailed quotes via email.</p>
+            </div>
+            <div class="feature">
+                <h3>📍 Location-Aware</h3>
+                <p>Knows your service areas across Atlanta metro and qualifies customers automatically.</p>
+            </div>
+            <div class="feature">
+                <h3>📞 Lead Capture</h3>
+                <p>Collects name, email, and project details before providing quotes or scheduling.</p>
+            </div>
+        </div>
+
+        <div class="cta">
+            <h2>🎯 Test Your AI Chatbot</h2>
+            <p>Click the chat button in the bottom right corner to see your AI assistant in action!</p>
+            <p style="margin: 16px 0; color: #666;">
+                Try asking: "I need gutter guards" or "What's the cost for installation?"
+            </p>
+        </div>
+
+        <div style="margin-top: 40px; padding: 20px; background: #fff3cd; border-radius: 8px; border-left: 4px solid #ffc107;">
+            <h3 style="margin-top: 0; color: #856404;">⚙️ Setup Required</h3>
+            <p style="color: #856404; margin-bottom: 8px;"><strong>To activate the AI features:</strong></p>
+            <ol style="color: #856404;">
+                <li>Import the n8n workflows from your Downloads folder</li>
+                <li>Add your OpenAI API key to the n8n workflow</li>
+                <li>Get your n8n webhook URL</li>
+                <li>Update <code>N8N_WEBHOOK_URL</code> in atlanta-gutter-ai-chat.js</li>
+            </ol>
+            <p style="color: #856404; margin-bottom: 0;">
+                <strong>Currently in demo mode</strong> - the chatbot will show simulated responses until connected to n8n.
+            </p>
+        </div>
+    </div>
+
+    <!-- The chat pointer that shows where the chat button is -->
+    <div class="chat-pointer">👆 Try the AI Chat!</div>
+
+    <!-- Atlanta Gutter Guard Pros AI Chatbot -->
+    <script src="atlanta-gutter-ai-chat.js"></script>
+
+    <script>
+        // Hide the pointer after a few seconds
+        setTimeout(() => {
+            const pointer = document.querySelector('.chat-pointer');
+            if (pointer) {
+                pointer.style.transition = 'opacity 1s ease';
+                pointer.style.opacity = '0';
+                setTimeout(() => pointer.remove(), 1000);
+            }
+        }, 8000);
+    </script>
+</body>
+</html>
