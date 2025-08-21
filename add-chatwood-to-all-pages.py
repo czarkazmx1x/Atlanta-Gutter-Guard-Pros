@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html><html><head><title>Brookhaven Gutter Guards</title><style>body{font-family:Arial;margin:0;padding:2rem;text-align:center}header{background:#2c5aa0;color:white;padding:1rem;margin-bottom:2rem}</style></head><body><header><h1>Gutter Guards in Brookhaven, GA</h1></header><main><p>Professional gutter protection for Brookhaven and North DeKalb homes.</p><a href="tel:4708516780" style="background:#ff6b35;color:white;padding:10px 20px;text-decoration:none;border-radius:5px">Call: (470) 851-6780</a></main>
+import os
+import re
+
+# Chatwoot widget code to insert
+chatwood_widget = '''
     <!-- Chatwoot Widget for Atlanta Gutter Guard Pros -->
     <style>
         #chatwood-launcher {
@@ -60,4 +64,42 @@
         })();
     </script>
     <!-- End Chatwoot Widget -->
-</body></html>
+</body>'''
+
+def add_chatwood_to_html(filepath):
+    """Add Chatwoot widget to an HTML file if not already present"""
+    try:
+        with open(filepath, 'r', encoding='utf-8') as f:
+            content = f.read()
+        
+        # Check if Chatwoot is already added
+        if 'chatwood-launcher' in content:
+            print(f"[OK] Chatwoot already present in: {filepath}")
+            return False
+        
+        # Find the closing body tag and insert the widget before it
+        pattern = r'</body>'
+        if re.search(pattern, content, re.IGNORECASE):
+            new_content = re.sub(pattern, chatwood_widget, content, flags=re.IGNORECASE)
+            
+            with open(filepath, 'w', encoding='utf-8') as f:
+                f.write(new_content)
+            
+            print(f"[OK] Added Chatwoot to: {filepath}")
+            return True
+        else:
+            print(f"[SKIP] No </body> tag found in: {filepath}")
+            return False
+            
+    except Exception as e:
+        print(f"[ERROR] Error processing {filepath}: {str(e)}")
+        return False
+
+# Process all HTML files in the current directory
+updated_count = 0
+for filename in os.listdir('.'):
+    if filename.endswith('.html'):
+        if add_chatwood_to_html(filename):
+            updated_count += 1
+
+print(f"\n[COMPLETE] Updated {updated_count} HTML files with Chatwoot widget!")
