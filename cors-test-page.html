@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CORS Test - Atlanta Gutter Guard Pros</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; max-width: 800px; margin: 0 auto; }
+        .test-result { padding: 10px; margin: 10px 0; border-radius: 5px; }
+        .success { background: #d4edda; border: 1px solid #c3e6cb; color: #155724; }
+        .error { background: #f8d7da; border: 1px solid #f5c6cb; color: #721c24; }
+        .info { background: #d1ecf1; border: 1px solid #bee5eb; color: #0c5460; }
+        button { padding: 10px 20px; margin: 5px; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        button:hover { background: #0056b3; }
+        #response { white-space: pre-wrap; background: #f8f9fa; padding: 15px; border: 1px solid #dee2e6; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <h1>🔧 CORS Fix Test Page</h1>
+    <p>This page tests if the CORS issues with N8N are resolved.</p>
+
+    <div class="test-result info">
+        <strong>CORS Proxy URL:</strong> https://atlanta-gutter-n8n-proxy.acostajohn-qe.workers.dev
+    </div>
+
+    <h2>Tests:</h2>
+    
+    <button onclick="testHealth()">1. Test Proxy Health</button>
+    <button onclick="testChatMessage()">2. Test Chat Message</button>
+    <button onclick="testDirectN8N()">3. Test Direct N8N (Should Fail)</button>
+    <button onclick="clearResults()">Clear Results</button>
+
+    <h3>Results:</h3>
+    <div id="results"></div>
+    <pre id="response"></pre>
+
+    <script>
+        const CORS_PROXY_URL = 'https://atlanta-gutter-n8n-proxy.acostajohn-qe.workers.dev';
+        const N8N_DIRECT_URL = 'https://czarkamxxx.app.n8n.cloud/webhook/65afb57e-1c89-44a3-b9bb-84013a4511d7/chat';
+
+        function logResult(message, type = 'info') {
+            const results = document.getElementById('results');
+            const div = document.createElement('div');
+            div.className = `test-result ${type}`;
+            div.innerHTML = `<strong>${new Date().toLocaleTimeString()}:</strong> ${message}`;
+            results.appendChild(div);
+            results.scrollTop = results.scrollHeight;
+        }
+
+        function updateResponse(data) {
+            document.getElementById('response').textContent = JSON.stringify(data, null, 2);
+        }
+
+        async function testHealth() {
+            logResult('Testing proxy health...', 'info');
+            try {
+                const response = await fetch(`${CORS_PROXY_URL}/health`);
+                const text = await response.text();
+                
+                if (response.ok) {
+                    logResult(`✅ Health check passed: ${text}`, 'success');
+                    updateResponse({ status: 'healthy', response: text });
+                } else {
+                    logResult(`❌ Health check failed: ${response.status}`, 'error');
+                }
+            } catch (error) {
+                logResult(`❌ Health check error: ${error.message}`, 'error');
+                updateResponse({ error: error.message });
+            }
+        }
+
+        async function testChatMessage() {
+            logResult('Testing chat message via CORS proxy...', 'info');
+            try {
+                const response = await fetch(CORS_PROXY_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        message: 'Hello! I need info about gutter guards.',
+                        sessionId: 'cors_test_' + Date.now()
+                    })
+                });
+
+                const data = await response.json();
+                
+                if (response.ok) {
+                    logResult(`✅ Chat message successful!`, 'success');
+                    updateResponse(data);
+                } else {
+                    logResult(`❌ Chat message failed: ${response.status}`, 'error');
+                    updateResponse(data);
+                }
+            } catch (error) {
+                logResult(`❌ Chat message error: ${error.message}`, 'error');
+                updateResponse({ error: error.message });
+            }
+        }
+
+        async function testDirectN8N() {
+            logResult('Testing direct N8N call (should fail with CORS)...', 'info');
+            try {
+                const response = await fetch(N8N_DIRECT_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        chatInput: 'This should fail due to CORS'
+                    })
+                });
+
+                const data = await response.json();
+                logResult(`❓ Unexpected: Direct N8N call succeeded`, 'info');
+                updateResponse(data);
+            } catch (error) {
+                logResult(`✅ Expected: Direct N8N call failed with CORS: ${error.message}`, 'success');
+                updateResponse({ expected_error: error.message });
+            }
+        }
+
+        function clearResults() {
+            document.getElementById('results').innerHTML = '';
+            document.getElementById('response').textContent = '';
+        }
+
+        // Auto-run health check on page load
+        window.addEventListener('load', () => {
+            logResult('Page loaded. Running initial health check...', 'info');
+            testHealth();
+        });
+    </script>
+</body>
+</html>

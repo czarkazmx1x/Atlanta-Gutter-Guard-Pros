@@ -10,7 +10,7 @@
     
     // Configuration - CORS Proxy URL (FIXES CORS ISSUES!)
     const CORS_PROXY_URL = 'https://atlanta-gutter-n8n-proxy.acostajohn-qe.workers.dev';
-    const N8N_WEBHOOK_PARAM = '?webhook=n8n';
+    // Remove webhook param since worker handles N8N URL internally
     
     // Session management for conversation memory
     const sessionId = 'atlanta_gutter_' + Date.now() + '_' + Math.random().toString(36).substr(2, 6);
@@ -54,8 +54,8 @@
                 source: 'atlantagutterguardpros.com'
             };
             
-            // Use CORS proxy to reach N8N
-            const response = await fetch(CORS_PROXY_URL + N8N_WEBHOOK_PARAM, {
+            // Use CORS proxy to reach N8N (no webhook param needed)
+            const response = await fetch(CORS_PROXY_URL, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
