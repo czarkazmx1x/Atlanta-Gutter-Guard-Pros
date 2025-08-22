@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug Chat Widget</title>
+</head>
+<body>
+    <h1>Debug Chat Widget</h1>
+    <p>Open browser console (F12) to see any errors.</p>
+    
+    <script>
+        console.log('=== Chat Widget Debug ===');
+        console.log('Page loaded at:', new Date());
+        
+        // Check if script loads
+        window.addEventListener('load', () => {
+            console.log('Window loaded');
+            
+            setTimeout(() => {
+                console.log('Looking for chat elements...');
+                console.log('Chat launcher:', document.getElementById('gutter-chat-launcher'));
+                console.log('Chat container:', document.getElementById('n8n-gutter-chat'));
+                
+                // Check for conflicts
+                const chatElements = document.querySelectorAll('[id*="chat"], [class*="chat"]');
+                console.log('All chat-related elements:', chatElements);
+                
+                // Check for script errors
+                window.onerror = function(msg, url, line, col, error) {
+                    console.error('Script error:', {msg, url, line, col, error});
+                };
+                
+            }, 2000);
+        });
+    </script>
+    
+    <!-- Atlanta Gutter Guard Pros AI Chatbot -->
+    <script src="atlanta-gutter-ai-chat.js"></script>
+</body>
+</html>

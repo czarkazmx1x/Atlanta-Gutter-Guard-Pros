@@ -8,23 +8,23 @@
 (function() {
     'use strict';
     
-    // Configuration - N8N WEBHOOK URL (CONNECTED!)
-    const N8N_WEBHOOK_URL = 'https://czarkamxxx.app.n8n.cloud/webhook/65afb57e-1c89-44a3-b9bb-84013a4511d7/chat';
+    // Configuration - N8N WEBHOOK URL (UPDATED!)
+    const N8N_WEBHOOK_URL = 'https://czarkamxxx.app.n8n.cloud/webhook/ca436bba-e4cf-43d0-afa4-d80541d06722/chat';
     
-    // Remove any existing chat widgets
+    // Remove any existing chat widgets (but preserve our own)
     function removeExistingChats() {
         const selectors = [
             '#chatwood-launcher',
             '#chatwoot-widget', 
-            '.chat-widget',
-            '[id*="chat"]',
-            '[class*="chat"]'
+            '.chatwoot-widget',
+            '.chat-widget:not(#n8n-gutter-chat):not(#gutter-chat-launcher)'
         ];
         
         selectors.forEach(selector => {
             const elements = document.querySelectorAll(selector);
             elements.forEach(el => {
                 if (el.id !== 'n8n-gutter-chat' && el.id !== 'gutter-chat-launcher') {
+                    console.log('Removing conflicting chat element:', el);
                     el.remove();
                 }
             });
@@ -354,14 +354,35 @@
     
     // Initialize everything
     function initialize() {
-        // Remove old chat widgets
-        removeExistingChats();
-        
-        // Create new AI chat widget
-        createGutterChatWidget();
-        
-        console.log('🏠 Atlanta Gutter Guard Pros AI Chat loaded successfully!');
-        console.log('🤖 Connected to n8n AI system - ready for live conversations!');
+        try {
+            console.log('🏠 Atlanta Gutter Guard Pros AI Chat initializing...');
+            console.log('Document ready state:', document.readyState);
+            console.log('Body exists:', !!document.body);
+            
+            // Remove old chat widgets
+            removeExistingChats();
+            
+            // Create new AI chat widget
+            createGutterChatWidget();
+            
+            // Verify creation
+            setTimeout(() => {
+                const launcher = document.getElementById('gutter-chat-launcher');
+                const container = document.getElementById('n8n-gutter-chat');
+                
+                if (launcher && container) {
+                    console.log('✅ Atlanta Gutter Guard Pros AI Chat loaded successfully!');
+                    console.log('🤖 Connected to n8n AI system - ready for live conversations!');
+                } else {
+                    console.error('❌ Chat widget creation failed');
+                    console.log('Launcher:', launcher);
+                    console.log('Container:', container);
+                }
+            }, 100);
+            
+        } catch (error) {
+            console.error('❌ Error initializing chat widget:', error);
+        }
     }
     
     // Start when DOM is ready

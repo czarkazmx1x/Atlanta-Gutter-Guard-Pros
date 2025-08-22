@@ -1,0 +1,39 @@
+{
+  "chatbotConfig": {
+    "companyName": "Atlanta Gutter Guard Pros",
+    "phone": "(470) 851-6780",
+    "businessHours": "Monday-Friday, 8 AM to 6 PM",
+    "primaryWebhook": "https://czarkamxxx.app.n8n.cloud/webhook/ca436bba-e4cf-43d0-afa4-d80541d06722/chat",
+    "backupWebhooks": [
+      "https://czarkamxxx.app.n8n.cloud/webhook/65afb57e-1c89-44a3-b9bb-84013a4511d7/chat"
+    ],
+    "fallbackResponses": {
+      "enabled": true,
+      "intelligentBackup": true,
+      "persistConversation": true
+    },
+    "healthCheck": {
+      "enabled": true,
+      "intervalMinutes": 5,
+      "timeoutSeconds": 8
+    },
+    "features": {
+      "leadCapture": true,
+      "quoteGeneration": true,
+      "appointmentScheduling": true,
+      "conversationPersistence": true,
+      "multipleFailover": true
+    }
+  },
+  "deployment": {
+    "version": "2.0-resilient",
+    "lastUpdated": "2025-08-21",
+    "backupSystems": [
+      "Multiple webhook failover",
+      "Intelligent response generation",
+      "Conversation state persistence",
+      "Health monitoring",
+      "Graceful degradation"
+    ]
+  }
+}

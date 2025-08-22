@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>N8N Connection Status Check</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        .status {
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+        .connected { background: #d4edda; color: #155724; }
+        .disconnected { background: #f8d7da; color: #721c24; }
+        .checking { background: #cce5ff; color: #004085; }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        pre {
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>N8N Connection Status</h1>
+    <button onclick="checkConnection()">Check N8N Connection</button>
+    <div id="status"></div>
+    <div id="details"></div>
+
+    <script>
+        const WEBHOOK_URL = 'https://czarkamxxx.app.n8n.cloud/webhook/ca436bba-e4cf-43d0-afa4-d80541d06722/chat';
+        
+        async function checkConnection() {
+            const statusDiv = document.getElementById('status');
+            const detailsDiv = document.getElementById('details');
+            
+            statusDiv.className = 'status checking';
+            statusDiv.textContent = '⏳ Checking N8N connection...';
+            detailsDiv.innerHTML = '';
+            
+            try {
+                const startTime = Date.now();
+                const response = await fetch(WEBHOOK_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        message: "Test connection",
+                        sessionId: "test-" + Date.now()
+                    })
+                });
+                
+                const responseTime = Date.now() - startTime;
+                const responseText = await response.text();
+                
+                if (response.status === 200) {
+                    statusDiv.className = 'status connected';
+                    statusDiv.textContent = '✅ N8N is CONNECTED and WORKING!';
+                    detailsDiv.innerHTML = `
+                        <h3>Connection Successful!</h3>
+                        <p>Response time: ${responseTime}ms</p>
+                        <h4>Response from N8N:</h4>
+                        <pre>${responseText}</pre>
+                    `;
+                } else if (response.status === 404) {
+                    statusDiv.className = 'status disconnected';
+                    statusDiv.textContent = '❌ N8N Workflow is NOT ACTIVE';
+                    detailsDiv.innerHTML = `
+                        <h3>Workflow Not Active!</h3>
+                        <p>The workflow must be activated in n8n.</p>
+                        <h4>Error Details:</h4>
+                        <pre>${responseText}</pre>
+                        <h4>Solution:</h4>
+                        <ol>
+                            <li>Log into n8n at: https://czarkamxxx.app.n8n.cloud</li>
+                            <li>Find your chat workflow</li>
+                            <li>Click the toggle to ACTIVATE it (make it green)</li>
+                            <li>Save the workflow</li>
+                        </ol>
+                    `;
+                } else {
+                    statusDiv.className = 'status disconnected';
+                    statusDiv.textContent = '⚠️ N8N returned an error';
+                    detailsDiv.innerHTML = `
+                        <h3>Error Response</h3>
+                        <p>Status: ${response.status}</p>
+                        <pre>${responseText}</pre>
+                    `;
+                }
+            } catch (error) {
+                statusDiv.className = 'status disconnected';
+                statusDiv.textContent = '❌ Cannot connect to N8N';
+                detailsDiv.innerHTML = `
+                    <h3>Connection Failed</h3>
+                    <p>Error: ${error.message}</p>
+                    <p>This usually means:</p>
+                    <ul>
+                        <li>N8N instance is down</li>
+                        <li>CORS is blocking the request</li>
+                        <li>Network/firewall issues</li>
+                    </ul>
+                `;
+            }
+        }
+        
+        // Auto-check on load
+        window.onload = () => checkConnection();
+    </script>
+</body>
+</html>

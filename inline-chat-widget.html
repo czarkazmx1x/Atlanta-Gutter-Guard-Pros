@@ -1,0 +1,193 @@
+<!-- Add this script tag to the bottom of your HTML pages, just before </body> -->
+<!-- This bypasses MIME type issues by putting the code directly in HTML -->
+
+<script>
+// Atlanta Gutter Guard Pros - Inline Chat System (MIME-type safe)
+(function() {
+    'use strict';
+    
+    // Configuration with your new webhook
+    const WEBHOOK_URL = 'https://czarkamxxx.app.n8n.cloud/webhook/ca436bba-e4cf-43d0-afa4-d80541d06722/chat';
+    
+    // Create chat widget
+    function createChatWidget() {
+        // Remove any existing chat widgets
+        const existing = document.querySelector('#atlanta-chat-widget, #gutter-chat-launcher');
+        if (existing) existing.remove();
+        
+        // Create launcher button
+        const launcher = document.createElement('button');
+        launcher.id = 'atlanta-chat-launcher';
+        launcher.innerHTML = '💬';
+        launcher.style.cssText = `
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #2e7d32, #4caf50);
+            color: white;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 6px 20px rgba(46,125,50,0.4);
+            z-index: 999999;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        `;
+        launcher.title = 'Chat with Atlanta Gutter Guard Pros';
+        
+        // Create chat container
+        const chatContainer = document.createElement('div');
+        chatContainer.id = 'atlanta-chat-widget';
+        chatContainer.style.cssText = `
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 350px;
+            height: 500px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+            z-index: 999998;
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        `;
+        
+        chatContainer.innerHTML = `
+            <div style="background: linear-gradient(135deg, #2e7d32, #4caf50); color: white; padding: 20px; display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                    <h3 style="margin: 0; font-size: 18px;">🏠 Atlanta Gutter Guard Pros</h3>
+                    <p style="margin: 4px 0 0 0; font-size: 13px; opacity: 0.9;">Get Your Free Quote!</p>
+                </div>
+                <button onclick="closeChat()" style="background: rgba(255,255,255,0.2); border: none; color: white; font-size: 20px; cursor: pointer; width: 30px; height: 30px; border-radius: 50%;">×</button>
+            </div>
+            <div id="chat-messages" style="flex: 1; padding: 20px; overflow-y: auto; background: #f9f9f9;">
+                <div style="background: white; padding: 15px; border-radius: 10px; margin-bottom: 15px; border-left: 4px solid #4caf50;">
+                    <strong style="color: #2e7d32;">🤖 Atlanta Gutter AI Assistant</strong>
+                    <p style="margin: 8px 0 0 0; color: #555;">Hi! I'm here to help with gutter guards, quotes, and scheduling. What's your name?</p>
+                </div>
+            </div>
+            <div style="padding: 15px; border-top: 1px solid #eee; background: white;">
+                <div style="display: flex; gap: 10px;">
+                    <input type="text" id="chat-input" placeholder="Type your message..." style="flex: 1; padding: 12px; border: 2px solid #ddd; border-radius: 20px; outline: none;">
+                    <button onclick="sendMessage()" style="background: #2e7d32; color: white; border: none; padding: 12px 20px; border-radius: 20px; cursor: pointer;">Send</button>
+                </div>
+            </div>
+        `;
+        
+        // Add click handlers
+        launcher.onclick = function() {
+            chatContainer.style.display = 'flex';
+            launcher.style.display = 'none';
+            document.getElementById('chat-input').focus();
+        };
+        
+        // Global functions for chat
+        window.closeChat = function() {
+            chatContainer.style.display = 'none';
+            launcher.style.display = 'flex';
+        };
+        
+        window.sendMessage = function() {
+            const input = document.getElementById('chat-input');
+            const message = input.value.trim();
+            if (!message) return;
+            
+            // Add user message
+            addMessage(message, true);
+            input.value = '';
+            
+            // Send to webhook or show backup response
+            sendToWebhook(message);
+        };
+        
+        function addMessage(content, isUser = false) {
+            const messagesDiv = document.getElementById('chat-messages');
+            const messageDiv = document.createElement('div');
+            messageDiv.style.cssText = `
+                margin-bottom: 15px;
+                ${isUser ? 
+                    'background: linear-gradient(135deg, #2e7d32, #4caf50); color: white; padding: 12px 15px; border-radius: 15px 15px 5px 15px; margin-left: 60px; text-align: right;' : 
+                    'background: white; padding: 15px; border-radius: 5px 15px 15px 15px; border-left: 4px solid #4caf50; margin-right: 60px;'
+                }
+            `;
+            
+            if (isUser) {
+                messageDiv.textContent = content;
+            } else {
+                messageDiv.innerHTML = `<strong style="color: #2e7d32;">🏠 Atlanta Gutter Guard Pros</strong><br><span style="color: #555;">${content}</span>`;
+            }
+            
+            messagesDiv.appendChild(messageDiv);
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+        }
+        
+        async function sendToWebhook(message) {
+            try {
+                const response = await fetch(WEBHOOK_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        chatInput: message,
+                        sessionId: 'atlanta-' + Date.now()
+                    })
+                });
+                
+                const data = await response.json();
+                const aiResponse = data.output || data.response || getBackupResponse(message);
+                addMessage(aiResponse);
+                
+            } catch (error) {
+                console.log('Using backup response due to connection issue');
+                addMessage(getBackupResponse(message));
+            }
+        }
+        
+        function getBackupResponse(message) {
+            const msg = message.toLowerCase();
+            
+            if (msg.includes('name') || msg.includes('hi') || msg.includes('hello')) {
+                return "Thanks! What's your email address so I can send you a quote?";
+            }
+            if (msg.includes('@') || msg.includes('email')) {
+                return "Perfect! What's going on with your gutters? Clogs, overflows, or maintenance issues?";
+            }
+            if (msg.includes('quote') || msg.includes('price') || msg.includes('cost')) {
+                return "I'd be happy to give you a quote! Is your home 1 or 2 stories? This helps me calculate the right price.";
+            }
+            if (msg.includes('1') || msg.includes('single')) {
+                return "Great! For a single-story home, our gutter guard installation typically runs $800-$1,200. Would you like to schedule a free inspection?";
+            }
+            if (msg.includes('2') || msg.includes('two')) {
+                return "Perfect! For a two-story home, installation runs $1,400-$2,000. I'll send detailed pricing to your email. Ready to schedule your free inspection?";
+            }
+            return "I can help you with gutter guards, pricing, and scheduling. What specific information do you need?";
+        }
+        
+        // Add to page
+        document.body.appendChild(launcher);
+        document.body.appendChild(chatContainer);
+        
+        // Handle enter key
+        document.getElementById('chat-input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+    }
+    
+    // Initialize when DOM is ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', createChatWidget);
+    } else {
+        createChatWidget();
+    }
+    
+})();
+</script>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>EMERGENCY CHAT TEST</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; background: #f0f0f0; }
+        .test-box { background: white; padding: 20px; margin: 10px 0; border-radius: 8px; }
+        .big-button { background: #ff6b6b; color: white; padding: 15px 30px; font-size: 18px; border: none; border-radius: 5px; cursor: pointer; margin: 10px; }
+    </style>
+</head>
+<body>
+    <h1>🚨 EMERGENCY CHAT DIAGNOSTIC</h1>
+    
+    <div class="test-box">
+        <h2>Step 1: Basic JavaScript Test</h2>
+        <button class="big-button" onclick="basicTest()">Click to Test JavaScript</button>
+        <div id="js-result"></div>
+    </div>
+    
+    <div class="test-box">
+        <h2>Step 2: Manual Chat Button</h2>
+        <button class="big-button" onclick="createTestButton()">Create Test Chat Button</button>
+        <div id="manual-result"></div>
+    </div>
+    
+    <div class="test-box">
+        <h2>Step 3: Load Original Script</h2>
+        <button class="big-button" onclick="loadChatScript()">Load Atlanta Chat Script</button>
+        <div id="script-result"></div>
+    </div>
+    
+    <div class="test-box">
+        <h2>Step 4: Debug Info</h2>
+        <div id="debug-info">
+            <p><strong>Current URL:</strong> <span id="current-url"></span></p>
+            <p><strong>User Agent:</strong> <span id="user-agent"></span></p>
+            <p><strong>Screen Size:</strong> <span id="screen-size"></span></p>
+        </div>
+    </div>
+
+    <script>
+        // Fill debug info immediately
+        document.getElementById('current-url').textContent = window.location.href;
+        document.getElementById('user-agent').textContent = navigator.userAgent;
+        document.getElementById('screen-size').textContent = screen.width + 'x' + screen.height;
+        
+        function basicTest() {
+            const result = document.getElementById('js-result');
+            result.innerHTML = '<div style="background: #d4edda; padding: 10px; margin: 10px 0; border-radius: 4px;">✅ JavaScript is working! Time: ' + new Date().toLocaleTimeString() + '</div>';
+            console.log('Basic test passed');
+        }
+        
+        function createTestButton() {
+            // Remove any existing test button
+            const existing = document.getElementById('test-chat-btn');
+            if (existing) existing.remove();
+            
+            // Create a simple chat button
+            const btn = document.createElement('button');
+            btn.id = 'test-chat-btn';
+            btn.innerHTML = '💬 TEST CHAT';
+            btn.style.cssText = `
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                width: 80px;
+                height: 80px;
+                background: #ff6b6b;
+                color: white;
+                border: none;
+                border-radius: 50%;
+                font-size: 24px;
+                cursor: pointer;
+                z-index: 999999;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            `;
+            
+            btn.onclick = () => {
+                alert('TEST CHAT BUTTON CLICKED!\\n\\nIf you can see this button, then the problem is with the original chat script, not your browser or setup.');
+            };
+            
+            document.body.appendChild(btn);
+            
+            const result = document.getElementById('manual-result');
+            result.innerHTML = '<div style="background: #d4edda; padding: 10px; margin: 10px 0; border-radius: 4px;">✅ Test button created! Look in bottom-right corner and click it.</div>';
+            
+            console.log('Test button created');
+        }
+        
+        function loadChatScript() {
+            const result = document.getElementById('script-result');
+            result.innerHTML = '<div style="background: #fff3cd; padding: 10px; margin: 10px 0; border-radius: 4px;">⏳ Loading Atlanta chat script...</div>';
+            
+            // Try to load the script
+            const script = document.createElement('script');
+            script.src = 'atlanta-gutter-ai-chat.js';
+            script.onload = () => {
+                result.innerHTML = '<div style="background: #d4edda; padding: 10px; margin: 10px 0; border-radius: 4px;">✅ Script loaded! Check for chat button in bottom-right.</div>';
+                
+                // Check if elements were created
+                setTimeout(() => {
+                    const launcher = document.getElementById('gutter-chat-launcher');
+                    const container = document.getElementById('n8n-gutter-chat');
+                    
+                    if (launcher) {
+                        result.innerHTML += '<div style="background: #d4edda; padding: 10px; margin: 10px 0; border-radius: 4px;">✅ Chat launcher found in DOM!</div>';
+                    } else {
+                        result.innerHTML += '<div style="background: #f8d7da; padding: 10px; margin: 10px 0; border-radius: 4px;">❌ Chat launcher NOT found in DOM</div>';
+                    }
+                    
+                    if (container) {
+                        result.innerHTML += '<div style="background: #d4edda; padding: 10px; margin: 10px 0; border-radius: 4px;">✅ Chat container found in DOM!</div>';
+                    } else {
+                        result.innerHTML += '<div style="background: #f8d7da; padding: 10px; margin: 10px 0; border-radius: 4px;">❌ Chat container NOT found in DOM</div>';
+                    }
+                }, 1000);
+            };
+            
+            script.onerror = (error) => {
+                result.innerHTML = '<div style="background: #f8d7da; padding: 10px; margin: 10px 0; border-radius: 4px;">❌ Failed to load script: ' + error + '</div>';
+                console.error('Script loading error:', error);
+            };
+            
+            document.head.appendChild(script);
+        }
+        
+        // Error tracking
+        window.onerror = function(msg, url, line, col, error) {
+            console.error('Page Error:', {msg, url, line, col, error});
+            const errorDiv = document.createElement('div');
+            errorDiv.style.cssText = 'background: #f8d7da; padding: 10px; margin: 10px; border-radius: 4px; border: 1px solid #f5c6cb;';
+            errorDiv.innerHTML = '<strong>JavaScript Error:</strong> ' + msg + ' (Line: ' + line + ')';
+            document.body.appendChild(errorDiv);
+        };
+        
+        console.log('Emergency diagnostic page loaded');
+    </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>🛡️ Test Resilient Chat System</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; background: #f0f8f0; }
+        .status { padding: 15px; margin: 10px 0; border-radius: 8px; }
+        .success { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .info { background: #d1ecf1; color: #0c5460; border: 1px solid #bee5eb; }
+    </style>
+</head>
+<body>
+    <h1>🛡️ Resilient Chat System Status</h1>
+    
+    <div class="info">
+        <strong>Testing the new bulletproof chat system...</strong><br>
+        Look for the 💬 button with a 🛡️ shield icon in the bottom-right corner.
+    </div>
+    
+    <div id="test-results"></div>
+    
+    <div class="success">
+        <strong>🎯 What to expect:</strong><br>
+        • Green 💬 chat button with 🛡️ resilience indicator<br>
+        • "Always-On AI Assistant" in the header<br>
+        • Multiple backup systems working<br>
+        • Chat works even if n8n fails<br>
+    </div>
+
+    <!-- Load the new resilient chat system -->
+    <script src="atlanta-gutter-ai-chat-resilient.js"></script>
+    
+    <script>
+        const results = document.getElementById('test-results');
+        
+        setTimeout(() => {
+            const launcher = document.getElementById('gutter-chat-launcher');
+            const container = document.getElementById('n8n-gutter-chat');
+            
+            let status = '';
+            
+            if (launcher) {
+                status += '<div class="success">✅ Chat launcher loaded successfully!</div>';
+                
+                // Check for resilience indicator
+                const shield = launcher.querySelector('div');
+                if (shield && shield.innerHTML.includes('🛡️')) {
+                    status += '<div class="success">✅ Resilience indicator active!</div>';
+                }
+            } else {
+                status += '<div style="background: #f8d7da; padding: 15px; color: #721c24; border-radius: 8px;">❌ Chat launcher not found</div>';
+            }
+            
+            if (container) {
+                status += '<div class="success">✅ Chat container created!</div>';
+            } else {
+                status += '<div style="background: #f8d7da; padding: 15px; color: #721c24; border-radius: 8px;">❌ Chat container not found</div>';
+            }
+            
+            // Check for failover system
+            if (window.console && console.log.toString().includes('Failover')) {
+                status += '<div class="success">✅ Failover system detected!</div>';
+            }
+            
+            results.innerHTML = status;
+            
+        }, 2000);
+    </script>
+</body>
+</html>

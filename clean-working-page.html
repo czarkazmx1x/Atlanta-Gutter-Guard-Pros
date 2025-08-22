@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atlanta Gutter Guard Pros - Professional Gutter Guard Installation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Your existing HTML content goes here -->
+    <h1>Atlanta Gutter Guard Pros</h1>
+    <p>Professional Gutter Guard Installation in Atlanta, GA</p>
+    
+    <!-- Remove ALL external JavaScript includes -->
+    <!-- NO: <script src="script.js"></script> -->
+    <!-- NO: <script src="flexible-images.js"></script> -->
+    <!-- NO: <script src="atlanta-gutter-ai-chat.js"></script> -->
+    
+    <!-- Instead, add the inline chat widget -->
+    <script>
+    (function() {
+        'use strict';
+        
+        // Configuration - Updated with your CORS-enabled webhook
+        const WEBHOOK_URL = 'https://czarkamxxx.app.n8n.cloud/webhook/ca436bba-e4cf-43d0-afa4-d80541d06722/chat';
+        
+        function createWorkingChat() {
+            // Create launcher
+            const launcher = document.createElement('button');
+            launcher.innerHTML = '💬';
+            launcher.style.cssText = `
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+                background: linear-gradient(135deg, #2e7d32, #4caf50);
+                color: white;
+                border: none;
+                cursor: pointer;
+                box-shadow: 0 6px 20px rgba(46,125,50,0.4);
+                font-size: 24px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 999999;
+            `;
+            launcher.title = 'Chat with Atlanta Gutter Guard Pros';
+            
+            // Create chat window
+            const chatWindow = document.createElement('div');
+            chatWindow.style.cssText = `
+                position: fixed;
+                bottom: 90px;
+                right: 20px;
+                width: 350px;
+                height: 500px;
+                background: white;
+                border-radius: 12px;
+                box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+                display: none;
+                flex-direction: column;
+                overflow: hidden;
+                z-index: 999999;
+                font-family: Arial, sans-serif;
+            `;
+            
+            chatWindow.innerHTML = `
+                <div style="background: linear-gradient(135deg, #2e7d32, #4caf50); color: white; padding: 20px; display: flex; justify-content: space-between; align-items: center;">
+                    <div>
+                        <h3 style="margin: 0; font-size: 18px;">🏠 Atlanta Gutter Guard Pros</h3>
+                        <p style="margin: 4px 0 0 0; font-size: 13px; opacity: 0.9;">Get Your Free Quote!</p>
+                    </div>
+                    <button onclick="closeChat()" style="background: rgba(255,255,255,0.2); border: none; color: white; font-size: 20px; cursor: pointer; width: 30px; height: 30px; border-radius: 50%;">×</button>
+                </div>
+                <div id="chat-messages" style="flex: 1; padding: 20px; overflow-y: auto; background: #f9f9f9;">
+                    <div style="background: white; padding: 15px; border-radius: 10px; border-left: 4px solid #4caf50; margin-bottom: 15px;">
+                        <strong style="color: #2e7d32;">🤖 Atlanta Gutter AI</strong>
+                        <p style="margin: 8px 0 0 0; color: #555;">Hi! I'm here to help with gutter guards and quotes. What's your name?</p>
+                    </div>
+                </div>
+                <div style="padding: 15px; border-top: 1px solid #eee; background: white;">
+                    <div style="display: flex; gap: 10px;">
+                        <input type="text" id="chat-input" placeholder="Type your message..." style="flex: 1; padding: 12px; border: 2px solid #ddd; border-radius: 20px; outline: none;" onkeypress="if(event.key==='Enter') sendMessage()">
+                        <button onclick="sendMessage()" style="background: #2e7d32; color: white; border: none; padding: 12px 20px; border-radius: 20px; cursor: pointer;">Send</button>
+                    </div>
+                </div>
+            `;
+            
+            launcher.onclick = () => {
+                chatWindow.style.display = 'flex';
+                document.getElementById('chat-input').focus();
+            };
+            
+            window.closeChat = () => {
+                chatWindow.style.display = 'none';
+            };
+            
+            window.sendMessage = async () => {
+                const input = document.getElementById('chat-input');
+                const message = input.value.trim();
+                if (!message) return;
+                
+                addMessage(message, true);
+                input.value = '';
+                
+                try {
+                    const response = await fetch(WEBHOOK_URL, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            chatInput: message,
+                            sessionId: 'atlanta-' + Date.now()
+                        })
+                    });
+                    
+                    const data = await response.json();
+                    addMessage(data.output || data.response || 'Thanks for your message! How can I help with gutter guards?');
+                    
+                } catch (error) {
+                    // Fallback response
+                    addMessage('I can help with gutter guard quotes and scheduling. Call (470) 851-6780 for immediate assistance!');
+                }
+            };
+            
+            function addMessage(content, isUser = false) {
+                const messagesDiv = document.getElementById('chat-messages');
+                const messageDiv = document.createElement('div');
+                messageDiv.style.marginBottom = '15px';
+                
+                if (isUser) {
+                    messageDiv.style.cssText = `
+                        background: linear-gradient(135deg, #2e7d32, #4caf50);
+                        color: white;
+                        padding: 12px 15px;
+                        border-radius: 15px 15px 5px 15px;
+                        margin-left: 50px;
+                    `;
+                    messageDiv.textContent = content;
+                } else {
+                    messageDiv.style.cssText = `
+                        background: white;
+                        padding: 15px;
+                        border-radius: 5px 15px 15px 15px;
+                        border-left: 4px solid #4caf50;
+                        margin-right: 50px;
+                    `;
+                    messageDiv.innerHTML = `<strong style="color: #2e7d32;">🏠 Atlanta Gutter</strong><br>${content}`;
+                }
+                
+                messagesDiv.appendChild(messageDiv);
+                messagesDiv.scrollTop = messagesDiv.scrollHeight;
+            }
+            
+            document.body.appendChild(launcher);
+            document.body.appendChild(chatWindow);
+        }
+        
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', createWorkingChat);
+        } else {
+            createWorkingChat();
+        }
+    })();
+    </script>
+</body>
+</html>

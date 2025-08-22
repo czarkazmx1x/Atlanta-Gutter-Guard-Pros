@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Chat Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #f0f0f0;
+        }
+        .content {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>🏠 Atlanta Gutter Guard Pros - Chat Test</h1>
+        <p>This is a simple test page to check if the chat widget loads properly.</p>
+        <p><strong>Look for the chat button in the bottom-right corner!</strong></p>
+        
+        <div style="margin-top: 40px; padding: 20px; background: #e8f5e8; border-radius: 8px;">
+            <h3>Troubleshooting Steps:</h3>
+            <ol>
+                <li>Open browser developer tools (F12)</li>
+                <li>Check the Console tab for any errors</li>
+                <li>Look for the chat button in bottom-right corner</li>
+                <li>Check if elements exist in the DOM:
+                    <ul>
+                        <li>ID: <code>gutter-chat-launcher</code></li>
+                        <li>ID: <code>n8n-gutter-chat</code></li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+    </div>
+
+    <!-- Test the chat script in isolation -->
+    <script src="atlanta-gutter-ai-chat.js"></script>
+    
+    <script>
+        // Debug information
+        console.log('=== CHAT DEBUG INFO ===');
+        console.log('Page loaded at:', new Date());
+        console.log('Document ready state:', document.readyState);
+        
+        // Check for elements after a delay
+        setTimeout(() => {
+            console.log('=== ELEMENT CHECK ===');
+            const launcher = document.getElementById('gutter-chat-launcher');
+            const container = document.getElementById('n8n-gutter-chat');
+            
+            console.log('Chat launcher element:', launcher);
+            console.log('Chat container element:', container);
+            
+            if (launcher) {
+                console.log('✅ Chat launcher found!');
+                console.log('Launcher styles:', window.getComputedStyle(launcher));
+            } else {
+                console.log('❌ Chat launcher NOT found!');
+            }
+            
+            if (container) {
+                console.log('✅ Chat container found!');
+            } else {
+                console.log('❌ Chat container NOT found!');
+            }
+            
+            // Check for any other chat elements
+            const allChatElements = document.querySelectorAll('[id*="chat"], [class*="chat"]');
+            console.log('All chat-related elements:', allChatElements);
+            
+        }, 3000);
+        
+        // Error handling
+        window.onerror = function(msg, url, line, col, error) {
+            console.error('JavaScript Error:', {
+                message: msg,
+                source: url,
+                line: line,
+                column: col,
+                error: error
+            });
+        };
+    </script>
+</body>
+</html>

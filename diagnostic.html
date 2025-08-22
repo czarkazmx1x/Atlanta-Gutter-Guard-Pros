@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Widget Diagnostic</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background: #f5f5f5;
+        }
+        .diagnostic {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .status {
+            padding: 10px;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+        .success { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .error { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        .warning { background: #fff3cd; color: #856404; border: 1px solid #ffeeba; }
+        .info { background: #d1ecf1; color: #0c5460; border: 1px solid #bee5eb; }
+        
+        pre {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-size: 12px;
+        }
+        
+        #diagnostic-output {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔍 Chat Widget Diagnostic Tool</h1>
+    
+    <div class="diagnostic">
+        <h3>Real-Time Status</h3>
+        <div id="diagnostic-output">
+            <div class="info">Starting diagnostic...</div>
+        </div>
+    </div>
+    
+    <div class="diagnostic">
+        <h3>Manual Tests</h3>
+        <button onclick="testChatLauncher()" style="padding: 10px 20px; margin: 5px; background: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer;">Test Chat Launcher</button>
+        <button onclick="inspectDOM()" style="padding: 10px 20px; margin: 5px; background: #28a745; color: white; border: none; border-radius: 4px; cursor: pointer;">Inspect DOM</button>
+        <button onclick="checkScripts()" style="padding: 10px 20px; margin: 5px; background: #ffc107; color: black; border: none; border-radius: 4px; cursor: pointer;">Check Scripts</button>
+        <button onclick="testCSS()" style="padding: 10px 20px; margin: 5px; background: #17a2b8; color: white; border: none; border-radius: 4px; cursor: pointer;">Test CSS</button>
+    </div>
+
+    <!-- Include all the same scripts as the main page -->
+    <script src="script.js"></script>
+    <script src="flexible-images.js"></script>
+    <script src="atlanta-gutter-ai-chat.js"></script>
+    
+    <script>
+        let output = document.getElementById('diagnostic-output');
+        
+        function log(message, type = 'info') {
+            const div = document.createElement('div');
+            div.className = `status ${type}`;
+            div.innerHTML = `<strong>${new Date().toLocaleTimeString()}</strong>: ${message}`;
+            output.appendChild(div);
+            output.scrollTop = output.scrollHeight;
+            console.log(`[${type.toUpperCase()}]`, message);
+        }
+        
+        function testChatLauncher() {
+            const launcher = document.getElementById('gutter-chat-launcher');
+            if (launcher) {
+                log('✅ Chat launcher found in DOM', 'success');
+                log(`Launcher display: ${window.getComputedStyle(launcher).display}`, 'info');
+                log(`Launcher position: ${window.getComputedStyle(launcher).position}`, 'info');
+                log(`Launcher z-index: ${window.getComputedStyle(launcher).zIndex}`, 'info');
+                log(`Launcher visibility: ${window.getComputedStyle(launcher).visibility}`, 'info');
+                
+                // Try to click it programmatically
+                launcher.click();
+                log('Attempted to click launcher programmatically', 'info');
+            } else {
+                log('❌ Chat launcher NOT found in DOM', 'error');
+            }
+        }
+        
+        function inspectDOM() {
+            const allChatElements = document.querySelectorAll('[id*="chat"], [class*="chat"]');
+            log(`Found ${allChatElements.length} chat-related elements:`, 'info');
+            
+            allChatElements.forEach((el, index) => {
+                log(`${index + 1}. ${el.tagName} - ID: "${el.id}" - Class: "${el.className}"`, 'info');
+            });
+            
+            // Check specific elements
+            const launcher = document.getElementById('gutter-chat-launcher');
+            const container = document.getElementById('n8n-gutter-chat');
+            
+            log(`Launcher exists: ${!!launcher}`, launcher ? 'success' : 'error');
+            log(`Container exists: ${!!container}`, container ? 'success' : 'error');
+        }
+        
+        function checkScripts() {
+            const scripts = document.querySelectorAll('script[src]');
+            log(`Found ${scripts.length} external scripts:`, 'info');
+            
+            scripts.forEach((script, index) => {
+                const src = script.src;
+                const loaded = script.readyState || 'unknown';
+                log(`${index + 1}. ${src.split('/').pop()} - Status: ${loaded}`, 'info');
+            });
+        }
+        
+        function testCSS() {
+            const launcher = document.getElementById('gutter-chat-launcher');
+            if (launcher) {
+                const styles = window.getComputedStyle(launcher);
+                const cssInfo = {
+                    position: styles.position,
+                    display: styles.display,
+                    visibility: styles.visibility,
+                    opacity: styles.opacity,
+                    zIndex: styles.zIndex,
+                    bottom: styles.bottom,
+                    right: styles.right,
+                    width: styles.width,
+                    height: styles.height
+                };
+                
+                log('Chat launcher CSS properties:', 'info');
+                Object.entries(cssInfo).forEach(([prop, value]) => {
+                    log(`  ${prop}: ${value}`, 'info');
+                });
+            } else {
+                log('Cannot test CSS - launcher not found', 'error');
+            }
+        }
+        
+        // Auto-run diagnostics
+        window.addEventListener('load', () => {
+            log('✅ Page fully loaded', 'success');
+            
+            setTimeout(() => {
+                log('Running automatic diagnostics...', 'info');
+                inspectDOM();
+                
+                const launcher = document.getElementById('gutter-chat-launcher');
+                if (launcher) {
+                    log('✅ Chat widget appears to be working!', 'success');
+                } else {
+                    log('❌ Chat widget failed to load', 'error');
+                    log('Try running manual tests above', 'warning');
+                }
+            }, 2000);
+        });
+        
+        // Error tracking
+        window.onerror = function(msg, url, line, col, error) {
+            log(`JavaScript Error: ${msg} at ${url}:${line}:${col}`, 'error');
+            return false;
+        };
+        
+        // Console override to capture all logs
+        const originalLog = console.log;
+        console.log = function(...args) {
+            originalLog.apply(console, args);
+            if (args[0] && args[0].includes && (args[0].includes('🏠') || args[0].includes('Chat') || args[0].includes('AI'))) {
+                log(args.join(' '), 'success');
+            }
+        };
+        
+        const originalError = console.error;
+        console.error = function(...args) {
+            originalError.apply(console, args);
+            log(`Console Error: ${args.join(' ')}`, 'error');
+        };
+    </script>
+</body>
+</html>

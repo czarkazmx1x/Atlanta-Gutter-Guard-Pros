@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Minimal Chat Test</title>
+</head>
+<body>
+    <h1>Check bottom-right for chat button</h1>
+    
+    <script>
+    // Minimal inline version to test
+    (function() {
+        'use strict';
+        
+        console.log('Script starting...');
+        
+        function createMinimalChat() {
+            console.log('Creating chat elements...');
+            
+            // Create launcher button
+            const launcher = document.createElement('button');
+            launcher.id = 'gutter-chat-launcher';
+            launcher.innerHTML = '💬';
+            launcher.style.cssText = `
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+                background: #2e7d32;
+                color: white;
+                border: none;
+                cursor: pointer;
+                z-index: 999999;
+                font-size: 24px;
+            `;
+            launcher.title = 'Test Chat Button';
+            
+            launcher.addEventListener('click', () => {
+                alert('Chat button clicked! Widget is working.');
+            });
+            
+            document.body.appendChild(launcher);
+            console.log('Chat launcher created and added to DOM');
+        }
+        
+        function init() {
+            console.log('Initializing...');
+            console.log('Document ready state:', document.readyState);
+            createMinimalChat();
+        }
+        
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+        } else {
+            init();
+        }
+        
+    })();
+    </script>
+</body>
+</html>
