@@ -1,0 +1,6 @@
+name = "atlanta-gutter-n8n-proxy"
+main = "n8n-cors-proxy-worker.js"
+compatibility_date = "2025-08-22"
+
+[env.production]
+name = "atlanta-gutter-n8n-proxy"
