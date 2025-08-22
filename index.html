@@ -324,6 +324,36 @@
     <!-- Session Memory Fix for N8N Chatbot Loop Issue -->
     <script src="atlanta-gutter-session-memory.js"></script>
     
+    <!-- N8N Chat Widget - Standard Implementation (WORKING VERSION) -->
+    <script src="https://cdn.jsdelivr.net/npm/@n8n/chat@latest/dist/chat.bundle.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/@n8n/chat@latest/dist/style.css" rel="stylesheet" />
+    
+    <script>
+        // Initialize n8n chat widget with session memory
+        window.addEventListener('DOMContentLoaded', function() {
+            if (window.n8nChat) {
+                console.log('🏠 Loading N8N Chat Widget for Atlanta Gutter Guard Pros');
+                window.n8nChat.createChat({
+                    webhookUrl: 'https://czarkamxxx.app.n8n.cloud/webhook/65afb57e-1c89-44a3-b9bb-84013a4511d7/chat',
+                    initialMessages: [
+                        'Hi! I\'m Sarah from Atlanta Gutter Guard Pros. I\'m here to help with gutter guards, instant quotes, and scheduling. What\'s your name?'
+                    ],
+                    mode: 'window',
+                    showWelcomeScreen: false,
+                    chatInputKey: 'message',
+                    chatSessionKey: 'sessionId',
+                    metadata: {
+                        source: 'website',
+                        business: 'Atlanta Gutter Guard Pros'
+                    }
+                });
+                console.log('✅ N8N Chat Widget loaded successfully');
+            } else {
+                console.error('❌ N8N chat widget failed to load');
+            }
+        });
+    </script>
+    
     <!-- Working Atlanta Gutter AI Chat Script - Version 2.0 -->
     <script src="atlanta-gutter-ai-chat.js?v=2.0"></script>
 </body>
