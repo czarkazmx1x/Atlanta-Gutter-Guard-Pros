@@ -479,27 +479,63 @@
                     return `Perfect! What's going on with your gutters, ${userName}? Are you dealing with clogs, overflows, or maintenance issues?`;
                 }
                 
-                if (msg.includes('quote') || msg.includes('price') || msg.includes('cost')) {
-                    return `I'd be happy to give you a quote! Is your home 1 or 2 stories? This helps me calculate the right price.`;
+                // Handle pricing request at any stage
+                if (conversationStep === 2 && (msg.includes('fix') || msg.includes('price') || msg.includes('quote') || msg.includes('gutter'))) {
+                    conversationStep = 3;
+                    return `I'd be happy to give you a quote! Is your home 1 or 2 stories? This helps me calculate the right price for your gutter guard installation.`;
                 }
                 
-                if (msg.includes('1') || msg.includes('one') || msg.includes('single')) {
-                    return `Great! For a single-story home in the Atlanta area, our gutter guard installation typically runs <strong>$800-$1,200</strong> depending on your home's size. This includes premium micro-mesh guards with our lifetime warranty. Would you like to schedule a free inspection?`;
+                // If they ask about pricing before giving email
+                if (conversationStep < 2 && (msg.includes('quote') || msg.includes('price') || msg.includes('cost'))) {
+                    return `I'd be happy to give you a quote! First, what's your email address so I can send you the details?`;
                 }
                 
-                if (msg.includes('2') || msg.includes('two') || msg.includes('story')) {
-                    return `Perfect! For a two-story home, our installation typically runs <strong>$1,400-$2,000</strong> depending on complexity. This includes our premium micro-mesh system with lifetime warranty. Ready to schedule your free inspection?`;
+                // Handle home size response
+                if (conversationStep === 3) {
+                    if (msg.includes('1') || msg.includes('one') || msg.includes('single')) {
+                        conversationStep = 4;
+                        return `Great! For a single-story home in the Atlanta area, our gutter guard installation typically runs <strong>$800-$1,200</strong> depending on your home's size. This includes premium micro-mesh guards with our lifetime warranty. Would you like to schedule a free inspection?`;
+                    }
+                    
+                    if (msg.includes('2') || msg.includes('two') || msg.includes('story')) {
+                        conversationStep = 4;
+                        return `Perfect! For a two-story home, our installation typically runs <strong>$1,400-$2,000</strong> depending on complexity. This includes our premium micro-mesh system with lifetime warranty. Ready to schedule your free inspection?`;
+                    }
+                    
+                    // If they don't give a clear answer
+                    return `Just to clarify - is your home a single-story (1 level) or two-story (2 levels) house? This helps me provide an accurate quote.`;
                 }
                 
+                // Handle scheduling
+                if (conversationStep === 4 && (msg.includes('yes') || msg.includes('schedule') || msg.includes('appointment') || msg.includes('inspection'))) {
+                    conversationStep = 5;
+                    return `Excellent! Call us at <strong>(470) 851-6780</strong> to schedule your free inspection. We're available Monday-Friday, 8 AM to 6 PM. We'll assess your gutters, provide a detailed quote, and answer any questions. Looking forward to helping you protect your home!`;
+                }
+                
+                // General scheduling request
                 if (msg.includes('schedule') || msg.includes('appointment')) {
-                    return `Excellent! Call us at <strong>(470) 851-6780</strong> to schedule your free inspection. We're available Monday-Friday, 8 AM to 6 PM. What day works best for you?`;
+                    return `To schedule your free inspection, please call us at <strong>(470) 851-6780</strong>. We're available Monday-Friday, 8 AM to 6 PM. What day works best for you?`;
                 }
                 
                 if (msg.includes('clog') || msg.includes('leaf') || msg.includes('clean')) {
                     return `Those problems are exactly what our gutter guards solve! Our micro-mesh technology keeps leaves and debris out while allowing water to flow freely. No more dangerous ladder climbing or expensive cleaning services. Would you like a quote?`;
                 }
                 
-                return `I can help you with gutter guard pricing, scheduling, and answering questions. For immediate assistance, call us at <strong>(470) 851-6780</strong>. What would you like to know about our gutter protection systems?`;
+                // Default responses based on conversation stage
+                if (conversationStep === 0) {
+                    return `Hi! I'm here to help with gutter guard quotes and scheduling. What's your name?`;
+                }
+                
+                if (conversationStep === 1) {
+                    return `To provide you with an accurate quote, I'll need your email address. What's the best email to reach you?`;
+                }
+                
+                if (conversationStep === 2) {
+                    return `Thanks for that information! To give you an accurate quote, I need to know: Is your home 1 story or 2 stories?`;
+                }
+                
+                // Generic fallback
+                return `I can help you with: <br>• Free quotes ($800-$1,200 for 1-story, $1,400-$2,000 for 2-story homes)<br>• Scheduling inspections<br>• Information about our lifetime warranty<br>• Call us at <strong>(470) 851-6780</strong> for immediate assistance`;
             }
             
             // Add to page
