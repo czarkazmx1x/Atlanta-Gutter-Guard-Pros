@@ -290,267 +290,129 @@
             </div>
         </div>
     </footer>
-    <!-- Atlanta Gutter Guard Pros - Working Inline Chat -->
+    
+    <!-- N8N Chat Widget with Atlanta Gutter Guard Pros Branding -->
+    <script src="https://cdn.jsdelivr.net/npm/@n8n/chat@latest/dist/chat.bundle.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/@n8n/chat@latest/dist/style.css" rel="stylesheet" />
+    
+    <style>
+        /* Custom styling for Atlanta Gutter Guard Pros */
+        :root {
+            --chat--color-primary: #2e7d32 !important;
+            --chat--color-primary-shade-50: #e8f5e9 !important;
+            --chat--color-primary-shade-100: #c8e6c9 !important;
+            --chat--color-secondary: #1b5e20 !important;
+            --chat--color-secondary-shade-50: #e8f5e9 !important;
+            --chat--color-white: #ffffff !important;
+            --chat--color-light: #f5f5f5 !important;
+            --chat--color-medium: #666666 !important;
+            --chat--color-dark: #333333 !important;
+            --chat--color-disabled: #cccccc !important;
+            --chat--color-typing: #2e7d32 !important;
+            
+            /* Chat window styling */
+            --chat--window--width: 400px !important;
+            --chat--window--height: 600px !important;
+            
+            /* Message styling */
+            --chat--message--bot--background: #e8f5e9 !important;
+            --chat--message--bot--color: #1b5e20 !important;
+            --chat--message--user--background: #2e7d32 !important;
+            --chat--message--user--color: white !important;
+            --chat--message--pre--background: #f5f5f5 !important;
+            
+            /* Button styling */
+            --chat--button--background: #2e7d32 !important;
+            --chat--button--color: white !important;
+            --chat--button--background-hover: #1b5e20 !important;
+            --chat--button--color-hover: white !important;
+            
+            /* Input styling */
+            --chat--input--background: white !important;
+            --chat--input--border: #e0e0e0 !important;
+            --chat--input--border-focus: #2e7d32 !important;
+            --chat--input--text: #333333 !important;
+            
+            /* Header styling */
+            --chat--header--background: #2e7d32 !important;
+            --chat--header--color: white !important;
+            
+            /* Toggle button styling */
+            --chat--toggle--background: #2e7d32 !important;
+            --chat--toggle--hover: #1b5e20 !important;
+            --chat--toggle--color: white !important;
+            --chat--toggle--size: 60px !important;
+        }
+        
+        /* Additional custom overrides */
+        .n8n-chat__toggle-button {
+            box-shadow: 0 4px 12px rgba(46, 125, 50, 0.3) !important;
+        }
+        
+        .n8n-chat__header {
+            font-weight: bold !important;
+        }
+        
+        .n8n-chat__message--bot {
+            border-left: 3px solid #2e7d32 !important;
+        }
+    </style>
+    
     <script>
-    (function() {
-        'use strict';
-        
-        // Configuration - CORS-enabled webhook
-        const WEBHOOK_URL = 'https://czarkamxxx.app.n8n.cloud/webhook/65afb57e-1c89-44a3-b9bb-84013a4511d7/chat';
-        
-        function createWorkingChat() {
-            // Remove any existing chats
-            const existing = document.querySelector('#atlanta-launcher, #atlanta-chat-window');
-            if (existing) existing.remove();
-            
-            // Create launcher
-            const launcher = document.createElement('button');
-            launcher.id = 'atlanta-launcher';
-            launcher.innerHTML = '💬';
-            launcher.style.cssText = `
-                position: fixed !important;
-                bottom: 20px !important;
-                right: 20px !important;
-                width: 60px !important;
-                height: 60px !important;
-                border-radius: 50% !important;
-                background: linear-gradient(135deg, #2e7d32, #4caf50) !important;
-                color: white !important;
-                border: none !important;
-                cursor: pointer !important;
-                box-shadow: 0 6px 20px rgba(46,125,50,0.4) !important;
-                font-size: 24px !important;
-                display: flex !important;
-                align-items: center !important;
-                justify-content: center !important;
-                z-index: 999999 !important;
-                transition: transform 0.3s ease !important;
-            `;
-            launcher.title = 'Chat with Atlanta Gutter Guard Pros - Get Your Free Quote!';
-            
-            // Create chat window
-            const chatWindow = document.createElement('div');
-            chatWindow.id = 'atlanta-chat-window';
-            chatWindow.style.cssText = `
-                position: fixed !important;
-                bottom: 90px !important;
-                right: 20px !important;
-                width: 350px !important;
-                height: 500px !important;
-                background: white !important;
-                border-radius: 12px !important;
-                box-shadow: 0 8px 32px rgba(0,0,0,0.2) !important;
-                display: none !important;
-                flex-direction: column !important;
-                overflow: hidden !important;
-                z-index: 999999 !important;
-                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
-            `;
-            
-            chatWindow.innerHTML = `
-                <div style="background: linear-gradient(135deg, #2e7d32, #4caf50); color: white; padding: 20px; display: flex; justify-content: space-between; align-items: center;">
-                    <div>
-                        <h3 style="margin: 0; font-size: 18px; font-weight: bold;">🏠 Atlanta Gutter Guard Pros</h3>
-                        <p style="margin: 4px 0 0 0; font-size: 13px; opacity: 0.9;">AI-Powered Quote System</p>
-                    </div>
-                    <button onclick="closeAtlantaChat()" style="background: rgba(255,255,255,0.2); border: none; color: white; font-size: 20px; cursor: pointer; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">×</button>
-                </div>
-                <div id="atlanta-messages" style="flex: 1; padding: 20px; overflow-y: auto; background: #f9f9f9; display: flex; flex-direction: column; gap: 10px;">
-                    <div style="background: white; padding: 15px; border-radius: 10px; border-left: 4px solid #4caf50; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-                        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
-                            <span style="font-size: 16px;">🤖</span>
-                            <strong style="color: #2e7d32; font-size: 14px;">Atlanta Gutter AI Assistant</strong>
-                        </div>
-                        <p style="margin: 0; color: #555; line-height: 1.4;">Hi! I'm here to help with gutter guards, instant quotes, and scheduling. What's your name?</p>
-                    </div>
-                </div>
-                <div style="padding: 15px; border-top: 1px solid #eee; background: white;">
-                    <div style="display: flex; gap: 10px; align-items: flex-end;">
-                        <input type="text" id="atlanta-chat-input" placeholder="Type your message..." style="flex: 1; padding: 12px 15px; border: 2px solid #ddd; border-radius: 20px; outline: none; font-size: 14px;" onkeypress="if(event.key==='Enter') sendAtlantaMessage()">
-                        <button onclick="sendAtlantaMessage()" style="background: #2e7d32; color: white; border: none; padding: 12px 20px; border-radius: 20px; cursor: pointer; font-size: 14px; font-weight: bold;">Send</button>
-                    </div>
-                </div>
-            `;
-            
-            // Event handlers
-            launcher.onclick = function() {
-                chatWindow.style.display = 'flex';
-                setTimeout(() => document.getElementById('atlanta-chat-input').focus(), 100);
-            };
-            
-            // Global functions
-            window.closeAtlantaChat = function() {
-                chatWindow.style.display = 'none';
-            };
-            
-            window.sendAtlantaMessage = function() {
-                const input = document.getElementById('atlanta-chat-input');
-                const message = input.value.trim();
-                if (!message) return;
-                
-                addAtlantaMessage(message, true);
-                input.value = '';
-                
-                // Send to n8n with fallback
-                sendToAtlantaN8N(message);
-            };
-            
-            function addAtlantaMessage(content, isUser = false) {
-                const messagesDiv = document.getElementById('atlanta-messages');
-                const messageDiv = document.createElement('div');
-                
-                if (isUser) {
-                    messageDiv.style.cssText = `
-                        background: linear-gradient(135deg, #2e7d32, #4caf50);
-                        color: white;
-                        padding: 12px 15px;
-                        border-radius: 15px 15px 5px 15px;
-                        margin-left: 50px;
-                        align-self: flex-end;
-                        max-width: 80%;
-                    `;
-                    messageDiv.textContent = content;
-                } else {
-                    messageDiv.style.cssText = `
-                        background: white;
-                        padding: 15px;
-                        border-radius: 5px 15px 15px 15px;
-                        border-left: 4px solid #4caf50;
-                        margin-right: 50px;
-                        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-                        max-width: 80%;
-                    `;
-                    messageDiv.innerHTML = `
-                        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
-                            <span style="font-size: 14px;">🏠</span>
-                            <strong style="color: #2e7d32; font-size: 12px;">Atlanta Gutter Guard Pros</strong>
-                        </div>
-                        <div style="color: #555; line-height: 1.4;">${content}</div>
-                    `;
-                }
-                
-                messagesDiv.appendChild(messageDiv);
-                messagesDiv.scrollTop = messagesDiv.scrollHeight;
-            }
-            
-            async function sendToAtlantaN8N(message) {
-                try {
-                    const response = await fetch(WEBHOOK_URL, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({
-                            message: message,  // n8n Chat Trigger expects 'message'
-                            sessionId: 'atlanta-website-' + Date.now(),
-                            timestamp: new Date().toISOString()
-                        })
-                    });
+        // Initialize n8n chat widget
+        window.addEventListener('DOMContentLoaded', function() {
+            if (window.n8nChat) {
+                window.n8nChat.createChat({
+                    webhookUrl: 'https://czarkamxxx.app.n8n.cloud/webhook/65afb57e-1c89-44a3-b9bb-84013a4511d7/chat',
                     
-                    if (response.ok) {
-                        const data = await response.json();
-                        const aiResponse = data.output || data.response || data.message;
-                        if (aiResponse) {
-                            addAtlantaMessage(aiResponse);
-                            return;
-                        }
-                    }
-                } catch (error) {
-                    console.log('N8N connection issue, using backup response');
-                }
-                
-                // Fallback response system
-                const backupResponse = getAtlantaBackupResponse(message);
-                addAtlantaMessage(backupResponse);
-            }
-            
-            let conversationStep = 0;
-            let userName = '';
-            
-            function getAtlantaBackupResponse(message) {
-                const msg = message.toLowerCase();
-                
-                if (conversationStep === 0) {
-                    userName = message.split(' ')[0];
-                    conversationStep = 1;
-                    return `Nice to meet you, ${userName}! What's your email address so I can send you a quote?`;
-                }
-                
-                if (conversationStep === 1 && (msg.includes('@') || msg.includes('email'))) {
-                    conversationStep = 2;
-                    return `Perfect! What's going on with your gutters, ${userName}? Are you dealing with clogs, overflows, or maintenance issues?`;
-                }
-                
-                // Handle pricing request at any stage
-                if (conversationStep === 2 && (msg.includes('fix') || msg.includes('price') || msg.includes('quote') || msg.includes('gutter'))) {
-                    conversationStep = 3;
-                    return `I'd be happy to give you a quote! Is your home 1 or 2 stories? This helps me calculate the right price for your gutter guard installation.`;
-                }
-                
-                // If they ask about pricing before giving email
-                if (conversationStep < 2 && (msg.includes('quote') || msg.includes('price') || msg.includes('cost'))) {
-                    return `I'd be happy to give you a quote! First, what's your email address so I can send you the details?`;
-                }
-                
-                // Handle home size response
-                if (conversationStep === 3) {
-                    if (msg.includes('1') || msg.includes('one') || msg.includes('single')) {
-                        conversationStep = 4;
-                        return `Great! For a single-story home in the Atlanta area, our gutter guard installation typically runs <strong>$800-$1,200</strong> depending on your home's size. This includes premium micro-mesh guards with our lifetime warranty. Would you like to schedule a free inspection?`;
-                    }
+                    // Initial greeting
+                    initialMessages: [
+                        '👋 Welcome to Atlanta Gutter Guard Pros! I\'m here to help you protect your home with our premium gutter guards. What\'s your name?'
+                    ],
                     
-                    if (msg.includes('2') || msg.includes('two') || msg.includes('story')) {
-                        conversationStep = 4;
-                        return `Perfect! For a two-story home, our installation typically runs <strong>$1,400-$2,000</strong> depending on complexity. This includes our premium micro-mesh system with lifetime warranty. Ready to schedule your free inspection?`;
-                    }
+                    // Display mode
+                    mode: 'fullscreen',
                     
-                    // If they don't give a clear answer
-                    return `Just to clarify - is your home a single-story (1 level) or two-story (2 levels) house? This helps me provide an accurate quote.`;
-                }
+                    // Chat behavior
+                    showWelcomeScreen: false,
+                    defaultLanguage: 'en',
+                    
+                    // Input configuration
+                    chatInputKey: 'message',
+                    chatSessionKey: 'sessionId',
+                    
+                    // Custom metadata
+                    metadata: {
+                        source: 'website',
+                        business: 'Atlanta Gutter Guard Pros'
+                    },
+                    
+                    // Custom button text
+                    chatButtonText: '💬 Get Free Quote',
+                    
+                    // Window title
+                    chatTitle: 'Atlanta Gutter Guard Pros',
+                    chatSubtitle: 'Get Your Free Quote in 60 Seconds!',
+                    
+                    // Allow file uploads
+                    allowFileUploads: false,
+                    
+                    // Custom placeholder
+                    inputPlaceholder: 'Type your message here...',
+                    
+                    // Footer text (optional)
+                    footer: {
+                        text: 'Powered by Atlanta Gutter Guard Pros',
+                        link: 'https://atlantagutterguardpros.com'
+                    }
+                });
                 
-                // Handle scheduling
-                if (conversationStep === 4 && (msg.includes('yes') || msg.includes('schedule') || msg.includes('appointment') || msg.includes('inspection'))) {
-                    conversationStep = 5;
-                    return `Excellent! Call us at <strong>(470) 851-6780</strong> to schedule your free inspection. We're available Monday-Friday, 8 AM to 6 PM. We'll assess your gutters, provide a detailed quote, and answer any questions. Looking forward to helping you protect your home!`;
-                }
-                
-                // General scheduling request
-                if (msg.includes('schedule') || msg.includes('appointment')) {
-                    return `To schedule your free inspection, please call us at <strong>(470) 851-6780</strong>. We're available Monday-Friday, 8 AM to 6 PM. What day works best for you?`;
-                }
-                
-                if (msg.includes('clog') || msg.includes('leaf') || msg.includes('clean')) {
-                    return `Those problems are exactly what our gutter guards solve! Our micro-mesh technology keeps leaves and debris out while allowing water to flow freely. No more dangerous ladder climbing or expensive cleaning services. Would you like a quote?`;
-                }
-                
-                // Default responses based on conversation stage
-                if (conversationStep === 0) {
-                    return `Hi! I'm here to help with gutter guard quotes and scheduling. What's your name?`;
-                }
-                
-                if (conversationStep === 1) {
-                    return `To provide you with an accurate quote, I'll need your email address. What's the best email to reach you?`;
-                }
-                
-                if (conversationStep === 2) {
-                    return `Thanks for that information! To give you an accurate quote, I need to know: Is your home 1 story or 2 stories?`;
-                }
-                
-                // Generic fallback
-                return `I can help you with: <br>• Free quotes ($800-$1,200 for 1-story, $1,400-$2,000 for 2-story homes)<br>• Scheduling inspections<br>• Information about our lifetime warranty<br>• Call us at <strong>(470) 851-6780</strong> for immediate assistance`;
+                console.log('N8N chat widget initialized successfully');
+            } else {
+                console.error('N8N chat widget failed to load');
+                // Fallback to the original chat implementation if needed
             }
-            
-            // Add to page
-            document.body.appendChild(launcher);
-            document.body.appendChild(chatWindow);
-        }
-        
-        // Initialize
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', createWorkingChat);
-        } else {
-            createWorkingChat();
-        }
-        
-    })();
+        });
     </script>
 </body>
 </html>
