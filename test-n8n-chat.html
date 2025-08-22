@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>N8N Chat Test</title>
+</head>
+<body>
+    <h1>Testing N8N Chat Connection</h1>
+    <p>If the chat appears below, your n8n is working:</p>
+    
+    <!-- N8N Chat Widget -->
+    <script>
+        (function() {
+            var script = document.createElement('script');
+            script.src = 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.js';
+            script.async = true;
+            script.dataset.webhookUrl = 'https://czarkamxxx.app.n8n.cloud/webhook/ca436bba-e4cf-43d0-afa4-d80541d06722/chat';
+            document.head.appendChild(script);
+        })();
+    </script>
+</body>
+</html>
