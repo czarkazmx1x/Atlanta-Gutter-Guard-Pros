@@ -321,7 +321,26 @@
                     }
                 });
                 
-    <!-- Universal Chat Widget from GetYourTemplate.com -->
-    <script src="https://getyourtemplate.com/widgets/chat.js?id=atlantagutter"></script>
+    <!-- Temporary: Direct N8N Widget (while GetYourTemplate.com deploys) -->
+    <script src="https://cdn.jsdelivr.net/npm/@n8n/chat@latest/dist/chat.bundle.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/@n8n/chat@latest/dist/style.css" rel="stylesheet" />
+    
+    <script>
+        window.addEventListener('DOMContentLoaded', function() {
+            if (window.n8nChat) {
+                window.n8nChat.createChat({
+                    webhookUrl: 'https://czarkamxxx.app.n8n.cloud/webhook/65afb57e-1c89-44a3-b9bb-84013a4511d7/chat',
+                    initialMessages: ['👋 Welcome to Atlanta Gutter Guard Pros! How can I help you today?'],
+                    mode: 'fullscreen',
+                    showWelcomeScreen: false,
+                    chatInputKey: 'message',
+                    chatSessionKey: 'sessionId'
+                });
+            }
+        });
+    </script>
+
+    <!-- Future: Universal Widget (when GetYourTemplate.com is live) -->
+    <!-- <script src="https://getyourtemplate.com/widgets/chat.js?id=atlantagutter"></script> -->
 </body>
 </html>
