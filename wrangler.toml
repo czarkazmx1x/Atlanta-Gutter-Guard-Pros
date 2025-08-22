@@ -1,0 +1,30 @@
+name = "atlanta-gutter-guard-pros"
+type = "javascript"
+
+[env.production]
+name = "atlanta-gutter-guard-pros"
+
+[build]
+command = "npm run build"
+cwd = "."
+watch_dir = "src"
+
+[build.upload]
+format = "modules"
+dir = "./dist"
+main = "./index.js"
+
+[[build.upload.rules]]
+type = "ESModule"
+globs = ["**/*.js"]
+
+[[build.upload.rules]]  
+type = "Text"
+globs = ["**/*.html"]
+
+[[build.upload.rules]]
+type = "Data"
+globs = ["**/*.woff", "**/*.woff2"]
+
+[compatibility_date]
+default = "2024-08-22"
