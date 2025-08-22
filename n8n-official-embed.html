@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>N8N Official Embed Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .info {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        code {
+            background: #f5f5f5;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <h1>N8N Chat Widget - Official Embed Method</h1>
+    
+    <div class="info">
+        <h2>Instructions:</h2>
+        <ol>
+            <li>Go to your n8n workflow</li>
+            <li>Click on the Chat Trigger node</li>
+            <li>Look for the yellow box that says "Follow the instructions <strong>here</strong>"</li>
+            <li>Click on "here" - it will show you the official embed code</li>
+            <li>Copy that code and paste it below</li>
+        </ol>
+    </div>
+
+    <h2>Option 1: Using n8n's Embed Code</h2>
+    <p>The official n8n embed code might look something like:</p>
+    <pre><code>&lt;script&gt;
+(function() {
+    var script = document.createElement('script');
+    script.src = 'https://czarkamxxx.app.n8n.cloud/webhook-test/65afb57e-1c89-44a3-b9bb-84013a4511d7/chat';
+    script.async = true;
+    document.head.appendChild(script);
+})();
+&lt;/script&gt;</code></pre>
+
+    <h2>Option 2: Direct API Integration</h2>
+    <p>Since the direct API is giving errors, but the n8n test chat works, there might be a mismatch in:</p>
+    <ul>
+        <li>The expected message format</li>
+        <li>Missing required fields</li>
+        <li>Authentication requirements</li>
+    </ul>
+
+    <div class="info">
+        <h3>🔍 Debug Steps:</h3>
+        <ol>
+            <li>In n8n, check the Executions tab when you use the test chat</li>
+            <li>See what data format it's sending</li>
+            <li>Compare with what your website is sending</li>
+        </ol>
+    </div>
+
+    <h2>Option 3: Use n8n's Built-in Chat Widget</h2>
+    <p>Since the test chat in n8n works perfectly, consider using n8n's official chat widget instead of a custom implementation.</p>
+
+    <!-- If you get the official embed code, paste it here -->
+    <div id="n8n-chat-widget">
+        <!-- n8n embed code goes here -->
+    </div>
+
+</body>
+</html>
