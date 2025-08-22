@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>N8N Chat Widget Test - Atlanta Gutter Guard Pros</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #2e7d32;
+        }
+        .info-box {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        code {
+            background: #f0f0f0;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+        .test-area {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        button {
+            background: #2e7d32;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background: #1b5e20;
+        }
+        .status {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            display: none;
+        }
+        .success {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+        }
+        .error {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+        }
+        pre {
+            background: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔧 N8N Chat Widget Test</h1>
+        
+        <div class="info-box">
+            <h2>Chat Configuration</h2>
+            <p><strong>Chat URL:</strong> <code>https://czarkamxxx.app.n8n.cloud/webhook/ca436bba-e4cf-43d0-afa4-d80541d06722/chat</code></p>
+            <p><strong>Mode:</strong> Embedded Chat</p>
+            <p><strong>CORS:</strong> * (All origins allowed)</p>
+            <p><strong>Response Mode:</strong> Streaming</p>
+        </div>
+
+        <div class="test-area">
+            <h2>Test Your Chat Connection</h2>
+            <button onclick="testDirectAPI()">Test Direct API Call</button>
+            <button onclick="testChatMessage()">Test Chat Message</button>
+            <button onclick="testStreamingChat()">Test Streaming Response</button>
+            <button onclick="clearStatus()">Clear Results</button>
+            
+            <div id="status" class="status"></div>
+        </div>
+
+        <div class="info-box" style="margin-top: 20px;">
+            <h2>Integration Code</h2>
+            <p>Once your workflow is active, use this code in your website:</p>
+            <pre><code>&lt;script&gt;
+(function() {
+    const CHAT_URL = 'https://czarkamxxx.app.n8n.cloud/webhook/ca436bba-e4cf-43d0-afa4-d80541d06722/chat';
+    
+    async function sendMessage(message) {
+        try {
+            const response = await fetch(CHAT_URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    message: message,
+                    sessionId: sessionStorage.getItem('chatSessionId') || 'session-' + Date.now()
+                })
+            });
+            
+            // Handle streaming response
+            const reader = response.body.getReader();
+            const decoder = new TextDecoder();
+            let result = '';
+            
+            while (true) {
+                const { value, done } = await reader.read();
+                if (done) break;
+                result += decoder.decode(value);
+                // Update UI with streaming content
+                updateChatUI(result);
+            }
+        } catch (error) {
+            console.error('Chat error:', error);
+            // Use fallback response
+        }
+    }
+})();
+&lt;/script&gt;</code></pre>
+        </div>
+    </div>
+
+    <script>
+        const CHAT_URL = 'https://czarkamxxx.app.n8n.cloud/webhook/ca436bba-e4cf-43d0-afa4-d80541d06722/chat';
+        
+        function updateStatus(message, type = 'success') {
+            const status = document.getElementById('status');
+            status.style.display = 'block';
+            status.className = `status ${type}`;
+            status.innerHTML = message;
+        }
+        
+        function clearStatus() {
+            document.getElementById('status').style.display = 'none';
+        }
+        
+        async function testDirectAPI() {
+            updateStatus('Testing direct API call...', 'success');
+            
+            try {
+                const response = await fetch(CHAT_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        action: 'test',
+                        timestamp: new Date().toISOString()
+                    })
+                });
+                
+                const responseText = await response.text();
+                updateStatus(`<strong>Response Status:</strong> ${response.status}<br>
+                           <strong>Response:</strong><br><pre>${responseText}</pre>`, 
+                           response.ok ? 'success' : 'error');
+            } catch (error) {
+                updateStatus(`<strong>Error:</strong> ${error.message}<br>
+                           This might be a CORS issue or the workflow is not active.`, 'error');
+            }
+        }
+        
+        async function testChatMessage() {
+            updateStatus('Sending chat message...', 'success');
+            
+            const chatData = {
+                message: "Hello, I need a quote for gutter guards on my 2-story home",
+                sessionId: `test-session-${Date.now()}`,
+                timestamp: new Date().toISOString()
+            };
+            
+            try {
+                const response = await fetch(CHAT_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(chatData)
+                });
+                
+                const responseText = await response.text();
+                updateStatus(`<strong>Sent:</strong><br><pre>${JSON.stringify(chatData, null, 2)}</pre>
+                           <strong>Response Status:</strong> ${response.status}<br>
+                           <strong>Response:</strong><br><pre>${responseText}</pre>`, 
+                           response.ok ? 'success' : 'error');
+            } catch (error) {
+                updateStatus(`<strong>Error:</strong> ${error.message}`, 'error');
+            }
+        }
+        
+        async function testStreamingChat() {
+            updateStatus('Testing streaming response...', 'success');
+            
+            try {
+                const response = await fetch(CHAT_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        message: "Tell me about your gutter guard services",
+                        sessionId: `stream-test-${Date.now()}`
+                    })
+                });
+                
+                if (!response.ok) {
+                    const errorText = await response.text();
+                    updateStatus(`<strong>Error ${response.status}:</strong><br><pre>${errorText}</pre>`, 'error');
+                    return;
+                }
+                
+                // Handle streaming response
+                const reader = response.body.getReader();
+                const decoder = new TextDecoder();
+                let result = '';
+                
+                updateStatus('<strong>Streaming response:</strong><br>', 'success');
+                
+                while (true) {
+                    const { value, done } = await reader.read();
+                    if (done) break;
+                    
+                    const chunk = decoder.decode(value);
+                    result += chunk;
+                    
+                    // Update status with accumulated result
+                    updateStatus(`<strong>Streaming response:</strong><br><pre>${result}</pre>`, 'success');
+                }
+                
+            } catch (error) {
+                updateStatus(`<strong>Stream Error:</strong> ${error.message}`, 'error');
+            }
+        }
+    </script>
+</body>
+</html>
