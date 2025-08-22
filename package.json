@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && npm run copy-chat-files",
+    "copy-chat-files": "powershell -Command \"Copy-Item atlanta-gutter-ai-chat-cors-fixed.js dist/; Copy-Item atlanta-gutter-session-memory.js dist/\"",
     "preview": "vite preview"
   },
   "dependencies": {
