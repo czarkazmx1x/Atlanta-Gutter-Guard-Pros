@@ -1,6 +1,8 @@
-# Run and deploy your AI Studio app
+# Atlanta Gutter Guard Pros - N8N AI Chat Integration
 
-This contains everything you need to run your app locally.
+🚨 **IMPORTANT: Before touching the chat system, read [`CHAT-TROUBLESHOOTING-README.md`](./CHAT-TROUBLESHOOTING-README.md)** 🚨
+
+This contains everything you need to run your app locally and understand the chat integration.
 
 ## Run Locally
 
