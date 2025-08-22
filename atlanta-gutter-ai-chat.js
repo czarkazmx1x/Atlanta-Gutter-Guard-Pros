@@ -9,7 +9,7 @@
     'use strict';
     
     // Configuration - N8N WEBHOOK URL (UPDATED!)
-    const N8N_WEBHOOK_URL = 'https://czarkamxxx.app.n8n.cloud/webhook/ca436bba-e4cf-43d0-afa4-d80541d06722/chat';
+    const N8N_WEBHOOK_URL = 'https://czarkamxxx.app.n8n.cloud/webhook/65afb57e-1c89-44a3-b9bb-84013a4511d7/chat';
     
     // Remove any existing chat widgets (but preserve our own)
     function removeExistingChats() {
