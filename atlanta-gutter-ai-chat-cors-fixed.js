@@ -70,8 +70,15 @@
             const responseData = await response.json();
             console.log('📥 Received from N8N:', responseData);
             
+            // N8N returns data in 'output' property - use that first!
+            const aiMessage = responseData.output || 
+                             responseData.message || 
+                             responseData.response || 
+                             responseData.text ||
+                             "Thanks for your message! I'm here to help with gutter guards.";
+            
             return {
-                message: responseData.message || responseData.response || "Thanks for your message! I'm here to help with gutter guards.",
+                message: aiMessage,
                 timestamp: new Date().toISOString(),
                 sessionId: sessionId
             };
