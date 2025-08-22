@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>N8N Response Format Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; max-width: 800px; margin: 0 auto; }
+        .test-result { padding: 10px; margin: 10px 0; border-radius: 5px; }
+        .success { background: #d4edda; border: 1px solid #c3e6cb; color: #155724; }
+        .error { background: #f8d7da; border: 1px solid #f5c6cb; color: #721c24; }
+        .info { background: #d1ecf1; border: 1px solid #bee5eb; color: #0c5460; }
+        button { padding: 10px 20px; margin: 5px; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        button:hover { background: #0056b3; }
+        pre { background: #f8f9fa; padding: 15px; border: 1px solid #dee2e6; border-radius: 5px; white-space: pre-wrap; }
+    </style>
+</head>
+<body>
+    <h1>🧪 N8N Response Format Test</h1>
+    <p>This tests if the chat widget properly handles N8N's response format.</p>
+
+    <button onclick="testN8NResponseFormat()">Test N8N Response Parsing</button>
+    <button onclick="testActualN8NCall()">Test Live N8N Call</button>
+    <button onclick="clearResults()">Clear Results</button>
+
+    <div id="results"></div>
+    <pre id="response"></pre>
+
+    <script>
+        const CORS_PROXY_URL = 'https://atlanta-gutter-n8n-proxy.acostajohn-qe.workers.dev';
+
+        function logResult(message, type = 'info') {
+            const results = document.getElementById('results');
+            const div = document.createElement('div');
+            div.className = `test-result ${type}`;
+            div.innerHTML = `<strong>${new Date().toLocaleTimeString()}:</strong> ${message}`;
+            results.appendChild(div);
+            results.scrollTop = results.scrollHeight;
+        }
+
+        function updateResponse(data) {
+            document.getElementById('response').textContent = JSON.stringify(data, null, 2);
+        }
+
+        // Test the response parsing logic (same as in the chat widget)
+        function testN8NResponseFormat() {
+            logResult('Testing N8N response format parsing...', 'info');
+            
+            // Test different response formats that N8N might return
+            const testResponses = [
+                { output: "This is the N8N response!" },
+                { message: "This is a message response" },
+                { response: "This is a response response" },
+                { text: "This is a text response" },
+                { somethingElse: "This should use fallback" }
+            ];
+
+            testResponses.forEach((responseData, index) => {
+                // Apply the same logic as in the chat widget
+                const aiMessage = responseData.output || 
+                                 responseData.message || 
+                                 responseData.response || 
+                                 responseData.text ||
+                                 "Thanks for your message! I'm here to help with gutter guards.";
+                
+                logResult(`Test ${index + 1}: Input: ${JSON.stringify(responseData)} → Output: "${aiMessage}"`, 
+                    responseData.output ? 'success' : 'info');
+            });
+
+            updateResponse({
+                test: 'Response format parsing',
+                results: testResponses.map((resp, i) => ({
+                    input: resp,
+                    extracted: resp.output || resp.message || resp.response || resp.text || 'fallback'
+                }))
+            });
+        }
+
+        // Test actual N8N call and response parsing
+        async function testActualN8NCall() {
+            logResult('Testing actual N8N call and response parsing...', 'info');
+            try {
+                const response = await fetch(CORS_PROXY_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        message: 'Hello! I need information about gutter guards for my home.',
+                        sessionId: 'test_' + Date.now()
+                    })
+                });
+
+                const responseData = await response.json();
+                logResult(`✅ Received raw response from N8N proxy`, 'success');
+                
+                // Apply the same parsing logic as the chat widget
+                const aiMessage = responseData.output || 
+                                 responseData.message || 
+                                 responseData.response || 
+                                 responseData.text ||
+                                 "Thanks for your message! I'm here to help with gutter guards.";
+
+                if (responseData.output) {
+                    logResult(`🎉 SUCCESS: Found 'output' property! Message: "${aiMessage}"`, 'success');
+                } else if (responseData.message) {
+                    logResult(`✅ Found 'message' property: "${aiMessage}"`, 'success');
+                } else {
+                    logResult(`⚠️ Using fallback message: "${aiMessage}"`, 'info');
+                }
+
+                updateResponse({
+                    rawResponse: responseData,
+                    extractedMessage: aiMessage,
+                    usedProperty: responseData.output ? 'output' : 
+                                 responseData.message ? 'message' : 
+                                 responseData.response ? 'response' : 
+                                 responseData.text ? 'text' : 'fallback'
+                });
+
+            } catch (error) {
+                logResult(`❌ Error testing N8N call: ${error.message}`, 'error');
+                updateResponse({ error: error.message });
+            }
+        }
+
+        function clearResults() {
+            document.getElementById('results').innerHTML = '';
+            document.getElementById('response').textContent = '';
+        }
+
+        // Auto-run test on page load
+        window.addEventListener('load', () => {
+            logResult('Page loaded. Testing response format parsing...', 'info');
+            testN8NResponseFormat();
+        });
+    </script>
+</body>
+</html>
