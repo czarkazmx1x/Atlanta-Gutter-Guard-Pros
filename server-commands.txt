@@ -1,0 +1,25 @@
+# Commands to run on the server to find and fix the widget
+
+# 1. Find the service-bot directory
+find / -name "service-bot*" -type d 2>/dev/null | grep -v node_modules
+find / -name "superhuman*" -type d 2>/dev/null | grep -v node_modules
+find /home -name "*widget*" -type f 2>/dev/null | grep -E "\.(js|jsx)$"
+find /var/www -name "*widget*" -type f 2>/dev/null | grep -E "\.(js|jsx)$"
+
+# 2. Look for PM2 processes to find the app location
+pm2 list
+pm2 show 0  # or whatever ID the service bot has
+
+# 3. Check nginx config to find the app location
+cat /etc/nginx/sites-enabled/default | grep root
+cat /etc/nginx/sites-enabled/superhuman* | grep root
+
+# 4. Once you find the directory, search for the hardcoded text
+cd /path/to/actual/service-bot
+grep -r "Sam - Your HVAC Assistant" . --include="*.js" --include="*.jsx"
+grep -r "Your HVAC Assistant" . --include="*.js" --include="*.jsx"
+
+# 5. Common locations to check:
+ls -la /home/
+ls -la /var/www/
+ls -la /opt/

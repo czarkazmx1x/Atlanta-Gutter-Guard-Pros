@@ -1,0 +1,30 @@
+<!-- Add this code to every page of atlantagutterguardpros.com -->
+<!-- Place this just before the closing </body> tag -->
+
+<!-- Atlanta Gutter Guard Pros - AI Service Bot -->
+<script>
+  // Configure the Service Bot for Atlanta Gutter Guard Pros
+  window.ServiceBotConfig = {
+    tenant: 'atlantagutter',
+    businessName: 'Atlanta Gutter Guard Pros',
+    primaryColor: '#2c3e50',
+    phoneNumber: '(470) 851-6780',
+    serverUrl: 'https://superhuman.services'
+  };
+</script>
+
+<!-- Load the Service Bot widget -->
+<script src="https://superhuman.services/widget.js" async></script>
+
+<!-- Alternative: Load from local file if superhuman.services is down -->
+<script>
+  // Fallback to local widget if main server fails
+  setTimeout(function() {
+    if (!window.ServiceBot || !window.ServiceBot.loaded) {
+      console.log('Loading local widget connector...');
+      var script = document.createElement('script');
+      script.src = '/widget-connector.js';
+      document.body.appendChild(script);
+    }
+  }, 3000);
+</script>

@@ -7,10 +7,45 @@
     <meta name="description" content="Professional gutter guard installation in Atlanta, GA. Protect your home with premium leaf filters. Free estimates, lifetime warranty. Call (470) 851-6780 today!">
     <meta name="keywords" content="gutter guard installation atlanta, leaf filter installers near me, gutter protection atlanta ga, gutter covers atlanta">
     <link rel="canonical" href="https://atlantagutterguardpros.com/">
-    
-    <!-- Preload critical resources -->
-    <link rel="preload" href="styles-critical.css" as="style">
-    <link rel="preload" href="images/hero/main-hero.jpg" as="image">
+    <meta name="google-adsense-account" content="ca-pub-3889188959391815">
+    <script>
+    // Professional Chat Widget that bypasses X-Frame-Options
+    (function() {
+        // Create floating chat button
+        const chatButton = document.createElement('div');
+        chatButton.innerHTML = '💬 Chat with us';
+        chatButton.style.cssText = `
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #4f46e5, #7c3aed);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(79, 70, 229, 0.3);
+            z-index: 9999;
+            font-family: Arial, sans-serif;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        `;
+        
+        // Click handler - opens Chatwoot
+        chatButton.onclick = () => {
+            const chatWindow = window.open(
+                'https://chatwood.superhuman.services/',
+                'chatwoot_chat',
+                'width=450,height=650,scrollbars=yes,resizable=yes'
+            );
+            if (chatWindow) chatWindow.focus();
+        };
+        
+        // Add to page
+        document.body.appendChild(chatButton);
+    })();
+    </script>
+    <link rel="stylesheet" href="styles.css">
     
     <!-- Critical CSS inline -->
     <style>
@@ -107,15 +142,28 @@
         /* Hero Section */
         .hero {
             background: linear-gradient(135deg, var(--bg-light) 0%, #e8f5e8 100%);
-            padding: 80px 0;
+            padding: 60px 0;
             min-height: 600px;
         }
         
         .hero-content-wrapper {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 2fr 3fr 1fr;
             gap: 50px;
             align-items: center;
+            padding: 0 20px;
+        }
+        
+        .hero-image-left {
+            display: flex;
+            justify-content: center;
+        }
+        
+        .hero-image-left img {
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            max-width: 100%;
+            height: auto;
         }
         
         .hero h1 {
@@ -301,6 +349,9 @@
     </script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-GFC9LCQ7GJ"></script>
     
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3889188959391815" crossorigin="anonymous"></script>
+    
     <!-- Local SEO Schema -->
     <script type="application/ld+json">
     {
@@ -341,8 +392,12 @@
     <!-- Header -->
     <header role="banner">
         <div class="header-top">
-            <div class="container">
-                📞 <strong>Call Now: <a href="tel:4708516780" style="color: inherit; text-decoration: underline;">(470) 851-6780</a></strong> | 🏆 Atlanta's #1 Rated Gutter Guard Installers | ⭐ 4.8/5 Stars (127 Reviews)
+            <div class="container" style="display: flex; align-items: center; justify-content: space-between;">
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    <img src="images/logo/logo.png" alt="Atlanta Gutter Guard Pros" style="height: 40px; width: auto;">
+                    <span>📞 <strong>Call Now: <a href="tel:4708516780" style="color: inherit; text-decoration: underline;">(470) 851-6780</a></strong></span>
+                </div>
+                <span>🏆 Atlanta's #1 Rated Gutter Guard Installers | ⭐ 4.8/5 Stars (127 Reviews)</span>
             </div>
         </div>
         <nav role="navigation" aria-label="Main navigation">
@@ -368,6 +423,16 @@
         <section class="hero">
             <div class="container">
                 <div class="hero-content-wrapper">
+                    <div class="hero-image-left">
+                        <picture>
+                            <img src="images/hero-left/current.png" 
+                                 alt="Premium micro-mesh gutter guard protection" 
+                                 width="500" 
+                                 height="350" 
+                                 loading="eager"
+                                 data-flexible="true">
+                        </picture>
+                    </div>
                     <div class="hero-content">
                         <h1>Professional Gutter Guard Installation in Atlanta, GA</h1>
                         <p class="hero-subtitle">Stop Cleaning Gutters Forever! Premium Leaf Protection Systems Installed by Local Experts</p>
@@ -387,8 +452,8 @@
                         <picture>
                             <img src="images/hero/main-hero.jpg" 
                                  alt="Professional gutter guard installation service in Atlanta - Call now for a free quote" 
-                                 width="600" 
-                                 height="400" 
+                                 width="400" 
+                                 height="250" 
                                  loading="eager"
                                  data-flexible="true">
                         </picture>
@@ -433,6 +498,16 @@
                         <div class="icon" aria-hidden="true">🛡️</div>
                         <h3>Lifetime Warranty</h3>
                         <p>Our gutter guards come with a transferable lifetime warranty for peace of mind.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="icon" aria-hidden="true">⚡</div>
+                        <h3>Same-Day Installation</h3>
+                        <p>Most Atlanta homes protected in 4-6 hours with minimal disruption to your routine.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="icon" aria-hidden="true">🌳</div>
+                        <h3>Perfect for Georgia Climate</h3>
+                        <p>Designed specifically for Atlanta's pine needles, oak leaves, and heavy rainfall patterns.</p>
                     </div>
                 </div>
             </div>
@@ -556,62 +631,14 @@
                 <p class="contact-subtitle">Join thousands of Atlanta homeowners who never clean their gutters again</p>
                 <div class="contact-grid">
                     <div class="contact-form">
-                        <form id="quote-form" role="form" aria-labelledby="contact-form-heading">
-                            <h3 id="contact-form-heading" class="visually-hidden">Request Free Quote Form</h3>
-                            
-                            <label for="customer-name">Full Name <span aria-label="required">*</span></label>
-                            <input type="text" 
-                                   id="customer-name" 
-                                   name="name" 
-                                   placeholder="Your Name" 
-                                   required 
-                                   aria-required="true"
-                                   autocomplete="name">
-                            
-                            <label for="customer-phone">Phone Number <span aria-label="required">*</span></label>
-                            <input type="tel" 
-                                   id="customer-phone" 
-                                   name="phone" 
-                                   placeholder="Phone Number" 
-                                   required 
-                                   aria-required="true"
-                                   autocomplete="tel">
-                            
-                            <label for="customer-email">Email Address <span aria-label="required">*</span></label>
-                            <input type="email" 
-                                   id="customer-email" 
-                                   name="email" 
-                                   placeholder="Email Address" 
-                                   required 
-                                   aria-required="true"
-                                   autocomplete="email">
-                            
-                            <label for="customer-address">Property Address</label>
-                            <input type="text" 
-                                   id="customer-address" 
-                                   name="address" 
-                                   placeholder="Property Address"
-                                   autocomplete="street-address">
-                            
-                            <label for="service-type">Service Needed <span aria-label="required">*</span></label>
-                            <select id="service-type" 
-                                    name="service" 
-                                    required 
-                                    aria-required="true">
-                                <option value="">Select Service Needed</option>
-                                <option value="new-install">New Gutter Guard Installation</option>
-                                <option value="replacement">Replace Existing Guards</option>
-                                <option value="inspection">Free Inspection</option>
-                            </select>
-                            
-                            <label for="project-message">Tell us about your project</label>
-                            <textarea id="project-message" 
-                                      name="message" 
-                                      placeholder="Tell us about your project" 
-                                      rows="4"></textarea>
-                            
-                            <button type="submit" class="btn-primary">Get Free Quote</button>
-                        </form>
+                        <!-- Fillout Embedded Form -->
+                        <div style="width:100%;height:500px;" 
+                             data-fillout-id="sAYbtMAN8fus" 
+                             data-fillout-embed-type="standard" 
+                             data-fillout-inherit-parameters 
+                             data-fillout-dynamic-resize>
+                        </div>
+                        <script src="https://server.fillout.com/embed/v1/"></script>
                     </div>
                     <div class="contact-info">
                         <h3>Call Us Now!</h3>
@@ -627,6 +654,11 @@
                             <p>✅ 100% Satisfaction Guarantee</p>
                             <p>✅ Licensed & Insured</p>
                         </div>
+                        <div style="text-align: center; margin-top: 30px;">
+                            <img src="images/hero/main-hero.jpg" 
+                                 alt="Gutter Guard Installation Atlanta" 
+                                 style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -638,9 +670,9 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
+                    <img src="images/logo/logo.png" alt="Atlanta Gutter Guard Pros" style="height: 80px; width: auto; margin-bottom: 20px;">
                     <h4>Atlanta Gutter Guard Pros</h4>
                     <p>Professional gutter protection services throughout Metro Atlanta. Licensed, insured, and committed to protecting your home.</p>
-                    <p>GA License #CGC1234567</p>
                 </div>
                 <div class="footer-section">
                     <h4>Quick Links</h4>
@@ -681,5 +713,47 @@
             document.head.appendChild(script2);
         });
     </script>
+    <!-- Service Bot Configuration -->
+    <script>
+    window.SERVICE_BOT_CONFIG = {
+        serverUrl: 'https://superhuman.services',
+        tenant: 'atlantagutter',
+        botName: 'Alex - Your Gutter Expert',
+        accentColor: '#2b6cb0',
+        businessName: 'Atlanta Gutter Guard Pros',
+        phone: '(470) 851-6780',
+        aiConfig: {
+            provider: 'mistral',
+            apiKey: 'ADUd3U012VL2IgUZUInxPc4CSUc8xd6t',
+            model: 'mistral-large-latest',
+            baseUrl: 'https://api.mistral.ai/v1'
+        },
+        systemPrompt: `You are Alex, a helpful gutter expert for Atlanta Gutter Guard Pros. You help customers with:
+        - Gutter guard installation ($8-15/ft, lifetime warranty)
+        - Gutter cleaning and maintenance 
+        - Gutter repairs and replacement
+        - Downspout services
+        - Service areas: Atlanta Metro, Roswell, Marietta, Decatur, Sandy Springs
+        
+        Always be helpful, mention the phone (470) 851-6780 for quotes, and focus on solving their gutter problems.`,
+        services: [
+            'Gutter Guard Installation',
+            'Gutter Cleaning & Maintenance', 
+            'Gutter Repair & Replacement',
+            'Downspout Services',
+            'Emergency Gutter Service'
+        ],
+        initialMessage: `Hi! I'm Alex from Atlanta Gutter Guard Pros. I'm here to help with all your gutter needs.
+
+<div style="margin-top: 15px;">
+  <a href="tel:(470) 851-6780" style="display: inline-block; background: #10B981; color: white; padding: 10px 20px; border-radius: 6px; text-decoration: none; text-align: center; font-weight: 600;">
+    📞 Call (470) 851-6780
+  </a>
+</div>
+
+<p style="margin-top: 15px; font-size: 14px; color: #666;">What's going on with your gutters?</p>`
+    };
+    </script>
+
 </body>
 </html>

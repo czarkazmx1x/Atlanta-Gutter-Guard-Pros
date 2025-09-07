@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify Superhuman Widget</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .status-box {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .success { color: #27ae60; font-weight: bold; }
+        .error { color: #e74c3c; font-weight: bold; }
+        .info { color: #3498db; }
+        code {
+            background: #f0f0f0;
+            padding: 2px 6px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Atlanta Gutter Guard Pros - Widget Verification</h1>
+    
+    <div class="status-box">
+        <h2>Status Check:</h2>
+        <div id="status">Checking widget connection...</div>
+    </div>
+    
+    <div class="status-box">
+        <h2>Direct Platform Links:</h2>
+        <ul>
+            <li>Demo: <a href="https://atlantagutter.superhuman.services" target="_blank">atlantagutter.superhuman.services</a></li>
+            <li>Main Platform: <a href="https://superhuman.services" target="_blank">superhuman.services</a></li>
+        </ul>
+    </div>
+    
+    <div class="status-box">
+        <h2>Widget Test:</h2>
+        <p>The chat widget should appear in the bottom-right corner of this page.</p>
+        <p>If it loads successfully, you'll see:</p>
+        <ul>
+            <li>A chat bubble icon (💬)</li>
+            <li>Click it to open the chat</li>
+            <li>Test with: "How much do gutter guards cost?"</li>
+        </ul>
+    </div>
+
+    <!-- Atlanta Gutter Guard Pros - AI Service Bot (Superhuman.services) -->
+    <script>
+      window.ServiceBotConfig = {
+        tenant: 'atlantagutter',
+        businessName: 'Atlanta Gutter Guard Pros',
+        primaryColor: '#2c3e50',
+        phoneNumber: '(470) 851-6780'
+      };
+    </script>
+    <script src="https://superhuman.services/widget.js" async></script>
+    
+    <script>
+        // Check widget status
+        setTimeout(function() {
+            const statusEl = document.getElementById('status');
+            
+            // Check if widget loaded
+            if (window.ServiceBot && window.ServiceBot.loaded) {
+                statusEl.innerHTML = '<span class="success">✓ Widget loaded successfully!</span>';
+            } else if (document.getElementById('service-bot-widget') || document.getElementById('service-bot-toggle')) {
+                statusEl.innerHTML = '<span class="success">✓ Widget elements detected!</span>';
+            } else {
+                statusEl.innerHTML = '<span class="error">✗ Widget not detected. Checking connection...</span>';
+                
+                // Try to check if superhuman.services is accessible
+                fetch('https://superhuman.services/widget.js')
+                    .then(response => {
+                        if (response.ok) {
+                            statusEl.innerHTML += '<br><span class="info">Server is accessible. Widget may still be loading...</span>';
+                        } else {
+                            statusEl.innerHTML += '<br><span class="error">Server returned error: ' + response.status + '</span>';
+                        }
+                    })
+                    .catch(error => {
+                        statusEl.innerHTML += '<br><span class="error">Cannot reach superhuman.services: ' + error.message + '</span>';
+                    });
+            }
+        }, 3000);
+    </script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+
+# Block test and debug files from indexing
+Disallow: /add-to-website.html
+Disallow: /alex-force-workaround.html
+Disallow: /debug-widget.html
+Disallow: /emergency-fix.html
+Disallow: /test-superhuman-widget.html
+Disallow: /verify-widget.html
+Disallow: /widget-override.html
+Disallow: /docs/unused/
+
+# Sitemap location
+Sitemap: https://atlantagutterguardpros.com/sitemap.xml

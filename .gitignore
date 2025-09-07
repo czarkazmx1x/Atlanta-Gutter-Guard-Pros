@@ -8,6 +8,10 @@ node_modules/
 .wrangler/
 dist/
 
+# Large executables
+*.exe
+claude.exe
+
 # Cleanup folders
 docs/unused/
 docs/archive/

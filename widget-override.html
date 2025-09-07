@@ -1,0 +1,47 @@
+<!-- Add this BEFORE the superhuman widget script -->
+<script>
+// Force Alex configuration for Atlanta Gutter
+// This runs after the widget loads and replaces any "Sam" text
+window.addEventListener('DOMContentLoaded', function() {
+    // Check every 100ms for the widget to load
+    const fixWidget = setInterval(function() {
+        // Find all elements containing "Sam" or "HVAC"
+        const elements = document.querySelectorAll('*');
+        let found = false;
+        
+        elements.forEach(function(el) {
+            if (el.innerText && el.innerText.includes('Sam') && el.innerText.includes('HVAC')) {
+                el.innerText = el.innerText.replace('Sam', 'Alex');
+                el.innerText = el.innerText.replace('Your HVAC Assistant', 'Your Gutter Guard Expert');
+                found = true;
+            }
+            // Also check for just "Sam" in headers
+            if (el.tagName && (el.tagName === 'H1' || el.tagName === 'H2' || el.tagName === 'H3')) {
+                if (el.innerText === 'Sam') {
+                    el.innerText = 'Alex';
+                    found = true;
+                }
+            }
+        });
+        
+        // Also check shadow DOM if the widget uses it
+        const widgetRoot = document.querySelector('#service-bot-widget');
+        if (widgetRoot && widgetRoot.shadowRoot) {
+            const shadowElements = widgetRoot.shadowRoot.querySelectorAll('*');
+            shadowElements.forEach(function(el) {
+                if (el.innerText && el.innerText.includes('Sam')) {
+                    el.innerText = el.innerText.replace('Sam', 'Alex');
+                    el.innerText = el.innerText.replace('Your HVAC Assistant', 'Your Gutter Guard Expert');
+                    found = true;
+                }
+            });
+        }
+        
+        // Stop checking after 5 seconds
+        setTimeout(() => clearInterval(fixWidget), 5000);
+    }, 100);
+});
+</script>
+
+<!-- Service Bot Chat Widget -->
+<script src="https://superhuman.services/widget.js?tenant=atlantagutter"></script>

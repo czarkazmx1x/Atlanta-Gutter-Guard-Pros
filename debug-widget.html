@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug Superhuman Widget</title>
+</head>
+<body>
+    <h1>Debugging Atlanta Gutter Widget</h1>
+    
+    <h2>Configuration Check:</h2>
+    <pre id="config"></pre>
+    
+    <h2>Widget Status:</h2>
+    <pre id="status"></pre>
+    
+    <h2>Console Output:</h2>
+    <pre id="console"></pre>
+    
+    <script>
+        // Capture console logs
+        const logs = [];
+        const originalLog = console.log;
+        const originalError = console.error;
+        
+        console.log = function(...args) {
+            logs.push('LOG: ' + args.join(' '));
+            originalLog.apply(console, args);
+            updateConsole();
+        };
+        
+        console.error = function(...args) {
+            logs.push('ERROR: ' + args.join(' '));
+            originalError.apply(console, args);
+            updateConsole();
+        };
+        
+        function updateConsole() {
+            document.getElementById('console').textContent = logs.join('\n');
+        }
+        
+        // Set configuration BEFORE loading widget
+        window.ServiceBotConfig = {
+            tenant: 'atlantagutter',
+            businessName: 'Atlanta Gutter Guard Pros',
+            primaryColor: '#2c3e50',
+            phoneNumber: '(470) 851-6780',
+            debug: true
+        };
+        
+        // Show config
+        document.getElementById('config').textContent = JSON.stringify(window.ServiceBotConfig, null, 2);
+        
+        // Load widget
+        console.log('Loading widget from superhuman.services...');
+        const script = document.createElement('script');
+        script.src = 'https://superhuman.services/widget.js';
+        script.onload = () => {
+            console.log('Widget script loaded');
+            setTimeout(() => {
+                document.getElementById('status').textContent = 
+                    'ServiceBot object: ' + (window.ServiceBot ? 'Loaded' : 'Not found') + '\n' +
+                    'Widget element: ' + (document.querySelector('#service-bot-widget') ? 'Found' : 'Not found') + '\n' +
+                    'Toggle button: ' + (document.querySelector('#service-bot-toggle') ? 'Found' : 'Not found');
+            }, 1000);
+        };
+        script.onerror = (e) => {
+            console.error('Failed to load widget:', e);
+        };
+        document.head.appendChild(script);
+    </script>
+</body>
+</html>

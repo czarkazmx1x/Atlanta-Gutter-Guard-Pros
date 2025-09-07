@@ -1,0 +1,48 @@
+<!-- EMERGENCY FIX: Force Atlanta Gutter Configuration -->
+<!-- Add this to the very TOP of your HTML pages, right after <body> tag -->
+
+<script>
+// CRITICAL: Override any default configurations BEFORE widget loads
+(function() {
+    // Block any HVAC configuration
+    Object.defineProperty(window, 'ServiceBotConfig', {
+        get: function() {
+            return {
+                tenant: 'atlantagutter',
+                tenantId: 'atlantagutter',
+                businessName: 'Atlanta Gutter Guard Pros',
+                assistantName: 'Alex',
+                assistantTitle: 'Your Gutter Guard Expert',
+                primaryColor: '#2c3e50',
+                phoneNumber: '(470) 851-6780',
+                apiUrl: 'https://superhuman.services',
+                industry: 'gutter',
+                services: ['Gutter Guards', 'Gutter Cleaning', 'Gutter Repair'],
+                forceOverride: true
+            };
+        },
+        set: function(val) {
+            // Prevent any changes to our configuration
+            console.log('Configuration locked for Atlanta Gutter Guard Pros');
+        }
+    });
+    
+    // Intercept widget initialization
+    const originalScript = document.createElement;
+    document.createElement = function(tagName) {
+        const element = originalScript.call(document, tagName);
+        
+        if (tagName === 'script' && element.src && element.src.includes('superhuman.services')) {
+            // Force tenant parameter
+            if (!element.src.includes('tenant=')) {
+                element.src += (element.src.includes('?') ? '&' : '?') + 'tenant=atlantagutter';
+            }
+        }
+        
+        return element;
+    };
+})();
+</script>
+
+<!-- Then load the widget normally -->
+<script src="https://superhuman.services/widget.js?tenant=atlantagutter&force=true" defer></script>

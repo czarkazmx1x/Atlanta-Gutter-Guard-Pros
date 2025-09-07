@@ -10,6 +10,7 @@
     botName: 'Alex - Your Gutter Guard Expert',
     accentColor: '#2c3e50',
     position: 'right',
+    mistralApiKey: '', // Customer can add their own API key here
     initialMessage: `Hi! I'm Alex from Atlanta Gutter Guard Pros. I help homeowners protect their homes from water damage with our premium gutter guard systems. 
 
 What can I help you with today?
@@ -24,8 +25,8 @@ What can I help you with today?
   <button onclick="window.startGutterConversation && window.startGutterConversation('Emergency gutter repair needed')" style="background: #e74c3c; color: white; padding: 10px 20px; border: none; border-radius: 6px; cursor: pointer; font-weight: 600;">
     🚨 Emergency Repair
   </button>
-  <a href="tel:(404) 555-4888" style="display: inline-block; background: #27ae60; color: white; padding: 10px 20px; border-radius: 6px; text-decoration: none; text-align: center; font-weight: 600;">
-    📞 Call Now: (404) 555-4888
+  <a href="tel:(470) 851-6780" style="display: inline-block; background: #27ae60; color: white; padding: 10px 20px; border-radius: 6px; text-decoration: none; text-align: center; font-weight: 600;">
+    📞 Call Now: (470) 851-6780
   </a>
 </div>
     
@@ -39,7 +40,9 @@ What can I help you with today?
   // Session management
   let sessionId = localStorage.getItem('gutter-bot-session') || `session-${Date.now()}`;
   let conversationHistory = JSON.parse(localStorage.getItem('gutter-bot-history') || '[]');
-  let apiUrl = config.serverUrl + '/api/chat';
+  
+  // Use secure-chat endpoint for Cloudflare Functions
+  let apiUrl = '/api/secure-chat';
   
   // Save session
   localStorage.setItem('gutter-bot-session', sessionId);
@@ -275,7 +278,7 @@ What can I help you with today?
     localStorage.setItem('gutter-bot-history', JSON.stringify(conversationHistory));
   }
 
-  // Send message
+  // Send message with secure server API
   async function sendMessage() {
     const message = input.value.trim();
     if (!message) return;
@@ -284,26 +287,50 @@ What can I help you with today?
     input.value = '';
 
     try {
-      const response = await fetch(apiUrl, {
+      // Call secure server API (API key stays on server)
+      const response = await fetch(config.serverUrl || '/api/secure-chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           message,
           sessionId,
-          history: conversationHistory.slice(-10) // Last 10 messages for context
+          history: conversationHistory.slice(-5) // Last 5 messages for context
         })
       });
 
-      if (!response.ok) {
-        throw new Error(`HTTP ${response.status}`);
+      if (response.ok) {
+        const data = await response.json();
+        addMessage(data.reply, 'bot');
+        return;
       }
 
-      const data = await response.json();
-      addMessage(data.reply, 'bot');
+      // If server fails, use smart fallback responses
+      throw new Error(`Server error: ${response.status}`);
       
     } catch (error) {
       console.error('Chat error:', error);
-      addMessage('Sorry, I\'m having trouble connecting. Please call us at (404) 555-4888 for immediate assistance!', 'bot');
+      
+      // Smart fallback responses (no API needed)
+      const smartResponses = {
+        'gutter guard': 'Great choice! Our gutter guards prevent clogs and protect your home. We offer LeafFilter and micro-mesh systems starting around $8-15 per foot with lifetime warranties. When would you like a free estimate? Call (470) 851-6780.',
+        'cleaning': 'We provide thorough gutter cleaning services throughout Metro Atlanta for $150-300 depending on your home size. This includes inspection and minor repairs. Would you like to schedule? Call (470) 851-6780.',
+        'emergency': 'For emergency gutter issues, please call us immediately at (470) 851-6780. We offer same-day service for overflowing gutters and urgent repairs to prevent water damage.',
+        'cost': 'Gutter guard installation typically costs $8-15 per linear foot depending on the system. We provide free estimates and lifetime warranties. What\'s your address for an accurate quote?',
+        'repair': 'We handle all gutter repairs including sagging, leaks, and downspout issues. Most repairs cost $5-12 per foot. For a free estimate, call (470) 851-6780 or provide your address.',
+        'pine': 'Pine needles are a major problem in Georgia! Our micro-mesh gutter guards are specifically designed to keep out pine needles while allowing water flow. Perfect for Atlanta homes. Free estimate?'
+      };
+
+      // Find best response
+      const lowerMessage = message.toLowerCase();
+      for (let key in smartResponses) {
+        if (lowerMessage.includes(key)) {
+          addMessage(smartResponses[key], 'bot');
+          return;
+        }
+      }
+
+      // Default response
+      addMessage('Hi! I\'m Alex from Atlanta Gutter Guard Pros. I can help with gutter guards, cleaning, repairs, and emergency services. What specific questions do you have? For immediate assistance, call (470) 851-6780.', 'bot');
     }
   }
 

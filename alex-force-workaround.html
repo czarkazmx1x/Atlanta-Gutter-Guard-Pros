@@ -1,0 +1,27 @@
+<!-- TEMPORARY WORKAROUND - Add this BEFORE the widget.js script -->
+<script>
+// Force atlantagutter configuration
+window.ServiceBotConfig = {
+    tenant: 'atlantagutter',
+    apiUrl: 'https://superhuman.services',
+    // Force API to use atlantagutter endpoint
+    configUrl: 'https://superhuman.services/api/config/atlantagutter',
+    chatUrl: 'https://superhuman.services/api/chat/atlantagutter'
+};
+
+// Intercept fetch calls to force atlantagutter
+const originalFetch = window.fetch;
+window.fetch = function(url, options) {
+    // Replace any demo/default tenant with atlantagutter
+    if (typeof url === 'string') {
+        url = url.replace('/api/config/demo', '/api/config/atlantagutter');
+        url = url.replace('/api/chat/demo', '/api/chat/atlantagutter');
+        url = url.replace('/api/config/hvac', '/api/config/atlantagutter');
+        url = url.replace('/api/chat/hvac', '/api/chat/atlantagutter');
+    }
+    return originalFetch.call(this, url, options);
+};
+</script>
+
+<!-- Then load the widget -->
+<script src="https://superhuman.services/widget.js?tenant=atlantagutter"></script>

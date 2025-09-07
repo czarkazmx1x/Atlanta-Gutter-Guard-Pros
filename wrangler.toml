@@ -2,7 +2,4 @@ name = "atlanta-gutter-guard-pros"
 compatibility_date = "2024-01-01"
 pages_build_output_dir = "."
 
-# Environment variables
-[vars]
-# Add your Mistral API key here for local development only
-# MISTRAL_API_KEY = "your-key-here"
+# Environment variables will be set as secrets via wrangler command
