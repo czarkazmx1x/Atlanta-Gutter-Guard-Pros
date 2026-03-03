@@ -1,4 +1,4 @@
-@echo off
+﻿@echo off
 echo ====================================================
 echo Atlanta Gutter Guard Pros - Deploy with Superhuman
 echo ====================================================
@@ -11,7 +11,7 @@ echo.
 echo Widget Configuration:
 echo - Tenant: atlantagutter
 echo - Platform: https://superhuman.services
-echo - Phone: (323-325-1319
+echo - Phone: (323) 325-1319
 echo.
 
 echo Deploying to Cloudflare Pages...

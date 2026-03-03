@@ -1,4 +1,4 @@
-@echo off
+﻿@echo off
 echo ============================================
 echo Atlanta Gutter Guard Pros - Widget Update
 echo Connecting to Superhuman.services Platform
@@ -36,7 +36,7 @@ echo   window.ServiceBotConfig = {
 echo     tenant: 'atlantagutter',
 echo     businessName: 'Atlanta Gutter Guard Pros',
 echo     primaryColor: '#2c3e50',
-echo     phoneNumber: '(323-325-1319'
+echo     phoneNumber: '(323) 325-1319'
 echo   };
 echo ^</script^>
 echo ^<script src="https://superhuman.services/widget.js" async^>^</script^>

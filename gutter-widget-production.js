@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Atlanta Gutter Guard Pros - Production Chat Widget
  * Works on all pages with Cloudflare Pages Functions backend
  */
@@ -25,8 +25,8 @@ What can I help you with today?
   <button onclick="window.startGutterConversation && window.startGutterConversation('Emergency gutter repair needed')" style="background: #e74c3c; color: white; padding: 10px 20px; border: none; border-radius: 6px; cursor: pointer; font-weight: 600;">
     🚨 Emergency Repair
   </button>
-  <a href="tel:(323-325-1319" style="display: inline-block; background: #27ae60; color: white; padding: 10px 20px; border-radius: 6px; text-decoration: none; text-align: center; font-weight: 600;">
-    📞 Call Now: (323-325-1319
+  <a href="tel:(323) 325-1319" style="display: inline-block; background: #27ae60; color: white; padding: 10px 20px; border-radius: 6px; text-decoration: none; text-align: center; font-weight: 600;">
+    📞 Call Now: (323) 325-1319
   </a>
 </div>
     
@@ -312,11 +312,11 @@ What can I help you with today?
       
       // Smart fallback responses (no API needed)
       const smartResponses = {
-        'gutter guard': 'Great choice! Our gutter guards prevent clogs and protect your home. We offer LeafFilter and micro-mesh systems starting around $8-15 per foot with lifetime warranties. When would you like a free estimate? Call (323-325-1319.',
-        'cleaning': 'We provide thorough gutter cleaning services throughout Metro Atlanta for $150-300 depending on your home size. This includes inspection and minor repairs. Would you like to schedule? Call (323-325-1319.',
-        'emergency': 'For emergency gutter issues, please call us immediately at (323-325-1319. We offer same-day service for overflowing gutters and urgent repairs to prevent water damage.',
+        'gutter guard': 'Great choice! Our gutter guards prevent clogs and protect your home. We offer LeafFilter and micro-mesh systems starting around $8-15 per foot with lifetime warranties. When would you like a free estimate? Call (323) 325-1319.',
+        'cleaning': 'We provide thorough gutter cleaning services throughout Metro Atlanta for $150-300 depending on your home size. This includes inspection and minor repairs. Would you like to schedule? Call (323) 325-1319.',
+        'emergency': 'For emergency gutter issues, please call us immediately at (323) 325-1319. We offer same-day service for overflowing gutters and urgent repairs to prevent water damage.',
         'cost': 'Gutter guard installation typically costs $8-15 per linear foot depending on the system. We provide free estimates and lifetime warranties. What\'s your address for an accurate quote?',
-        'repair': 'We handle all gutter repairs including sagging, leaks, and downspout issues. Most repairs cost $5-12 per foot. For a free estimate, call (323-325-1319 or provide your address.',
+        'repair': 'We handle all gutter repairs including sagging, leaks, and downspout issues. Most repairs cost $5-12 per foot. For a free estimate, call (323) 325-1319 or provide your address.',
         'pine': 'Pine needles are a major problem in Georgia! Our micro-mesh gutter guards are specifically designed to keep out pine needles while allowing water flow. Perfect for Atlanta homes. Free estimate?'
       };
 
@@ -330,7 +330,7 @@ What can I help you with today?
       }
 
       // Default response
-      addMessage('Hi! I\'m Alex from Atlanta Gutter Guard Pros. I can help with gutter guards, cleaning, repairs, and emergency services. What specific questions do you have? For immediate assistance, call (323-325-1319.', 'bot');
+      addMessage('Hi! I\'m Alex from Atlanta Gutter Guard Pros. I can help with gutter guards, cleaning, repairs, and emergency services. What specific questions do you have? For immediate assistance, call (323) 325-1319.', 'bot');
     }
   }
 

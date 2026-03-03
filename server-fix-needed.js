@@ -1,4 +1,4 @@
-// PROBLEM: widget.js is ignoring the tenant parameter
+﻿// PROBLEM: widget.js is ignoring the tenant parameter
 // Here's what needs to be fixed on the server
 
 // FILE: widget.js (on superhuman.services)
@@ -40,7 +40,7 @@ const tenantConfigs = {
         title: 'Your Gutter Guard Expert',
         businessName: 'Atlanta Gutter Guard Pros',
         primaryColor: '#2c3e50',
-        phoneNumber: '(323-325-1319'
+        phoneNumber: '(323) 325-1319'
     },
     'demo': {
         name: 'Sam',

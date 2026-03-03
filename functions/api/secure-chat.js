@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Secure Chat API - Cloudflare Pages Function
  * Keeps Mistral API key safe on server
  */
@@ -28,7 +28,7 @@ async function getSecureAIResponse(message, env) {
 
 BUSINESS INFO:
 - Company: Atlanta Gutter Guard Pros
-- Phone: (323-325-1319
+- Phone: (323) 325-1319
 - Service Area: Metro Atlanta (30-mile radius)
 - Services: Gutter guard installation, cleaning, repair, emergency service
 
@@ -84,41 +84,41 @@ function getSmartFallbackResponse(message) {
   
   // Emergency responses
   if (lowerMessage.includes('emergency') || lowerMessage.includes('overflow') || lowerMessage.includes('leak')) {
-    return "For emergency gutter issues, please call us immediately at (323-325-1319. We offer same-day service for overflowing gutters and urgent repairs to prevent water damage to your home.";
+    return "For emergency gutter issues, please call us immediately at (323) 325-1319. We offer same-day service for overflowing gutters and urgent repairs to prevent water damage to your home.";
   }
   
   // Gutter guard inquiries
   if (lowerMessage.includes('guard') || lowerMessage.includes('protection')) {
-    return "Great choice! Our gutter guards prevent clogs and protect your home from water damage. We offer LeafFilter and micro-mesh systems starting around $8-15 per linear foot with lifetime warranties. When would you like a free estimate? Call (323-325-1319.";
+    return "Great choice! Our gutter guards prevent clogs and protect your home from water damage. We offer LeafFilter and micro-mesh systems starting around $8-15 per linear foot with lifetime warranties. When would you like a free estimate? Call (323) 325-1319.";
   }
   
   // Cleaning services
   if (lowerMessage.includes('clean') || lowerMessage.includes('maintenance')) {
-    return "We provide thorough gutter cleaning services throughout Metro Atlanta for $150-300 depending on your home size. This includes complete inspection and minor repairs. Would you like to schedule? Call (323-325-1319.";
+    return "We provide thorough gutter cleaning services throughout Metro Atlanta for $150-300 depending on your home size. This includes complete inspection and minor repairs. Would you like to schedule? Call (323) 325-1319.";
   }
   
   // Pricing questions
   if (lowerMessage.includes('cost') || lowerMessage.includes('price') || lowerMessage.includes('much')) {
-    return "Gutter guard installation typically costs $8-15 per linear foot depending on the system. Cleaning runs $150-300. We provide free estimates and lifetime warranties on guards. What's your address for an accurate quote? (323-325-1319";
+    return "Gutter guard installation typically costs $8-15 per linear foot depending on the system. Cleaning runs $150-300. We provide free estimates and lifetime warranties on guards. What's your address for an accurate quote? (323) 325-1319";
   }
   
   // Repair services
   if (lowerMessage.includes('repair') || lowerMessage.includes('fix') || lowerMessage.includes('broken')) {
-    return "We handle all gutter repairs including sagging, leaks, and downspout issues. Most repairs cost $5-12 per linear foot. For a free estimate and same-day service, call (323-325-1319 or provide your address.";
+    return "We handle all gutter repairs including sagging, leaks, and downspout issues. Most repairs cost $5-12 per linear foot. For a free estimate and same-day service, call (323) 325-1319 or provide your address.";
   }
   
   // Pine needle specific (Atlanta problem)
   if (lowerMessage.includes('pine') || lowerMessage.includes('needle') || lowerMessage.includes('clog')) {
-    return "Pine needles are a major problem in Georgia! Our micro-mesh gutter guards are specifically designed to keep out pine needles while allowing proper water flow. Perfect solution for Atlanta homes. Want a free estimate? (323-325-1319";
+    return "Pine needles are a major problem in Georgia! Our micro-mesh gutter guards are specifically designed to keep out pine needles while allowing proper water flow. Perfect solution for Atlanta homes. Want a free estimate? (323) 325-1319";
   }
   
   // Location/service area
   if (lowerMessage.includes('atlanta') || lowerMessage.includes('area') || lowerMessage.includes('serve')) {
-    return "We serve all of Metro Atlanta within a 30-mile radius including Buckhead, Midtown, Sandy Springs, Roswell, and surrounding areas. All services come with free estimates and professional installation. Call (323-325-1319.";
+    return "We serve all of Metro Atlanta within a 30-mile radius including Buckhead, Midtown, Sandy Springs, Roswell, and surrounding areas. All services come with free estimates and professional installation. Call (323) 325-1319.";
   }
   
   // Default helpful response
-  return "Hi! I'm Alex from Atlanta Gutter Guard Pros. I can help with gutter guards, cleaning, repairs, and emergency services throughout Metro Atlanta. What specific questions do you have about protecting your home? For immediate assistance, call (323-325-1319.";
+  return "Hi! I'm Alex from Atlanta Gutter Guard Pros. I can help with gutter guards, cleaning, repairs, and emergency services throughout Metro Atlanta. What specific questions do you have about protecting your home? For immediate assistance, call (323) 325-1319.";
 }
 
 export async function onRequestPost(context) {
@@ -150,7 +150,7 @@ export async function onRequestPost(context) {
     console.error('Secure chat error:', error);
     return new Response(
       JSON.stringify({ 
-        reply: "I'd be happy to help you with your gutter needs! Please call us at (323-325-1319 for immediate assistance, or let me know what questions you have about gutter guards."
+        reply: "I'd be happy to help you with your gutter needs! Please call us at (323) 325-1319 for immediate assistance, or let me know what questions you have about gutter guards."
       }),
       { status: 200, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
     );

@@ -1,4 +1,4 @@
-@echo off
+﻿@echo off
 echo ===============================================
 echo  🚀 ATLANTA GUTTER GUARD PROS - DEPLOYMENT
 echo ===============================================
@@ -43,7 +43,7 @@ if %ERRORLEVEL% == 0 (
     echo 📱 Key pages to test:
     echo    • Homepage with calculator link
     echo    • Calculator functionality
-    echo    • Phone number (323-325-1319
+    echo    • Phone number (323) 325-1319
     echo    • All location pages
     echo.
     echo 📊 Monitor performance:
