@@ -11,9 +11,9 @@ const fallbackResponses = [
   
   "That's a great question! We offer comprehensive gutter solutions including micro-mesh gutter guards that are perfect for Georgia's pine needle problems. Our guards come with a lifetime warranty and we provide FREE estimates. What's your address so we can schedule a consultation?",
   
-  "Absolutely! We serve all of Metro Atlanta with professional gutter guard installation. Our micro-mesh technology keeps out even the smallest debris while allowing water to flow freely. When would be convenient for a free estimate? You can also call us directly at (470) 851-6780.",
+  "Absolutely! We serve all of Metro Atlanta with professional gutter guard installation. Our micro-mesh technology keeps out even the smallest debris while allowing water to flow freely. When would be convenient for a free estimate? You can also call us directly at (323-325-1319.",
   
-  "For emergency gutter repairs, please call us immediately at (470) 851-6780. We offer same-day service for urgent issues. For non-emergency gutter guard installations and cleaning, I can help schedule your free estimate. What area of Atlanta are you located in?",
+  "For emergency gutter repairs, please call us immediately at (323-325-1319. We offer same-day service for urgent issues. For non-emergency gutter guard installations and cleaning, I can help schedule your free estimate. What area of Atlanta are you located in?",
   
   "Our gutter guards are specifically designed for Georgia homes and are excellent at handling pine needles, leaves, and other debris. Installation typically takes just a few hours and comes with our lifetime warranty. Would you like to schedule a free estimate to see how much you could save?",
   
@@ -50,7 +50,7 @@ async function getAIResponse(message, conversationHistory = [], env) {
 KEY INFORMATION:
 - Company: Atlanta Gutter Guard Pros
 - Service Area: Metro Atlanta and surrounding areas
-- Phone: (470) 851-6780
+- Phone: (323-325-1319
 - Services: Gutter guard installation, gutter cleaning, gutter repair, downspout services
 - Specialty: Pine needle protection, micro-mesh gutter guards
 - Guarantees: FREE estimates, lifetime warranties on gutter guards
@@ -150,7 +150,7 @@ export async function onRequestPost(context) {
     console.error('Chat endpoint error:', error);
     return new Response(
       JSON.stringify({ 
-        reply: "I'd be happy to help you with your gutter needs! Please call us at (470) 851-6780 for immediate assistance, or let me know what questions you have about gutter guards."
+        reply: "I'd be happy to help you with your gutter needs! Please call us at (323-325-1319 for immediate assistance, or let me know what questions you have about gutter guards."
       }),
       { status: 200, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
     );

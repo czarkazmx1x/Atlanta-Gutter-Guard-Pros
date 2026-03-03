@@ -9,7 +9,7 @@ SUPERHUMAN_WIDGET = """
         tenant: 'atlantagutter',
         businessName: 'Atlanta Gutter Guard Pros',
         primaryColor: '#2c3e50',
-        phoneNumber: '(470) 851-6780'
+        phoneNumber: '(323-325-1319'
       };
     </script>
     <script src="https://superhuman.services/widget.js" async></script>

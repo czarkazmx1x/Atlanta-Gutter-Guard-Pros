@@ -11,7 +11,7 @@ echo.
 echo Widget Configuration:
 echo - Tenant: atlantagutter
 echo - Platform: https://superhuman.services
-echo - Phone: (470) 851-6780
+echo - Phone: (323-325-1319
 echo.
 
 echo Deploying to Cloudflare Pages...

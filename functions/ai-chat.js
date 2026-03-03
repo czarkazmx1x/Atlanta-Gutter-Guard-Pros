@@ -26,7 +26,7 @@ export default {
       - Downspout services
       - Service areas: Atlanta Metro, Roswell, Marietta, Decatur, Sandy Springs
       
-      Always be helpful, mention the phone (470) 851-6780 for quotes, and focus on solving their gutter problems.
+      Always be helpful, mention the phone (323-325-1319 for quotes, and focus on solving their gutter problems.
       Keep responses under 150 words and conversational.`;
 
       const response = await fetch('https://api.mistral.ai/v1/chat/completions', {
@@ -62,7 +62,7 @@ export default {
     } catch (error) {
       console.error('Error:', error);
       return new Response(JSON.stringify({ 
-        response: `Thanks for your message! I'm having a technical issue right now. Please call us directly at (470) 851-6780 for immediate help with your gutter needs, or try your question again in a moment.` 
+        response: `Thanks for your message! I'm having a technical issue right now. Please call us directly at (323-325-1319 for immediate help with your gutter needs, or try your question again in a moment.` 
       }), {
         headers: {
           'Content-Type': 'application/json',

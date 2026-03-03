@@ -10,7 +10,7 @@ CORRECT_WIDGET_CODE = """    <!-- Service Bot Configuration -->
         botName: 'Alex - Your Gutter Expert',
         accentColor: '#2b6cb0',
         businessName: 'Atlanta Gutter Guard Pros',
-        phone: '(470) 851-6780',
+        phone: '(323-325-1319',
         services: [
             'Gutter Guard Installation',
             'Gutter Cleaning & Maintenance', 
@@ -21,8 +21,8 @@ CORRECT_WIDGET_CODE = """    <!-- Service Bot Configuration -->
         initialMessage: `Hi! I'm Alex from Atlanta Gutter Guard Pros. I'm here to help with all your gutter needs.
 
 <div style="margin-top: 15px;">
-  <a href="tel:(470) 851-6780" style="display: inline-block; background: #10B981; color: white; padding: 10px 20px; border-radius: 6px; text-decoration: none; text-align: center; font-weight: 600;">
-    📞 Call (470) 851-6780
+  <a href="tel:(323-325-1319" style="display: inline-block; background: #10B981; color: white; padding: 10px 20px; border-radius: 6px; text-decoration: none; text-align: center; font-weight: 600;">
+    📞 Call (323-325-1319
   </a>
 </div>
 

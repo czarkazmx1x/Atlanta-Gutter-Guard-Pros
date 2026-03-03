@@ -24,8 +24,8 @@ What can I help you with today?
   <button onclick="startConversation('Emergency gutter repair needed')" style="background: #e74c3c; color: white; padding: 10px 20px; border: none; border-radius: 6px; cursor: pointer; font-weight: 600;">
     🚨 Emergency Repair
   </button>
-  <a href="tel:(470) 851-6780" style="display: inline-block; background: #27ae60; color: white; padding: 10px 20px; border-radius: 6px; text-decoration: none; text-align: center; font-weight: 600;">
-    📞 Call Now: (470) 851-6780
+  <a href="tel:(323-325-1319" style="display: inline-block; background: #27ae60; color: white; padding: 10px 20px; border-radius: 6px; text-decoration: none; text-align: center; font-weight: 600;">
+    📞 Call Now: (323-325-1319
   </a>
 </div>
     
@@ -300,7 +300,7 @@ What can I help you with today?
       
     } catch (error) {
       console.error('Chat error:', error);
-      addMessage('Sorry, I\'m having trouble connecting. Please call us at (470) 851-6780 for immediate assistance!', 'bot');
+      addMessage('Sorry, I\'m having trouble connecting. Please call us at (323-325-1319 for immediate assistance!', 'bot');
     }
   }
 

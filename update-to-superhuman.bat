@@ -36,7 +36,7 @@ echo   window.ServiceBotConfig = {
 echo     tenant: 'atlantagutter',
 echo     businessName: 'Atlanta Gutter Guard Pros',
 echo     primaryColor: '#2c3e50',
-echo     phoneNumber: '(470) 851-6780'
+echo     phoneNumber: '(323-325-1319'
 echo   };
 echo ^</script^>
 echo ^<script src="https://superhuman.services/widget.js" async^>^</script^>

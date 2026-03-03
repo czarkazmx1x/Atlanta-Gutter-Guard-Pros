@@ -16,7 +16,7 @@
     businessName: 'Atlanta Gutter Guard Pros',
     serverUrl: 'https://superhuman.services',
     primaryColor: '#2c3e50',
-    phoneNumber: '(470) 851-6780'
+    phoneNumber: '(323-325-1319'
   };
 
   // Load the widget from your platform

@@ -12,7 +12,7 @@ FIXED_WIDGET = """
         businessName: 'Atlanta Gutter Guard Pros',
         assistantName: 'Alex',
         primaryColor: '#2c3e50',
-        phoneNumber: '(470) 851-6780',
+        phoneNumber: '(323-325-1319',
         apiUrl: 'https://superhuman.services',
         industry: 'gutter',
         services: ['Gutter Guards', 'Gutter Cleaning', 'Gutter Repair', 'Emergency Service']
