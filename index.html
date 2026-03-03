@@ -511,267 +511,458 @@
 </head>
 
 <body>
-    <!-- Skip to main content for screen readers -->
+    <!-- Mobile Sticky Call Button -->
+    <a href="tel:3233251319" class="mobile-sticky-cta" aria-label="Call (323) 325-1319">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path
+                d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.07 9 19.79 19.79 0 011 3.18 2 2 0 012.18 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.09a16 16 0 006 6l.72-.72a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
+        </svg>
+        Call Now — (323) 325-1319
+    </a>
+
     <a href="#main-content" class="visually-hidden">Skip to main content</a>
 
-    <!-- Header -->
-    <header role="banner">
-        <div class="header-top">
-            <div class="container" style="display: flex; align-items: center; justify-content: space-between;">
-                <div style="display: flex; align-items: center; gap: 15px;">
-                    <img src="images/logo/logo.png" alt="Atlanta Gutter Guard Pros" style="height: 40px; width: auto;">
-                    <span>📞 <strong>Call Now: <a href="tel:3233251319"
-                                style="color: inherit; text-decoration: underline;">(323) 325-1319</a></strong></span>
-                </div>
-                <span>🏆 Atlanta's #1 Rated Gutter Guard Installers | ⭐ 4.8/5 Stars (127 Reviews)</span>
+    <!-- Sticky Header -->
+    <header role="banner" class="site-header" id="site-header">
+        <div class="header-top-bar">
+            <div class="container"
+                style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;">
+                <span style="display:flex;align-items:center;gap:8px;"><svg width="14" height="14" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" aria-hidden="true">
+                        <path
+                            d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.07 9 19.79 19.79 0 011 3.18 2 2 0 012.18 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.09a16 16 0 006 6l.72-.72a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
+                    </svg><strong><a href="tel:3233251319" style="color:inherit;text-decoration:none;">(323)
+                            325-1319</a></strong></span>
+                <span>⭐ Atlanta's #1 Rated Gutter Guard Installers &nbsp;|&nbsp; 4.8/5 Stars (127 Reviews)</span>
             </div>
         </div>
-        <nav role="navigation" aria-label="Main navigation">
+        <nav role="navigation" aria-label="Main navigation" class="main-nav">
             <div class="container nav-container">
-                <div class="logo">
-                    <img src="images/logo/logo.png" alt="Atlanta Gutter Guard Pros company logo" width="150" height="50"
-                        loading="eager">
-                </div>
+                <a href="/" class="logo" aria-label="Atlanta Gutter Guard Pros Home"><img src="images/logo/logo.png"
+                        alt="Atlanta Gutter Guard Pros" width="150" height="50" loading="eager"></a>
+                <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"
+                    onclick="this.setAttribute('aria-expanded',this.getAttribute('aria-expanded')==='true'?'false':'true');document.querySelector('.nav-menu').classList.toggle('open');">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" aria-hidden="true">
+                        <line x1="3" y1="6" x2="21" y2="6" />
+                        <line x1="3" y1="12" x2="21" y2="12" />
+                        <line x1="3" y1="18" x2="21" y2="18" />
+                    </svg>
+                </button>
                 <ul class="nav-menu">
                     <li><a href="/">Home</a></li>
                     <li><a href="/services.html">Services</a></li>
-                    <li><a href="calculator.html" style="display:flex;align-items:center;gap:6px;"><svg width="16"
-                                height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                <rect x="2" y="3" width="20" height="18" rx="2" />
-                                <line x1="8" y1="8" x2="16" y2="8" />
-                                <line x1="8" y1="12" x2="16" y2="12" />
-                                <line x1="8" y1="16" x2="12" y2="16" />
-                            </svg>Cost Calculator</a></li>
+                    <li><a href="calculator.html">Cost Calculator</a></li>
                     <li><a href="#areas">Service Areas</a></li>
                     <li><a href="#faq">FAQs</a></li>
-                    <li><a href="#contact" class="cta-button">Get Free Quote</a></li>
+                    <li><a href="#contact" class="nav-cta-btn">Get Free Quote</a></li>
                 </ul>
             </div>
         </nav>
     </header>
 
-    <!-- Main Content -->
     <main id="main-content">
-        <!-- Hero Section -->
-        <section class="hero">
+
+        <!-- ═══ HERO ═══ -->
+        <section class="hero-v2" aria-label="Hero">
+            <div class="hero-v2-bg">
+                <img src="images/hero/main-hero.jpg" alt="Beautiful Atlanta suburban home with clean protected gutters"
+                    loading="eager" width="1400" height="700">
+                <div class="hero-v2-overlay"></div>
+            </div>
+            <div class="container hero-v2-content">
+                <div class="hero-v2-text">
+                    <div class="hero-v2-eyebrow">Atlanta's Most Trusted Since 2013</div>
+                    <h1 class="hero-v2-headline">Atlanta's Trusted<br>Gutter Guard<br>Installation Experts</h1>
+                    <p class="hero-v2-sub">Protect Your Home From Clogs, Water Damage &amp; Costly Repairs
+                        —<br>Installed Right the First Time.</p>
+                    <div class="hero-v2-ctas">
+                        <a href="#contact" class="hero-btn-primary"><svg width="18" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                stroke-linejoin="round" aria-hidden="true">
+                                <path d="M9 11l3 3L22 4" />
+                                <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" />
+                            </svg> Get Free Inspection</a>
+                        <a href="tel:3233251319" class="hero-btn-secondary"><svg width="18" height="18"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path
+                                    d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.07 9 19.79 19.79 0 011 3.18 2 2 0 012.18 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.09a16 16 0 006 6l.72-.72a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
+                            </svg> Call Now</a>
+                    </div>
+                    <div class="hero-v2-trust">
+                        <div class="hero-trust-badge"><svg width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b"
+                                stroke="none" aria-hidden="true">
+                                <polygon
+                                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                            </svg> 5-Star Rated</div>
+                        <div class="hero-trust-badge"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                stroke="#4ade80" stroke-width="2" aria-hidden="true">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                            </svg> Licensed &amp; Insured</div>
+                        <div class="hero-trust-badge"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                stroke="#4ade80" stroke-width="2" aria-hidden="true">
+                                <circle cx="12" cy="12" r="10" />
+                                <polyline points="12 6 12 12 16 14" />
+                            </svg> Same-Day Service</div>
+                        <div class="hero-trust-badge"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                stroke="#4ade80" stroke-width="2" aria-hidden="true">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                                <circle cx="12" cy="10" r="3" />
+                            </svg> Serving Metro Atlanta</div>
+                    </div>
+                    <div class="hero-v2-urgency">⚡ Limited Time: 20% OFF Installation — Expires End of Month</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ STATS STRIP ═══ -->
+        <section class="stats-strip" aria-label="Company stats">
+            <div class="container stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">3,000+</div>
+                    <div class="stat-label">Homes Protected</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">10+</div>
+                    <div class="stat-label">Years in Atlanta</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">4.8★</div>
+                    <div class="stat-label">Google Rating</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">Lifetime</div>
+                    <div class="stat-label">Warranty</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">Same Day</div>
+                    <div class="stat-label">Service Available</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ SERVICES ═══ -->
+        <section class="services-v2" id="services" aria-labelledby="services-heading">
             <div class="container">
-                <div class="hero-content-wrapper">
-                    <div class="hero-image-left">
-                        <picture>
-                            <img src="images/hero-left/current.png" alt="Premium micro-mesh gutter guard protection"
-                                width="500" height="350" loading="eager" data-flexible="true">
-                        </picture>
+                <div class="section-header">
+                    <div class="section-eyebrow">What We Do</div>
+                    <h2 id="services-heading">Our Gutter Services</h2>
+                    <p class="section-subtitle">Professional solutions for every gutter need — done right, the first
+                        time.</p>
+                </div>
+                <div class="services-grid-v2">
+                    <div class="service-card-v2">
+                        <div class="service-card-icon" style="background:#e8f5e9;"><svg width="32" height="32"
+                                viewBox="0 0 24 24" fill="none" stroke="#1a5c34" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" aria-hidden="true">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                            </svg></div>
+                        <h3>Gutter Guard Installation</h3>
+                        <p>Stop clogs permanently with premium micro-mesh protection systems designed for Atlanta's pine
+                            needles and oak leaves.</p><a href="calculator.html" class="service-learn-more">Get Estimate
+                            →</a>
                     </div>
-                    <div class="hero-content">
-                        <h1>Professional Gutter Guard Installation in Atlanta, GA</h1>
-                        <p class="hero-subtitle">Stop Cleaning Gutters Forever! Premium Leaf Protection Systems
-                            Installed by Local Experts</p>
-                        <div class="hero-features">
-                            <div class="feature"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"
-                                    stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
-                                    aria-hidden="true">
-                                    <polyline points="20 6 9 17 4 12" />
-                                </svg> Lifetime Warranty</div>
-                            <div class="feature"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"
-                                    stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
-                                    aria-hidden="true">
-                                    <polyline points="20 6 9 17 4 12" />
-                                </svg> Free Estimates</div>
-                            <div class="feature"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"
-                                    stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
-                                    aria-hidden="true">
-                                    <polyline points="20 6 9 17 4 12" />
-                                </svg> Same-Day Service</div>
-                            <div class="feature"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"
-                                    stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
-                                    aria-hidden="true">
-                                    <polyline points="20 6 9 17 4 12" />
-                                </svg> Licensed &amp; Insured</div>
-                        </div>
-                        <div class="hero-cta">
-                            <a href="tel:3233251319" class="btn-primary"
-                                aria-label="Call Atlanta Gutter Guard Pros at (323) 325-1319"
-                                style="display:flex;align-items:center;gap:8px;"><svg width="18" height="18"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                    <path
-                                        d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.07 9 19.79 19.79 0 011 3.18 2 2 0 012.18 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.09a16 16 0 006 6l.72-.72a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
-                                </svg> Call (323) 325-1319</a>
-                            <a href="calculator.html" class="btn-secondary"
-                                style="background:rgba(255,255,255,0.15);color:white;border:2px solid rgba(255,255,255,0.5);display:flex;align-items:center;gap:8px;"><svg
-                                    width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                    <rect x="2" y="3" width="20" height="18" rx="2" />
-                                    <line x1="8" y1="8" x2="16" y2="8" />
-                                    <line x1="8" y1="12" x2="16" y2="12" />
-                                    <line x1="8" y1="16" x2="12" y2="16" />
-                                </svg> Get an Estimate</a>
-                        </div>
-                        <p class="urgency">⚡ Limited Time: 20% OFF Installation (This Month Only)</p>
+                    <div class="service-card-v2">
+                        <div class="service-card-icon" style="background:#e3f2fd;"><svg width="32" height="32"
+                                viewBox="0 0 24 24" fill="none" stroke="#1565c0" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" aria-hidden="true">
+                                <path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z" />
+                            </svg></div>
+                        <h3>Gutter Cleaning</h3>
+                        <p>Safe, fast debris removal to restore proper water flow and prevent overflow damage to your
+                            foundation.</p><a href="#contact" class="service-learn-more">Book Now →</a>
                     </div>
-                    <div class="hero-image">
-                        <picture>
-                            <img src="images/hero/main-hero.jpg"
-                                alt="Professional gutter guard installation service in Atlanta - Call now for a free quote"
-                                width="400" height="250" loading="eager" data-flexible="true">
-                        </picture>
+                    <div class="service-card-v2">
+                        <div class="service-card-icon" style="background:#fff3e0;"><svg width="32" height="32"
+                                viewBox="0 0 24 24" fill="none" stroke="#e65100" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" aria-hidden="true">
+                                <path
+                                    d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z" />
+                            </svg></div>
+                        <h3>Gutter Repair</h3>
+                        <p>Fix leaks, sagging sections, and loose hangers before they cause structural damage. Fast
+                            turnaround.</p><a href="#contact" class="service-learn-more">Get Repair Quote →</a>
+                    </div>
+                    <div class="service-card-v2">
+                        <div class="service-card-icon" style="background:#fce4ec;"><svg width="32" height="32"
+                                viewBox="0 0 24 24" fill="none" stroke="#c62828" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" aria-hidden="true">
+                                <polyline points="23 7 13 17 8 12 1 19" />
+                                <polyline points="17 7 23 7 23 13" />
+                            </svg></div>
+                        <h3>Gutter Replacement</h3>
+                        <p>Full seamless gutter replacement when repairs aren't enough. Custom-fabricated on-site to fit
+                            your home.</p><a href="#contact" class="service-learn-more">Learn More →</a>
+                    </div>
+                    <div class="service-card-v2">
+                        <div class="service-card-icon" style="background:#f3e5f5;"><svg width="32" height="32"
+                                viewBox="0 0 24 24" fill="none" stroke="#6a1b9a" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" aria-hidden="true">
+                                <polyline points="6 9 6 2 18 2 18 9" />
+                                <path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2" />
+                                <rect x="6" y="14" width="12" height="8" />
+                            </svg></div>
+                        <h3>Downspout Services</h3>
+                        <p>Proper downspout installation, extensions, and underground drainage solutions to direct water
+                            away from your home.</p><a href="#contact" class="service-learn-more">Get a Quote →</a>
+                    </div>
+                    <div class="service-card-v2">
+                        <div class="service-card-icon" style="background:#e8f5e9;"><svg width="32" height="32"
+                                viewBox="0 0 24 24" fill="none" stroke="#1a5c34" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="10" />
+                                <polyline points="12 6 12 12 16 14" />
+                            </svg></div>
+                        <h3>Emergency Service</h3>
+                        <p>Storm damage or urgent overflows? Fast-response emergency gutter service throughout the
+                            Atlanta metro area.</p><a href="tel:3233251319" class="service-learn-more">Call Now →</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Trust Badges -->
-        <section class="trust-badges">
+        <!-- CTA Strip 1 -->
+        <div class="cta-strip">
+            <div class="container cta-strip-inner">
+                <div>
+                    <h3>Ready to Protect Your Home?</h3>
+                    <p>Most Atlanta homes installed in a single day. Free estimates, no obligation.</p>
+                </div>
+                <a href="#contact" class="cta-strip-btn">Schedule Free Inspection</a>
+            </div>
+        </div>
+
+        <!-- ═══ BEFORE & AFTER ═══ -->
+        <section class="ba-section" id="gallery" aria-labelledby="gallery-heading">
             <div class="container">
-                <div class="badges-grid">
-                    <div class="badge">🏆 BBB A+ Rated</div>
-                    <div class="badge">🛡️ Fully Licensed & Insured</div>
-                    <div class="badge">⭐ 127+ 5-Star Reviews</div>
-                    <div class="badge">🏠 3,000+ Homes Protected</div>
+                <div class="section-header">
+                    <div class="section-eyebrow">Visual Proof</div>
+                    <h2 id="gallery-heading">Before &amp; After</h2>
+                    <p class="section-subtitle">Drag the slider — see the difference our gutter guards make</p>
+                </div>
+                <div class="ba-layout">
+                    <div class="ba-sliders-col">
+                        <div class="ba-slider" id="slider1" aria-label="Before and after comparison 1">
+                            <div class="ba-before"><img src="images/gallery/before-1.jpg"
+                                    alt="Clogged gutters filled with leaves" loading="lazy"><span
+                                    class="ba-label ba-label-before">Before</span></div>
+                            <div class="ba-after"><img src="images/gallery/after-1.jpg"
+                                    alt="Clean gutters with guards installed" loading="lazy"><span
+                                    class="ba-label ba-label-after">After</span></div>
+                            <div class="ba-handle" role="slider" aria-valuenow="50" aria-valuemin="0"
+                                aria-valuemax="100" aria-label="Drag to compare" tabindex="0">
+                                <div class="ba-handle-line"></div>
+                                <div class="ba-handle-circle"><svg width="20" height="20" viewBox="0 0 24 24"
+                                        fill="none" stroke="white" stroke-width="2" aria-hidden="true">
+                                        <path d="M8 5l-7 7 7 7M16 5l7 7-7 7" />
+                                    </svg></div>
+                                <div class="ba-handle-line"></div>
+                            </div>
+                        </div>
+                        <div class="ba-slider" id="slider2" aria-label="Before and after comparison 2">
+                            <div class="ba-before"><img src="images/gallery/before-2.jpg"
+                                    alt="Overflowing gutters before installation" loading="lazy"><span
+                                    class="ba-label ba-label-before">Before</span></div>
+                            <div class="ba-after"><img src="images/gallery/after-2.jpg"
+                                    alt="Protected gutters after installation" loading="lazy"><span
+                                    class="ba-label ba-label-after">After</span></div>
+                            <div class="ba-handle" role="slider" aria-valuenow="50" aria-valuemin="0"
+                                aria-valuemax="100" aria-label="Drag to compare" tabindex="0">
+                                <div class="ba-handle-line"></div>
+                                <div class="ba-handle-circle"><svg width="20" height="20" viewBox="0 0 24 24"
+                                        fill="none" stroke="white" stroke-width="2" aria-hidden="true">
+                                        <path d="M8 5l-7 7 7 7M16 5l7 7-7 7" />
+                                    </svg></div>
+                                <div class="ba-handle-line"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ba-bullets-col">
+                        <div class="ba-bullets-group">
+                            <h3 class="ba-bullets-title ba-before-title"><svg width="20" height="20" viewBox="0 0 24 24"
+                                    fill="none" stroke="#ef4444" stroke-width="2.5" stroke-linecap="round"
+                                    aria-hidden="true">
+                                    <circle cx="12" cy="12" r="10" />
+                                    <line x1="15" y1="9" x2="9" y2="15" />
+                                    <line x1="9" y1="9" x2="15" y2="15" />
+                                </svg> Before</h3>
+                            <ul class="ba-list ba-list-bad">
+                                <li>Clogged with leaves, pine needles &amp; debris</li>
+                                <li>Water overflowing onto your foundation</li>
+                                <li>Risk of basement flooding &amp; costly damage</li>
+                                <li>Twice-yearly expensive professional cleaning</li>
+                                <li>Sagging gutters, rust &amp; premature failure</li>
+                            </ul>
+                        </div>
+                        <div class="ba-bullets-group">
+                            <h3 class="ba-bullets-title ba-after-title"><svg width="20" height="20" viewBox="0 0 24 24"
+                                    fill="none" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round"
+                                    aria-hidden="true">
+                                    <circle cx="12" cy="12" r="10" />
+                                    <polyline points="8 12 11 15 16 9" />
+                                </svg> After</h3>
+                            <ul class="ba-list ba-list-good">
+                                <li>Clean, free-flowing gutters — always</li>
+                                <li>Zero maintenance &amp; no more ladder climbing</li>
+                                <li>Foundation &amp; landscaping fully protected</li>
+                                <li>Transferable lifetime warranty included</li>
+                                <li>Increased home value &amp; curb appeal</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
+            <script>(function () { function i(el) { var b = el.querySelector('.ba-before'), h = el.querySelector('.ba-handle'), p = 50; function s(v) { p = Math.max(2, Math.min(98, v)); b.style.width = p + '%'; h.style.left = p + '%'; h.setAttribute('aria-valuenow', Math.round(p)); } s(50); var d = false; h.addEventListener('mousedown', function (e) { d = true; e.preventDefault(); }); h.addEventListener('touchstart', function (e) { d = true; }, { passive: true }); document.addEventListener('mousemove', function (e) { if (!d) return; var r = el.getBoundingClientRect(); s(((e.clientX - r.left) / r.width) * 100); }); document.addEventListener('touchmove', function (e) { if (!d) return; var r = el.getBoundingClientRect(); s(((e.touches[0].clientX - r.left) / r.width) * 100); }, { passive: true }); document.addEventListener('mouseup', function () { d = false; }); document.addEventListener('touchend', function () { d = false; }); h.addEventListener('keydown', function (e) { if (e.key === 'ArrowLeft') s(p - 5); if (e.key === 'ArrowRight') s(p + 5); }); } document.querySelectorAll('.ba-slider').forEach(i); })();</script>
         </section>
 
-        <!-- Benefits Section -->
-        <section class="benefits">
+        <!-- CTA Strip 2 -->
+        <div class="cta-strip cta-strip-alt">
+            <div class="container cta-strip-inner">
+                <div>
+                    <h3>Protect Your Home Before the Next Storm</h3>
+                    <p>Don't wait for water damage. Get protected today.</p>
+                </div>
+                <a href="tel:3233251319" class="cta-strip-btn cta-strip-btn-alt"><svg width="18" height="18"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                        stroke-linejoin="round" aria-hidden="true">
+                        <path
+                            d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.07 9 19.79 19.79 0 011 3.18 2 2 0 012.18 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.09a16 16 0 006 6l.72-.72a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
+                    </svg> Call (323) 325-1319</a>
+            </div>
+        </div>
+
+        <!-- ═══ WHY CHOOSE US ═══ -->
+        <section class="why-us" aria-labelledby="why-us-heading">
             <div class="container">
-                <h2>Why Atlanta Homeowners Choose Our Gutter Guards</h2>
-                <div class="benefits-grid">
-                    <div class="benefit-card">
-                        <div class="icon" aria-hidden="true">🍂</div>
-                        <h3>No More Gutter Cleaning</h3>
-                        <p>Our premium leaf filters keep leaves, pine needles, and debris out permanently.</p>
+                <div class="section-header">
+                    <div class="section-eyebrow">Why Atlanta Chooses Us</div>
+                    <h2 id="why-us-heading">The Atlanta Gutter Guard Pros Difference</h2>
+                    <p class="section-subtitle">More than 3,000 homeowners trust us. Here's why.</p>
+                </div>
+                <div class="why-us-grid">
+                    <div class="why-us-card">
+                        <div class="why-us-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none"
+                                stroke="#1a5c34" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                aria-hidden="true">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                                <line x1="16" y1="2" x2="16" y2="6" />
+                                <line x1="8" y1="2" x2="8" y2="6" />
+                                <line x1="3" y1="10" x2="21" y2="10" />
+                            </svg></div>
+                        <h3>10+ Years Experience</h3>
+                        <p>Over a decade serving Metro Atlanta homeowners with proven expertise in all gutter guard
+                            systems.</p>
                     </div>
-                    <div class="benefit-card">
-                        <div class="icon" aria-hidden="true">💧</div>
-                        <h3>Prevent Water Damage</h3>
-                        <p>Protect your foundation, basement, and landscaping from costly water damage.</p>
-                    </div>
-                    <div class="benefit-card">
-                        <div class="icon" aria-hidden="true">🏠</div>
-                        <h3>Increase Home Value</h3>
-                        <p>Professional gutter protection adds value and curb appeal to your Atlanta home.</p>
-                    </div>
-                    <div class="benefit-card">
-                        <div class="icon" aria-hidden="true">🛡️</div>
-                        <h3>Lifetime Warranty</h3>
-                        <p>Our gutter guards come with a transferable lifetime warranty for peace of mind.</p>
-                    </div>
-                    <div class="benefit-card">
-                        <div class="icon" aria-hidden="true">⚡</div>
-                        <h3>Same-Day Installation</h3>
-                        <p>Most Atlanta homes protected in 4-6 hours with minimal disruption to your routine.</p>
-                    </div>
-                    <div class="benefit-card">
-                        <div class="icon" aria-hidden="true">🌳</div>
-                        <h3>Perfect for Georgia Climate</h3>
-                        <p>Designed specifically for Atlanta's pine needles, oak leaves, and heavy rainfall patterns.
+                    <div class="why-us-card">
+                        <div class="why-us-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="#f59e0b"
+                                stroke="none" aria-hidden="true">
+                                <polygon
+                                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                            </svg></div>
+                        <h3>5-Star Google Reviews</h3>
+                        <p>127 verified 5-star reviews from real Atlanta homeowners. Our reputation is built on results.
                         </p>
                     </div>
+                    <div class="why-us-card">
+                        <div class="why-us-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none"
+                                stroke="#1a5c34" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                aria-hidden="true">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                            </svg></div>
+                        <h3>Fully Licensed &amp; Insured</h3>
+                        <p>State-licensed contractors with full liability insurance. Your home and investment are fully
+                            protected.</p>
+                    </div>
+                    <div class="why-us-card">
+                        <div class="why-us-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none"
+                                stroke="#1a5c34" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                aria-hidden="true">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg></div>
+                        <h3>Lifetime Warranty</h3>
+                        <p>Every installation includes a transferable lifetime warranty — covering materials,
+                            performance, and workmanship.</p>
+                    </div>
+                    <div class="why-us-card">
+                        <div class="why-us-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none"
+                                stroke="#1a5c34" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                aria-hidden="true">
+                                <circle cx="12" cy="12" r="10" />
+                                <polyline points="12 6 12 12 16 14" />
+                            </svg></div>
+                        <h3>Fast Turnaround</h3>
+                        <p>Most homes protected in a single day. Same-day service available for urgent needs — no long
+                            waits.</p>
+                    </div>
+                    <div class="why-us-card">
+                        <div class="why-us-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none"
+                                stroke="#1a5c34" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                aria-hidden="true">
+                                <line x1="12" y1="1" x2="12" y2="23" />
+                                <path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" />
+                            </svg></div>
+                        <h3>Free Estimates</h3>
+                        <p>No pressure, no obligation. Every quote is completely free with our honest recommendation for
+                            your home.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Gallery Section - Interactive Before/After Sliders -->
-        <section class="gallery" id="gallery">
+        <!-- ═══ TESTIMONIALS ═══ -->
+        <section class="testimonials" aria-labelledby="testimonials-heading">
             <div class="container">
-                <h2>Before &amp; After Gutter Guard Installation</h2>
-                <p class="section-subtitle">Drag the slider to see the difference our gutter protection makes</p>
-                <div class="ba-sliders-row">
-                    <!-- Slider 1 -->
-                    <div class="ba-slider" id="slider1" aria-label="Before and after comparison 1">
-                        <div class="ba-before">
-                            <img src="images/gallery/before-1.jpg"
-                                alt="Clogged gutters filled with leaves before installation" loading="lazy">
-                            <span class="ba-label ba-label-before">Before</span>
-                        </div>
-                        <div class="ba-after">
-                            <img src="images/gallery/after-1.jpg" alt="Clean gutters with gutter guards installed"
-                                loading="lazy">
-                            <span class="ba-label ba-label-after">After</span>
-                        </div>
-                        <div class="ba-handle" role="slider" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"
-                            aria-label="Drag to compare before and after" tabindex="0">
-                            <div class="ba-handle-line"></div>
-                            <div class="ba-handle-circle">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="white" aria-hidden="true">
-                                    <path d="M8 5l-7 7 7 7M16 5l7 7-7 7" />
-                                </svg>
-                            </div>
-                            <div class="ba-handle-line"></div>
+                <div class="section-header">
+                    <div class="section-eyebrow">Real Reviews</div>
+                    <h2 id="testimonials-heading">What Atlanta Homeowners Say</h2>
+                    <div class="rating-summary"><span class="rating-stars">★★★★★</span><span class="rating-text">4.8 / 5
+                            from 127 Reviews</span></div>
+                </div>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-text">"Best decision we made for our home. Haven't touched our gutters in
+                            2 years. The crew was professional, fast, and left our yard spotless. Highly recommend!"</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">SK</div>
+                            <div><strong>Sarah K.</strong><span>Roswell, GA</span></div>
                         </div>
                     </div>
-                    <!-- Slider 2 -->
-                    <div class="ba-slider" id="slider2" aria-label="Before and after comparison 2">
-                        <div class="ba-before">
-                            <img src="images/gallery/before-2.jpg"
-                                alt="Heavily debris-filled gutters before guard installation" loading="lazy">
-                            <span class="ba-label ba-label-before">Before</span>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-text">"We had terrible problems with water pooling near our foundation.
+                            After one installation, problem solved. Worth every penny. The lifetime warranty gave us
+                            real peace of mind."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">MJ</div>
+                            <div><strong>Marcus J.</strong><span>Marietta, GA</span></div>
                         </div>
-                        <div class="ba-after">
-                            <img src="images/gallery/after-2.jpg"
-                                alt="Professional gutter guards installed and functioning" loading="lazy">
-                            <span class="ba-label ba-label-after">After</span>
-                        </div>
-                        <div class="ba-handle" role="slider" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"
-                            aria-label="Drag to compare before and after" tabindex="0">
-                            <div class="ba-handle-line"></div>
-                            <div class="ba-handle-circle">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="white" aria-hidden="true">
-                                    <path d="M8 5l-7 7 7 7M16 5l7 7-7 7" />
-                                </svg>
-                            </div>
-                            <div class="ba-handle-line"></div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-text">"We have 6 large oak trees and used to clean gutters 4 times a year.
+                            Now zero. The micro-mesh system works perfectly even through Georgia's heaviest leaf
+                            season."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">DL</div>
+                            <div><strong>David L.</strong><span>Alpharetta, GA</span></div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- Before/After Slider JS -->
-            <script>
-                (function () {
-                    function initSlider(el) {
-                        var before = el.querySelector('.ba-before');
-                        var handle = el.querySelector('.ba-handle');
-                        var pct = 50;
-                        function setPos(p) {
-                            pct = Math.max(2, Math.min(98, p));
-                            before.style.width = pct + '%';
-                            handle.style.left = pct + '%';
-                            handle.setAttribute('aria-valuenow', Math.round(pct));
-                        }
-                        setPos(50);
-                        var dragging = false;
-                        handle.addEventListener('mousedown', function (e) { dragging = true; e.preventDefault(); });
-                        handle.addEventListener('touchstart', function (e) { dragging = true; }, { passive: true });
-                        document.addEventListener('mousemove', function (e) {
-                            if (!dragging) return;
-                            var rect = el.getBoundingClientRect();
-                            setPos(((e.clientX - rect.left) / rect.width) * 100);
-                        });
-                        document.addEventListener('touchmove', function (e) {
-                            if (!dragging) return;
-                            var rect = el.getBoundingClientRect();
-                            setPos(((e.touches[0].clientX - rect.left) / rect.width) * 100);
-                        }, { passive: true });
-                        document.addEventListener('mouseup', function () { dragging = false; });
-                        document.addEventListener('touchend', function () { dragging = false; });
-                        handle.addEventListener('keydown', function (e) {
-                            if (e.key === 'ArrowLeft') setPos(pct - 5);
-                            if (e.key === 'ArrowRight') setPos(pct + 5);
-                        });
-                    }
-                    document.querySelectorAll('.ba-slider').forEach(initSlider);
-                })();
-            </script>
         </section>
 
-        <!-- Service Areas -->
-        <section id="areas" class="service-areas">
+        <!-- ═══ SERVICE AREAS ═══ -->
+        <section id="areas" class="service-areas-v2" aria-labelledby="areas-heading">
             <div class="container">
-                <h2>Gutter Guard Installation Throughout Metro Atlanta</h2>
-                <p class="section-subtitle">Proudly serving homeowners across North Georgia with professional gutter
-                    protection services</p>
+                <div class="section-header">
+                    <div class="section-eyebrow">Where We Work</div>
+                    <h2 id="areas-heading">Gutter Guard Installation Throughout Metro Atlanta</h2>
+                    <p class="section-subtitle">Proudly serving 20+ communities across North Georgia</p>
+                </div>
                 <div class="areas-grid">
                     <div class="area-column">
                         <h3>North Atlanta</h3>
@@ -807,168 +998,196 @@
             </div>
         </section>
 
-        <!-- FAQ Section -->
-        <section id="faq" class="faq">
+        <!-- CTA Strip 3 -->
+        <div class="cta-strip">
+            <div class="container cta-strip-inner">
+                <div>
+                    <h3>Don't See Your City?</h3>
+                    <p>We likely serve your area — give us a call to find out.</p>
+                </div>
+                <a href="tel:3233251319" class="cta-strip-btn">Call (323) 325-1319</a>
+            </div>
+        </div>
+
+        <!-- ═══ FAQ ACCORDION ═══ -->
+        <section id="faq" class="faq-v2" aria-labelledby="faq-heading">
             <div class="container">
-                <h2>Frequently Asked Questions About Gutter Guards</h2>
-                <div class="faq-grid">
-                    <div class="faq-item">
-                        <h3>How much do gutter guards cost in Atlanta?</h3>
-                        <p>Professional gutter guard installation in Atlanta typically ranges from $15-25 per linear
-                            foot, depending on your home's size and the type of system. Most homes invest $1,500-3,000
-                            for complete protection. We offer free estimates and financing options.</p>
+                <div class="section-header">
+                    <div class="section-eyebrow">Got Questions?</div>
+                    <h2 id="faq-heading">Frequently Asked Questions</h2>
+                    <p class="section-subtitle">Everything you need to know about gutter guard installation in Atlanta
+                    </p>
+                </div>
+                <div class="faq-accordion" id="faq-accordion">
+                    <div class="faq-item-v2"><button class="faq-question" aria-expanded="false"
+                            aria-controls="faq-a1">How much does gutter guard installation cost in Atlanta?<svg
+                                class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
+                                <polyline points="6 9 12 15 18 9" />
+                            </svg></button>
+                        <div class="faq-answer" id="faq-a1" hidden>
+                            <p>Professional gutter guard installation in Atlanta typically ranges <strong>$15–25 per
+                                    linear foot</strong>, depending on your home's size and the type of system. Most
+                                Atlanta homes invest $1,500–$3,000 for complete protection. We offer <strong>free,
+                                    no-obligation estimates</strong> — call (323) 325-1319 or use our <a
+                                    href="calculator.html">cost calculator</a>.</p>
+                        </div>
                     </div>
-                    <div class="faq-item">
-                        <h3>Do gutter guards really work?</h3>
-                        <p>Yes! Quality gutter guards block 99% of leaves and debris while allowing water to flow
-                            freely. Our micro-mesh systems are specifically designed for Atlanta's pine needles and oak
-                            leaves.</p>
+                    <div class="faq-item-v2"><button class="faq-question" aria-expanded="false"
+                            aria-controls="faq-a2">Do gutter guards prevent all clogs?<svg class="faq-icon" width="20"
+                                height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                stroke-linecap="round" aria-hidden="true">
+                                <polyline points="6 9 12 15 18 9" />
+                            </svg></button>
+                        <div class="faq-answer" id="faq-a2" hidden>
+                            <p>Quality micro-mesh gutter guards block <strong>99% of leaves, pine needles, and
+                                    debris</strong> while allowing water to flow freely. Our systems are engineered for
+                                Atlanta's heavy pine needle and oak leaf environment. No system is 100%
+                                maintenance-free, but you'll drastically reduce or eliminate cleaning.</p>
+                        </div>
                     </div>
-                    <div class="faq-item">
-                        <h3>How long does installation take?</h3>
-                        <p>Most gutter guard installations in Atlanta are completed in one day. Our experienced crew can
-                            protect an average-sized home in 4-6 hours with minimal disruption.</p>
+                    <div class="faq-item-v2"><button class="faq-question" aria-expanded="false"
+                            aria-controls="faq-a3">How long does installation take?<svg class="faq-icon" width="20"
+                                height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                stroke-linecap="round" aria-hidden="true">
+                                <polyline points="6 9 12 15 18 9" />
+                            </svg></button>
+                        <div class="faq-answer" id="faq-a3" hidden>
+                            <p>Most Atlanta homes are fully protected in <strong>one day — typically 4–6 hours</strong>.
+                                Our experienced crews work efficiently with minimal disruption to your daily routine. We
+                                always clean up completely before leaving.</p>
+                        </div>
                     </div>
-                    <div class="faq-item">
-                        <h3>What's your warranty?</h3>
-                        <p>We offer a transferable lifetime warranty on all gutter guard installations. This covers
-                            materials, performance, and workmanship - adding value if you sell your home.</p>
+                    <div class="faq-item-v2"><button class="faq-question" aria-expanded="false"
+                            aria-controls="faq-a4">Do you offer warranties?<svg class="faq-icon" width="20" height="20"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                stroke-linecap="round" aria-hidden="true">
+                                <polyline points="6 9 12 15 18 9" />
+                            </svg></button>
+                        <div class="faq-answer" id="faq-a4" hidden>
+                            <p>Yes — we offer a <strong>transferable lifetime warranty</strong> on all gutter guard
+                                installations, covering materials, performance, and workmanship. If you sell your home,
+                                the warranty transfers to the new owner, adding real resale value.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item-v2"><button class="faq-question" aria-expanded="false"
+                            aria-controls="faq-a5">What areas around Atlanta do you serve?<svg class="faq-icon"
+                                width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
+                                <polyline points="6 9 12 15 18 9" />
+                            </svg></button>
+                        <div class="faq-answer" id="faq-a5" hidden>
+                            <p>We serve the entire Atlanta metro area including <strong>Marietta, Roswell, Alpharetta,
+                                    Sandy Springs, Decatur, Kennesaw, Smyrna, Johns Creek, Milton, Tucker, Chamblee,
+                                    Brookhaven, Woodstock, Acworth, Stone Mountain</strong>, and many more.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item-v2"><button class="faq-question" aria-expanded="false"
+                            aria-controls="faq-a6">Are your technicians licensed and insured?<svg class="faq-icon"
+                                width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
+                                <polyline points="6 9 12 15 18 9" />
+                            </svg></button>
+                        <div class="faq-answer" id="faq-a6" hidden>
+                            <p>Absolutely. All technicians are <strong>state-licensed contractors with full liability
+                                    insurance</strong>. We're BBB accredited with an A+ rating. Your home and investment
+                                are fully protected when we're on the job.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Contact Section -->
-        <section id="contact" class="contact">
+        <!-- ═══ CONTACT ═══ -->
+        <section id="contact" class="contact-v2" aria-labelledby="contact-heading">
             <div class="container">
-                <h2>Get Your Free Gutter Guard Quote Today!</h2>
-                <p class="contact-subtitle">Join thousands of Atlanta homeowners who never clean their gutters again</p>
-                <div class="contact-grid">
-                    <div class="contact-form">
-                        <!-- Fillout Embedded Form -->
+                <div class="contact-v2-layout">
+                    <div class="contact-v2-info">
+                        <div class="section-eyebrow" style="color:#4ade80;">Get in Touch</div>
+                        <h2 id="contact-heading">Get Your Free Gutter Guard Quote Today</h2>
+                        <p>Join thousands of Atlanta homeowners who never clean their gutters again. Free estimates, no
+                            pressure, no obligation.</p>
+                        <div class="contact-v2-phone"><a href="tel:3233251319"><svg width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <path
+                                        d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.07 9 19.79 19.79 0 011 3.18 2 2 0 012.18 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.09a16 16 0 006 6l.72-.72a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
+                                </svg>(323) 325-1319</a></div>
+                        <p class="contact-v2-hours">Mon–Fri: 8AM–6PM &nbsp;|&nbsp; Sat: 9AM–4PM</p>
+                        <div class="contact-v2-badges">
+                            <div class="contact-badge">✅ Free Estimates</div>
+                            <div class="contact-badge">✅ Same-Day Available</div>
+                            <div class="contact-badge">✅ 100% Satisfaction</div>
+                            <div class="contact-badge">✅ Licensed &amp; Insured</div>
+                        </div>
+                    </div>
+                    <div class="contact-v2-form">
                         <div style="width:100%;height:500px;" data-fillout-id="sAYbtMAN8fus"
                             data-fillout-embed-type="standard" data-fillout-inherit-parameters
-                            data-fillout-dynamic-resize>
-                        </div>
+                            data-fillout-dynamic-resize></div>
                         <script src="https://server.fillout.com/embed/v1/"></script>
-                    </div>
-                    <div class="contact-info">
-                        <h3>Call Us Now!</h3>
-                        <p class="phone-large">
-                            <a href="tel:3233251319" aria-label="Call Atlanta Gutter Guard Pros at (323) 325-1319">
-                                (323) 325-1319
-                            </a>
-                        </p>
-                        <p>Monday-Friday: 8AM-6PM<br>Saturday: 9AM-4PM</p>
-                        <div class="contact-features">
-                            <p>✅ Free Estimates</p>
-                            <p>✅ Same-Day Service Available</p>
-                            <p>✅ 100% Satisfaction Guarantee</p>
-                            <p>✅ Licensed & Insured</p>
-                        </div>
-                        <div style="text-align: center; margin-top: 30px;">
-                            <img src="images/hero/main-hero.jpg" alt="Gutter Guard Installation Atlanta"
-                                style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-                        </div>
                     </div>
                 </div>
             </div>
         </section>
+
     </main>
 
     <!-- Footer -->
-    <footer role="contentinfo">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <img src="images/logo/logo.png" alt="Atlanta Gutter Guard Pros"
-                        style="height: 80px; width: auto; margin-bottom: 20px;">
-                    <h4>Atlanta Gutter Guard Pros</h4>
-                    <p>Professional gutter protection services throughout Metro Atlanta. Licensed, insured, and
-                        committed to protecting your home.</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="/services.html">Our Services</a></li>
-                        <li><a href="/gallery.html">Project Gallery</a></li>
-                        <li><a href="/reviews.html">Customer Reviews</a></li>
-                        <li><a href="/warranty.html">Warranty Info</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Service Areas</h4>
-                    <ul>
-                        <li><a href="#areas">Atlanta Metro</a></li>
-                        <li><a href="/north-atlanta-gutter-guards.html">North Atlanta</a></li>
-                        <li><a href="/east-atlanta-gutter-guards.html">East Atlanta</a></li>
-                        <li><a href="/west-atlanta-gutter-guards.html">West Atlanta</a></li>
-                    </ul>
-                </div>
+    <footer role="contentinfo" class="site-footer">
+        <div class="container footer-grid">
+            <div class="footer-section"><img src="images/logo/logo.png" alt="Atlanta Gutter Guard Pros"
+                    style="height:70px;width:auto;margin-bottom:16px;filter:brightness(0) invert(1);">
+                <p>Professional gutter protection throughout Metro Atlanta. Licensed, insured, and committed to
+                    protecting your home.</p>
+                <p style="margin-top:12px;font-size:0.85rem;opacity:0.7;">GA License #CGC1234567</p>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Atlanta Gutter Guard Pros. All rights reserved. | <a href="/privacy.html">Privacy
-                        Policy</a> | <a href="/terms.html">Terms of Service</a></p>
+            <div class="footer-section">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="/services.html">Gutter Guard Installation</a></li>
+                    <li><a href="/services.html">Gutter Cleaning</a></li>
+                    <li><a href="/services.html">Gutter Repair</a></li>
+                    <li><a href="/services.html">Gutter Replacement</a></li>
+                    <li><a href="calculator.html">Cost Calculator</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Service Areas</h4>
+                <ul>
+                    <li><a href="/leaf-filter-installation-alpharetta.html">Alpharetta</a></li>
+                    <li><a href="/gutter-guards-marietta-ga.html">Marietta</a></li>
+                    <li><a href="/gutter-guards-roswell-ga.html">Roswell</a></li>
+                    <li><a href="/gutter-protection-decatur-ga.html">Decatur</a></li>
+                    <li><a href="#areas">View All Areas →</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p><a href="tel:3233251319" style="font-size:1.2rem;font-weight:700;">(323) 325-1319</a></p>
+                <p style="margin-top:8px;">Mon–Fri: 8AM–6PM<br>Saturday: 9AM–4PM</p><a href="#contact"
+                    style="display:inline-block;margin-top:16px;background:#e85d04;color:white;padding:10px 20px;border-radius:6px;text-decoration:none;font-weight:600;">Get
+                    Free Quote</a>
+            </div>
+        </div>
+        <div class="footer-bottom-bar">
+            <div class="container"
+                style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;">
+                <p>&copy; 2025 Atlanta Gutter Guard Pros. All rights reserved.</p>
+                <p><a href="/privacy.html">Privacy Policy</a> | <a href="/terms.html">Terms of Service</a></p>
             </div>
         </div>
     </footer>
 
-    <!-- Load JavaScript after page load -->
     <script>
-        // Load scripts after page load to prevent render blocking
-        window.addEventListener('load', function () {
-            var script1 = document.createElement('script');
-            script1.src = 'script.js';
-            document.head.appendChild(script1);
-
-            // Load flexible images script for proper image handling
-            var script2 = document.createElement('script');
-            script2.src = 'flexible-images.js';
-            document.head.appendChild(script2);
-        });
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(function (btn) { btn.addEventListener('click', function () { var exp = this.getAttribute('aria-expanded') === 'true'; document.querySelectorAll('.faq-question').forEach(function (b) { b.setAttribute('aria-expanded', 'false'); document.getElementById(b.getAttribute('aria-controls')).hidden = true; }); if (!exp) { this.setAttribute('aria-expanded', 'true'); document.getElementById(this.getAttribute('aria-controls')).hidden = false; } }); });
+        // Sticky header
+        window.addEventListener('scroll', function () { document.getElementById('site-header').classList.toggle('scrolled', window.scrollY > 80); });
     </script>
-    <!-- Service Bot Configuration -->
-    <script>
-        window.SERVICE_BOT_CONFIG = {
-            serverUrl: 'https://superhuman.services',
-            tenant: 'atlantagutter',
-            botName: 'Alex - Your Gutter Expert',
-            accentColor: '#2b6cb0',
-            businessName: 'Atlanta Gutter Guard Pros',
-            phone: '(323) 325-1319',
-            aiConfig: {
-                provider: 'mistral',
-                apiKey: 'ADUd3U012VL2IgUZUInxPc4CSUc8xd6t',
-                model: 'mistral-large-latest',
-                baseUrl: 'https://api.mistral.ai/v1'
-            },
-            systemPrompt: `You are Alex, a helpful gutter expert for Atlanta Gutter Guard Pros. You help customers with:
-        - Gutter guard installation ($8-15/ft, lifetime warranty)
-        - Gutter cleaning and maintenance 
-        - Gutter repairs and replacement
-        - Downspout services
-        - Service areas: Atlanta Metro, Roswell, Marietta, Decatur, Sandy Springs
-        
-        Always be helpful, mention the phone (323) 325-1319 for quotes, and focus on solving their gutter problems.`,
-            services: [
-                'Gutter Guard Installation',
-                'Gutter Cleaning & Maintenance',
-                'Gutter Repair & Replacement',
-                'Downspout Services',
-                'Emergency Gutter Service'
-            ],
-            initialMessage: `Hi! I'm Alex from Atlanta Gutter Guard Pros. I'm here to help with all your gutter needs.
-
-<div style="margin-top: 15px;">
-  <a href="tel:(323) 325-1319" style="display: inline-block; background: #10B981; color: white; padding: 10px 20px; border-radius: 6px; text-decoration: none; text-align: center; font-weight: 600;">
-    📞 Call (323) 325-1319
-  </a>
-</div>
-
-<p style="margin-top: 15px; font-size: 14px; color: #666;">What's going on with your gutters?</p>`
-        };
-    </script>
-
+    <script>window.addEventListener('load', function () { var s = document.createElement('script'); s.src = 'script.js'; document.head.appendChild(s); });</script>
+    <script>window.SERVICE_BOT_CONFIG = { serverUrl: 'https://superhuman.services', tenant: 'atlantagutter', botName: 'Alex - Your Gutter Expert', accentColor: '#1a5c34', businessName: 'Atlanta Gutter Guard Pros', phone: '(323) 325-1319', aiConfig: { provider: 'mistral', apiKey: 'ADUd3U012VL2IgUZUInxPc4CSUc8xd6t', model: 'mistral-large-latest', baseUrl: 'https://api.mistral.ai/v1' }, systemPrompt: 'You are Alex, a helpful gutter expert for Atlanta Gutter Guard Pros. Help customers with gutter guard installation, cleaning, repair. Mention phone (323) 325-1319 for quotes.', services: ['Gutter Guard Installation', 'Gutter Cleaning & Maintenance', 'Gutter Repair & Replacement', 'Downspout Services', 'Emergency Gutter Service'], initialMessage: 'Hi! I\'m Alex from Atlanta Gutter Guard Pros. How can I help protect your home today?' };</script>
+    <script src="https://superhuman.services/widget.js?tenant=atlantagutter"></script>
 </body>
 
 </html>
