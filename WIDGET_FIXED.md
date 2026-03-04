@@ -30,7 +30,7 @@ window.ServiceBotConfig = {
   businessName: 'Atlanta Gutter Guard Pros',
   assistantName: 'Alex',
   primaryColor: '#2c3e50',
-  phoneNumber: '(470) 851-6780',
+  phoneNumber: '(323) 325-1319',
   apiUrl: 'https://superhuman.services',
   industry: 'gutter',
   services: ['Gutter Guards', 'Gutter Cleaning', 'Gutter Repair', 'Emergency Service']
@@ -41,7 +41,7 @@ window.ServiceBotConfig = {
 - ✓ Widget says "Alex" not "Sam"
 - ✓ Title shows "Your Gutter Guard Expert" not "HVAC Assistant"
 - ✓ Responses are about gutters, not HVAC
-- ✓ Phone number (470) 851-6780 appears in responses
+- ✓ Phone number (323) 325-1319 appears in responses
 - ✓ No more "undefined" messages
 
 ## 🚀 If Still Showing Wrong Tenant:
@@ -53,7 +53,7 @@ window.ServiceBotConfig = {
 ## 💡 Next Steps:
 1. Confirm widget shows correct branding
 2. Test AI responses are gutter-specific
-3. Monitor for leads calling (470) 851-6780
+3. Monitor for leads calling (323) 325-1319
 4. Share demo with gutter companies for sales!
 
 The bot should now work correctly as "Alex - Your Gutter Guard Expert" for Atlanta Gutter Guard Pros!

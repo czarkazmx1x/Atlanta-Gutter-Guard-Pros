@@ -54,7 +54,7 @@ Test these messages:
 ✅ **Secure API Connection**: API key stored securely in Cloudflare
 ✅ **Proper Routing**: Widget calls /api/secure-chat endpoint
 ✅ **Smart Fallbacks**: If AI fails, professional responses still work
-✅ **Lead Capture**: All responses route to (470) 851-6780
+✅ **Lead Capture**: All responses route to (323) 325-1319
 
 ## Troubleshooting
 
@@ -90,7 +90,7 @@ Once working on staging:
 
 - Cloudflare Pages: https://dash.cloudflare.com
 - Mistral AI: https://console.mistral.ai
-- Phone routing: (470) 851-6780
+- Phone routing: (323) 325-1319
 
 ## Success Metrics
 

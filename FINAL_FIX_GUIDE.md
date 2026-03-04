@@ -25,7 +25,7 @@ Replace the old widget code in ALL HTML files with:
     tenant: 'atlantagutter',
     businessName: 'Atlanta Gutter Guard Pros',
     primaryColor: '#2c3e50',
-    phoneNumber: '(470) 851-6780'
+    phoneNumber: '(323) 325-1319'
   };
 </script>
 <script src="https://superhuman.services/widget.js" async></script>
@@ -49,7 +49,7 @@ wrangler pages deploy . --project-name=atlanta-gutter-guard-pros
 
 ✅ AI-powered chat responses about gutter services
 ✅ Emergency handling with immediate phone routing
-✅ Lead capture to (470) 851-6780
+✅ Lead capture to (323) 325-1319
 ✅ Professional responses 24/7
 ✅ No maintenance needed - it just works
 

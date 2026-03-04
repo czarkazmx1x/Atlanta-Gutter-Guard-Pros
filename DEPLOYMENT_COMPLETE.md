@@ -6,7 +6,7 @@
 - **Widget Code**: ✅ Correctly added to all 18 HTML pages
 - **Tenant**: ✅ atlantagutter 
 - **Assistant**: ✅ Alex (Your Gutter Guard Expert)
-- **Phone**: ✅ (470) 851-6780
+- **Phone**: ✅ (323) 325-1319
 
 ### Live URLs:
 - **Staging**: https://87cf6b90.atlanta-gutter-guard-pros.pages.dev

@@ -58,7 +58,7 @@ gutter-guard-website/ (CLEAN!)
 
 ### **🔍 What Still Works (100%):**
 ✅ **Calculator functionality** - Full working cost calculator
-✅ **Phone numbers** - (470) 851-6780 everywhere
+✅ **Phone numbers** - (323) 325-1319 everywhere
 ✅ **All location pages** - 20+ Atlanta metro cities
 ✅ **Chat bot** - AI-powered customer service
 ✅ **SEO optimization** - All meta tags, schema, sitemap

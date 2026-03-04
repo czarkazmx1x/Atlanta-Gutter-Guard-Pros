@@ -5,7 +5,7 @@ Professional gutter guard installation website for Atlanta, GA with cost calcula
 ## 🌐 Live Website
 - **Main Site**: https://atlantagutterguardpros.com/
 - **Cost Calculator**: https://atlantagutterguardpros.com/calculator.html
-- **Phone**: (470) 851-6780
+- **Phone**: (323) 325-1319
 
 ## 🚀 Quick Start
 
@@ -68,7 +68,7 @@ gutter-guard-website/
 - **Integration**: Linked from homepage navigation and hero section
 
 ### 📱 Contact Information
-- **Phone**: (470) 851-6780 (appears consistently across all pages)
+- **Phone**: (323) 325-1319 (appears consistently across all pages)
 - **Service Areas**: 20+ Atlanta metro cities
 - **Lead Generation**: Calculator → phone calls
 
@@ -91,7 +91,7 @@ gutter-guard-website/
 4. Deploy with `deploy.bat`
 
 ### Updating Phone Numbers
-All phone numbers are standardized to `(470) 851-6780`. If changes needed:
+All phone numbers are standardized to `(323) 325-1319`. If changes needed:
 1. Search and replace across all files
 2. Update schema markup in `index.html`
 3. Test calculator functionality
@@ -146,14 +146,14 @@ All phone numbers are standardized to `(470) 851-6780`. If changes needed:
 ## 🚨 Important Notes
 
 ### Phone Number
-- **Current**: (470) 851-6780
+- **Current**: (323) 325-1319
 - **Consistency**: Used across all pages, calculator, schema markup
 - **Testing**: Click any phone link to verify
 
 ### Calculator
 - **URL**: `/calculator.html`
 - **Features**: Atlanta-specific pricing, real-time calculations
-- **Lead Gen**: Drives phone calls to (470) 851-6780
+- **Lead Gen**: Drives phone calls to (323) 325-1319
 
 ### Deployment
 - **Command**: `deploy.bat`
@@ -171,7 +171,7 @@ All phone numbers are standardized to `(470) 851-6780`. If changes needed:
 ### Business Questions
 - **Website**: https://atlantagutterguardpros.com/
 - **Calculator**: Test at `/calculator.html`
-- **Phone**: (470) 851-6780
+- **Phone**: (323) 325-1319
 
 ---
 
@@ -179,7 +179,7 @@ All phone numbers are standardized to `(470) 851-6780`. If changes needed:
 
 ### Latest Updates
 - ✅ **Codebase Cleanup** (August 2025): Removed 2,305 lines of unnecessary code
-- ✅ **Phone Number Fix**: Standardized to (470) 851-6780 across all pages
+- ✅ **Phone Number Fix**: Standardized to (323) 325-1319 across all pages
 - ✅ **Calculator Integration**: Added cost calculator with navigation links
 - ✅ **Deployment Optimization**: Single `deploy.bat` script for all updates
 
