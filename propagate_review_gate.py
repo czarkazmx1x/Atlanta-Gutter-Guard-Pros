@@ -1,102 +1,15 @@
-﻿<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Verify Superhuman Widget</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 800px;
-            margin: 50px auto;
-            padding: 20px;
-            background: #f5f5f5;
-        }
-        .status-box {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            margin: 20px 0;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        .success { color: #27ae60; font-weight: bold; }
-        .error { color: #e74c3c; font-weight: bold; }
-        .info { color: #3498db; }
-        code {
-            background: #f0f0f0;
-            padding: 2px 6px;
-            border-radius: 3px;
-        }
-    </style>
-    <link rel="icon" type="image/png" href="/images/favicon.png?v=2">
-</head>
-<body>
-    <h1>Atlanta Gutter Guard Pros - Widget Verification</h1>
-    
-    <div class="status-box">
-        <h2>Status Check:</h2>
-        <div id="status">Checking widget connection...</div>
-    </div>
-    
-    <div class="status-box">
-        <h2>Direct Platform Links:</h2>
-        <ul>
-            <li>Demo: <a href="https://atlantagutter.superhuman.services" target="_blank">atlantagutter.superhuman.services</a></li>
-            <li>Main Platform: <a href="https://superhuman.services" target="_blank">superhuman.services</a></li>
-        </ul>
-    </div>
-    
-    <div class="status-box">
-        <h2>Widget Test:</h2>
-        <p>The chat widget should appear in the bottom-right corner of this page.</p>
-        <p>If it loads successfully, you'll see:</p>
-        <ul>
-            <li>A chat bubble icon (💬)</li>
-            <li>Click it to open the chat</li>
-            <li>Test with: "How much do gutter guards cost?"</li>
-        </ul>
-    </div>
+import os
+import re
 
-    <!-- Atlanta Gutter Guard Pros - AI Service Bot (Superhuman.services) -->
-    <script>
-      window.ServiceBotConfig = {
-        tenant: 'atlantagutter',
-        businessName: 'Atlanta Gutter Guard Pros',
-        primaryColor: '#2c3e50',
-        phoneNumber: '(323) 325-1319'
-      };
-    </script>
-    <script src="https://superhuman.services/widget.js" async></script>
-    
-    <script>
-        // Check widget status
-        setTimeout(function() {
-            const statusEl = document.getElementById('status');
-            
-            // Check if widget loaded
-            if (window.ServiceBot && window.ServiceBot.loaded) {
-                statusEl.innerHTML = '<span class="success">✓ Widget loaded successfully!</span>';
-            } else if (document.getElementById('service-bot-widget') || document.getElementById('service-bot-toggle')) {
-                statusEl.innerHTML = '<span class="success">✓ Widget elements detected!</span>';
-            } else {
-                statusEl.innerHTML = '<span class="error">✗ Widget not detected. Checking connection...</span>';
-                
-                // Try to check if superhuman.services is accessible
-                fetch('https://superhuman.services/widget.js')
-                    .then(response => {
-                        if (response.ok) {
-                            statusEl.innerHTML += '<br><span class="info">Server is accessible. Widget may still be loading...</span>';
-                        } else {
-                            statusEl.innerHTML += '<br><span class="error">Server returned error: ' + response.status + '</span>';
-                        }
-                    })
-                    .catch(error => {
-                        statusEl.innerHTML += '<br><span class="error">Cannot reach superhuman.services: ' + error.message + '</span>';
-                    });
-            }
-        }, 3000);
-    </script>
+# Snippet 1: The updated button logic
+# Finding the "Write a Review" button and changing it to onclick="openReviewGate()"
+# Also needs to be more robust to handle slightly different HTML versions if they exist
+button_pattern = r'<a href="https://search.google.com/local/writereview\?placeid=PLACEHOLDER" target="_blank"\s+class="btn-review-outline">'
+button_replacement = '<a href="javascript:void(0)" onclick="openReviewGate()" class="btn-review-outline">'
 
+# Snippet 2: The Modal and Script
+# This should be inserted before the closing </body> tag
+modal_html = """
     <!-- Review Gate Modal -->
     <div id="review-gate-modal" class="rg-modal" aria-hidden="true">
         <div class="rg-overlay" onclick="closeReviewGate()"></div>
@@ -164,6 +77,24 @@
             }).catch(() => { btn.disabled = false; btn.innerText = 'Send Feedback'; });
         });
     </script>
+"""
 
-</body>
-</html>
+# Process all HTML files
+for file_name in os.listdir('.'):
+    if file_name.endswith('.html'):
+        with open(file_name, 'r', encoding='utf-8') as f:
+            content = f.read()
+        
+        # 1. Update the button
+        new_content = re.sub(button_pattern, button_replacement, content)
+        
+        # 2. Add the Modal (if not already present)
+        if 'id="review-gate-modal"' not in new_content:
+            new_content = new_content.replace('</body>', modal_html + '\n</body>')
+            
+        if new_content != content:
+            with open(file_name, 'w', encoding='utf-8') as f:
+                f.write(new_content)
+            print(f"Implemented Review Gate on: {file_name}")
+
+print("Site-wide Review Gate implementation complete.")
