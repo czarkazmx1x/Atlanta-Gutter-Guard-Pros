@@ -24,7 +24,61 @@
     z-index: 10;
 }
 
-/* Review Gate Modal */
+/* SEO Footer Grid */
+.footer-areas-grid {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 40px 0;
+    margin-top: 40px;
+}
+
+.footer-areas-title {
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 24px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.areas-link-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 12px 24px;
+}
+
+.areas-link-grid a {
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.areas-link-grid a:before {
+    content: "•";
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+.areas-link-grid a:hover {
+    color: white;
+    padding-left: 4px;
+}
+
+@media (max-width: 768px) {
+    .areas-link-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .areas-link-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 .rg-modal {
     display: none;
     position: fixed;
