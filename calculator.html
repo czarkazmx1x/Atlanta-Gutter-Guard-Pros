@@ -17,14 +17,14 @@
     <div class="container">
         <div class="header" style="position: relative;">
             <a href="index.html" class="nav-link">← Back to Home</a>
-            <h1>🏠 Gutter Guard Calculator</h1>
-            <p>Get an instant estimate for your Atlanta home's gutter protection</p>
+            <h1>🏠 Gutter Guard Quote Estimator</h1>
+            <p>Compare potential costs for your Atlanta home's gutter protection</p>
         </div>
 
         <div class="calculator-content">
             <div class="input-section">
-                <h2 style="margin-bottom: 1.5rem; color: #28a745;">📏 Tell Us About Your Home</h2>
-
+                <h2 style="margin-bottom: 1.5rem; color: #1a5c34;">📏 Tell Us About Your Home</h2>
+                <!-- ... existing form groups ... -->
                 <div class="form-group">
                     <label for="homeType">Home Type</label>
                     <select id="homeType">
@@ -63,7 +63,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label>🌲 Atlanta Property Challenges (check all that apply)</label>
+                    <label>🌲 Atlanta Property Challenges</label>
                     <div class="checkbox-group">
                         <div class="checkbox-item">
                             <input type="checkbox" id="pines" value="50">
@@ -84,26 +84,15 @@
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="timeline">Installation Timeline</label>
-                    <select id="timeline">
-                        <option value="asap">ASAP - Emergency</option>
-                        <option value="month">Within 1 month</option>
-                        <option value="season">This season</option>
-                        <option value="planning">Just planning ahead</option>
-                    </select>
-                </div>
-
-                <div class="info-box">
-                    <strong>💡 Atlanta Pro Tip:</strong> Pine needle areas need micro-mesh guards for best protection.
-                    Spring installation (March-April) is optimal timing.
+                <div class="info-box" style="background: #f0fdf4; border-left: 4px solid #1a5c34; padding: 1rem; margin-top: 1rem;">
+                    <strong>💡 Comparison Tip:</strong> These estimates help you compare options. Contractors in our network provide exact, on-site quotes for free.
                 </div>
             </div>
 
             <div class="results-section">
                 <div class="price-display">
                     <div class="price-range" id="priceRange">$2,250 - $2,700</div>
-                    <div class="price-label">Professional Installation</div>
+                    <div class="price-label">Estimated Professional Price</div>
                 </div>
 
                 <div class="breakdown">
@@ -120,220 +109,26 @@
                         <span>Complexity Factors:</span>
                         <span id="complexityCost">$150</span>
                     </div>
-                    <div class="breakdown-item">
-                        <span>Prep Work:</span>
-                        <span id="prepCost">$0</span>
-                    </div>
-                    <div class="breakdown-item"
-                        style="border-top: 2px solid rgba(255,255,255,0.3); padding-top: 0.5rem; margin-top: 0.5rem; font-weight: bold;">
+                    <div class="breakdown-item" style="border-top: 2px solid rgba(255,255,255,0.3); padding-top: 0.5rem; margin-top: 0.5rem; font-weight: bold;">
                         <span>Total Range:</span>
                         <span id="totalRange">$2,250 - $2,700</span>
                     </div>
                 </div>
 
                 <div class="cta-section">
-                    <button class="cta-button" onclick="requestQuote()">📞 Get Free Exact Quote</button>
-                    <div class="phone-number">Call: (323) 325-1319</div>
-                    <p style="font-size: 0.9rem; opacity: 0.9;">Free estimates • Same-day service available</p>
-                </div>
-
-                <div style="background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 10px; margin-top: 1rem;">
-                    <h4 style="margin-bottom: 0.5rem;">⏱️ Installation Time</h4>
-                    <p id="installTime">4-6 hours for average home</p>
-
-                    <h4 style="margin-bottom: 0.5rem; margin-top: 1rem;">✅ Includes</h4>
-                    <ul style="list-style: none; padding: 0;">
-                        <li>• Lifetime warranty</li>
-                        <li>• Free gutter cleaning</li>
-                        <li>• Licensed & insured</li>
-                        <li>• Same-day installation</li>
-                    </ul>
+                    <a href="/#contact" class="cta-button" style="text-decoration:none; display:block; text-align:center;">Compare Real Quotes Now</a>
+                    <div class="phone-number">Or call: (323) 325-1319</div>
                 </div>
             </div>
-        </div>
-
-        <div class="features-grid">
-            <div class="feature-item">
-                <div class="feature-icon">🛡️</div>
-                <div class="feature-text">Lifetime Warranty</div>
-            </div>
-            <div class="feature-item">
-                <div class="feature-icon">🏆</div>
-                <div class="feature-text">4.9/5 Stars</div>
-            </div>
-            <div class="feature-item">
-                <div class="feature-icon">⚡</div>
-                <div class="feature-text">Same-Day Service</div>
-            </div>
-            <div class="feature-item">
-                <div class="feature-icon">💵</div>
-                <div class="feature-text">Financing Available</div>
-            </div>
-        </div>
-
-        <div class="warning-box" style="margin: 2rem;">
-            <strong>🚨 Atlanta Weather Alert:</strong> Hurricane season (June-Nov) creates high demand. Book early for
-            best pricing and availability. Spring installations save 15-20% vs peak season.
         </div>
     </div>
 
-    <script>
-        function calculatePrice() {
-            const linearFeet = parseInt(document.getElementById('linearFeet').value) || 150;
-            const guardType = document.getElementById('guardType').value;
-            const homeType = document.getElementById('homeType').value;
-            const gutterCondition = document.getElementById('gutterCondition').value;
-            const timeline = document.getElementById('timeline').value;
-
-            // Base pricing per linear foot
-            const basePrices = {
-                'mesh': [15, 18],
-                'screen': [8, 12],
-                'foam': [3, 6],
-                'brush': [4, 8],
-                'helmet': [18, 25]
-            };
-
-            let [minPrice, maxPrice] = basePrices[guardType];
-
-            // Home type multipliers
-            const homeMultipliers = {
-                'single': 1.0,
-                'two-story': 1.15,
-                'three-story': 1.35,
-                'ranch': 1.05,
-                'colonial': 1.20
-            };
-
-            // Gutter condition adjustments
-            const conditionAdjustments = {
-                'excellent': 0,
-                'good': 150,
-                'fair': 350,
-                'poor': 750
-            };
-
-            // Timeline adjustments
-            const timelineMultipliers = {
-                'asap': 1.20,
-                'month': 1.0,
-                'season': 0.95,
-                'planning': 0.90
-            };
-
-            // Calculate complexity factors
-            let complexityBonus = 0;
-            const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
-            checkboxes.forEach(cb => {
-                complexityBonus += parseInt(cb.value);
-            });
-
-            // Apply calculations
-            const homeMultiplier = homeMultipliers[homeType];
-            const timelineMultiplier = timelineMultipliers[timeline];
-            const prepCost = conditionAdjustments[gutterCondition];
-
-            const materialMin = Math.round(linearFeet * minPrice * homeMultiplier * timelineMultiplier);
-            const materialMax = Math.round(linearFeet * maxPrice * homeMultiplier * timelineMultiplier);
-
-            const laborMin = Math.round(linearFeet * 3.5);
-            const laborMax = Math.round(linearFeet * 4.2);
-
-            const totalMin = materialMin + laborMin + complexityBonus + prepCost;
-            const totalMax = materialMax + laborMax + complexityBonus + prepCost;
-
-            // Update display
-            document.getElementById('priceRange').textContent = `$${totalMin.toLocaleString()} - $${totalMax.toLocaleString()}`;
-            document.getElementById('materialCost').textContent = `$${Math.round((materialMin + materialMax) / 2).toLocaleString()}`;
-            document.getElementById('laborCost').textContent = `$${Math.round((laborMin + laborMax) / 2).toLocaleString()}`;
-            document.getElementById('complexityCost').textContent = `$${complexityBonus}`;
-            document.getElementById('prepCost').textContent = `$${prepCost}`;
-            document.getElementById('totalRange').textContent = `$${totalMin.toLocaleString()} - $${totalMax.toLocaleString()}`;
-
-            // Installation time estimate
-            let installHours = Math.ceil(linearFeet / 30) + (homeType === 'three-story' ? 2 : homeType === 'two-story' ? 1 : 0);
-            if (complexityBonus > 100) installHours += 2;
-
-            const timeText = installHours <= 6 ? `${installHours - 1}-${installHours} hours` : `${Math.floor(installHours / 8)}-${Math.ceil(installHours / 8)} days`;
-            document.getElementById('installTime').textContent = timeText;
-        }
-
-        function requestQuote() {
-            const linearFeet = document.getElementById('linearFeet').value;
-            const guardType = document.getElementById('guardType').options[document.getElementById('guardType').selectedIndex].text;
-            const homeType = document.getElementById('homeType').options[document.getElementById('homeType').selectedIndex].text;
-
-            // Track calculator usage
-            if (typeof trackCalculatorUsage !== 'undefined') {
-                trackCalculatorUsage('Atlanta Gutter Guard Pros', 'Cost Calculator', {
-                    'linear_feet': linearFeet,
-                    'guard_type': guardType,
-                    'home_type': homeType
-                });
-            }
-
-            const phone = "(323) 325-1319";
-            window.open(`tel:${phone.replace(/[^0-9]/g, '')}`);
-        }
-
-        // Add event listeners
-        document.addEventListener('DOMContentLoaded', function () {
-            const inputs = document.querySelectorAll('input, select');
-            inputs.forEach(input => {
-                input.addEventListener('change', calculatePrice);
-                input.addEventListener('input', calculatePrice);
-            });
-
-            calculatePrice(); // Initial calculation
-        });
-    </script>
-    <!-- Service Bot Configuration -->
-    <script>
-        window.SERVICE_BOT_CONFIG = {
-            serverUrl: 'https://superhuman.services',
-            tenant: 'atlantagutter',
-            botName: 'Alex - Your Gutter Expert',
-            accentColor: '#2b6cb0',
-            businessName: 'Atlanta Gutter Guard Pros',
-            phone: '(323) 325-1319',
-            services: [
-                'Gutter Guard Installation',
-                'Gutter Cleaning & Maintenance',
-                'Gutter Repair & Replacement',
-                'Downspout Services',
-                'Emergency Gutter Service'
-            ],
-            initialMessage: `Hi! I'm Alex from Atlanta Gutter Guard Pros. I'm here to help with all your gutter needs.
-
-<div style="margin-top: 15px;">
-  <a href="tel:(323) 325-1319" style="display: inline-block; background: #10B981; color: white; padding: 10px 20px; border-radius: 6px; text-decoration: none; text-align: center; font-weight: 600;">
-    📞 Call (323) 325-1319
-  </a>
-</div>
-
-<p style="margin-top: 15px; font-size: 14px; color: #666;">What's going on with your gutters?</p>`
-        };
-    </script>
-
-    <!-- Load the Service Bot Widget -->
-    <script src="https://superhuman.services/widget.js?tenant=atlantagutter"></script>
-
-    <!-- Custom styling to match brand -->
-    <style>
-        #service-bot-widget {
-            font-family: inherit;
-        }
-
-        #service-bot-button {
-            background: linear-gradient(135deg, #2b6cb0 0%, #3182ce 100%) !important;
-            box-shadow: 0 4px 15px rgba(43, 108, 176, 0.3) !important;
-        }
-
-        #service-bot-button:hover {
-            transform: translateY(-2px) !important;
-            box-shadow: 0 6px 20px rgba(43, 108, 176, 0.4) !important;
-        }
-    </style>
+    <footer style="background: #111; color: #fff; padding: 40px 0; margin-top: 4rem;">
+        <div class="container">
+            <p style="font-size: 0.75rem; line-height: 1.5; opacity: 0.6; text-align: left;">Atlanta Gutter Guard Quotes is a free service that helps homeowners connect with local contractors. All contractors are independent, and we do not guarantee or warrant any work performed. It is the responsibility of the homeowner to verify that the hired contractor furnishes the necessary license and insurance required for the work being performed.</p>
+            <p style="text-align: center; margin-top: 20px; font-size: 0.8rem; border-top: 1px solid #333; padding-top: 20px;">&copy; 2025 Atlanta Gutter Guard Quotes. All rights reserved.</p>
+        </div>
+    </footer>
 
     <!-- Review Gate Modal -->
     <div id="review-gate-modal" class="rg-modal" aria-hidden="true">
@@ -341,8 +136,8 @@
         <div class="rg-content">
             <button class="rg-close" onclick="closeReviewGate()" aria-label="Close">&times;</button>
             <div id="rg-step-1" class="rg-step">
-                <h3>How was your experience? in Atlanta</h3>
-                <p>Please rate our service to continue.</p>
+                <h3>How was your experience?</h3>
+                <p>Please rate our matching service to continue.</p>
                 <div class="rg-stars">
                     <span class="rg-star" data-rating="1">★</span>
                     <span class="rg-star" data-rating="2">★</span>
@@ -353,16 +148,15 @@
             </div>
             <div id="rg-step-positive" class="rg-step" style="display:none;">
                 <div class="rg-icon">✨</div>
-                <h3>We're glad you're happy! in Atlanta</h3>
-                <p>Would you mind sharing your experience on Google? It helps our small business a ton.</p>
+                <h3>We're glad you're happy!</h3>
+                <p>Would you mind sharing your experience with our quote service on Google?</p>
                 <div class="rg-actions">
-                    <a href="https://search.google.com/local/writereview?placeid=ChIJ8_I7K8I6j4AR-7L4W6m8G6Y"
-                        target="_blank" class="rg-btn rg-btn-google">Continue to Google</a>
+                    <a href="https://search.google.com/local/writereview?placeid=ChIJ8_I7K8I6j4AR-7L4W6m8G6Y" target="_blank" class="rg-btn rg-btn-google">Continue to Google</a>
                 </div>
             </div>
             <div id="rg-step-negative" class="rg-step" style="display:none;">
-                <h3>We're sorry to hear that in Atlanta</h3>
-                <p>We'd love to make it right. Please let us know what went wrong so we can fix it.</p>
+                <h3>We're sorry to hear that</h3>
+                <p>We'd love to make it right. Please let us know how we can improve.</p>
                 <form id="rg-feedback-form" action="https://formspree.io/f/PLACEHOLDER" method="POST">
                     <textarea name="feedback" placeholder="How can we help?" required></textarea>
                     <input type="email" name="email" placeholder="Your Email (Optional)">
@@ -372,7 +166,7 @@
             </div>
             <div id="rg-step-thanks" class="rg-step" style="display:none;">
                 <div class="rg-icon">✅</div>
-                <h3>Thank you! in Atlanta</h3>
+                <h3>Expressing gratitude</h3>
                 <p>We have received your feedback and will be in touch shortly.</p>
                 <button class="rg-btn" onclick="closeReviewGate()">Close</button>
             </div>
@@ -383,41 +177,25 @@
         function closeReviewGate() { document.getElementById('review-gate-modal').style.display = 'none'; }
         function resetReviewGate() { document.querySelectorAll('.rg-step').forEach(s => s.style.display = 'none'); document.getElementById('rg-step-1').style.display = 'block'; }
         document.querySelectorAll('.rg-star').forEach(star => {
-            star.addEventListener('mouseover', function () {
+            star.addEventListener('mouseover', function() {
                 const rating = this.getAttribute('data-rating');
                 document.querySelectorAll('.rg-star').forEach(s => { s.style.color = s.getAttribute('data-rating') <= rating ? '#f59e0b' : '#ddd'; });
             });
-            star.addEventListener('click', function () {
+            star.addEventListener('click', function() {
                 const rating = parseInt(this.getAttribute('data-rating'));
                 document.getElementById('rg-step-1').style.display = 'none';
                 if (rating >= 4) { document.getElementById('rg-step-positive').style.display = 'block'; }
                 else { document.getElementById('rg-step-negative').style.display = 'block'; }
             });
         });
-        document.getElementById('rg-feedback-form').addEventListener('submit', function (e) {
+        document.getElementById('rg-feedback-form').addEventListener('submit', function(e) {
             e.preventDefault();
             const btn = this.querySelector('button');
             btn.disabled = true; btn.innerText = 'Sending...';
-            fetch(this.action, {
-                method: 'POST', body: new FormData(this), headers: { 'Accept': 'application/json' }
-            }).then(() => {
-                document.getElementById('rg-step-negative').style.display = 'none'; document.getElementById('rg-step-thanks').style.display = 'block';
+            fetch(this.action, { method: 'POST', body: new FormData(this), headers: { 'Accept': 'application/json' }
+            }).then(() => { document.getElementById('rg-step-negative').style.display = 'none'; document.getElementById('rg-step-thanks').style.display = 'block';
             }).catch(() => { btn.disabled = false; btn.innerText = 'Send Feedback'; });
         });
     </script>
-
-
-    <div class="trust-sidebar"
-        style="position: fixed; left: 20px; top: 50%; transform: translateY(-50%); width: 180px; background: #fff; padding: 1.5rem; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); z-index: 900; text-align: center; border-top: 4px solid #1a5c34;">
-        <h4 style="font-size: 0.9rem; margin-bottom: 0.5rem;">Atlanta's Top Rated</h4>
-        <span style="font-size: 1.5rem; font-weight: 800; display: block;">4.8/5</span>
-        <div style="color: #ffc107; font-size: 0.8rem; margin-bottom: 1rem;">
-            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                class="fas fa-star"></i><i class="fas fa-star"></i>
-        </div>
-        <p style="font-size: 0.75rem; font-style: italic; color: #666;">"The beltline area has so many trees, these guards are a lifesaver in Atlanta."</p>
-    </div>
-
 </body>
-
 </html>

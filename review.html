@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rate Your Experience | Atlanta Gutter Guard Quotes</title>
+    <!-- Performance Optimization: Preconnect to critical domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <meta name="google-site-verification" content="oXrtEq4U_a-CSmwdGes-R7jMTiY7fDZAj9NQUg0hVys" />
+
+    <link rel="stylesheet" href="styles-v4.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .review-box {
+            max-width: 600px;
+            margin: 5rem auto;
+            text-align: center;
+            background: #fff;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 15px-40px rgba(0, 0, 0, 0.1);
+        }
+
+        .stars-int {
+            font-size: 3rem;
+            color: #ddd;
+            margin: 2rem 0;
+            cursor: pointer;
+        }
+
+        .stars-int i:hover,
+        .stars-int i.active {
+            color: #f59e0b;
+        }
+
+        .fb-form {
+            display: none;
+            text-align: left;
+            margin-top: 2rem;
+            border-top: 1px solid #eee;
+            padding-top: 2rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+    </style>
+<script src="js/tracking.js"></script>
+</head>
+
+<body style="background: #f1f5f9;">
+    <div class="container">
+        <div class="review-box">
+            <img src="images/logo/logo.png" alt="Atlanta Gutter Guard Quotes"
+                style="height: 60px; margin-bottom: 1.5rem;">
+            <h1>How was your installation?</h1>
+            <p>Help other Atlanta homeowners protect their gutters.</p>
+            <div class="stars-int" id="stars">
+                <i class="fas fa-star" data-v="1"></i><i class="fas fa-star" data-v="2"></i><i class="fas fa-star"
+                    data-v="3"></i><i class="fas fa-star" data-v="4"></i><i class="fas fa-star" data-v="5"></i>
+            </div>
+            <p id="desc">Select stars to rate</p>
+            <div id="fb" class="fb-form">
+                <h3>Private Feedback in Atlanta</h3>
+                <p>We're committed to quality. Tell us what we can improve.</p>
+                <form action="index.html">
+                    <input type="text" class="form-control" placeholder="Name" required>
+                    <textarea class="form-control" rows="4" placeholder="Feedback" required></textarea>
+                    <button type="submit"
+                        style="width:100%; padding:1rem; background:#1a5c34; color:#fff; border:none; border-radius:5px;">Send
+                        Private Feedback</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        const stars = document.querySelectorAll('#stars i');
+        const fb = document.getElementById('fb');
+        const desc = document.getElementById('desc');
+        const gLink = "https://search.google.com/local/writereview?placeid=YOUR_ATLANTA_ID";
+        stars.forEach(s => {
+            s.onmouseover = () => { reset(); high(s.dataset.v); };
+            s.onclick = () => {
+                const v = parseInt(s.dataset.v);
+                if (v >= 4) { desc.innerHTML = "<strong>Redirecting to Google...</strong>"; setTimeout(() => window.location.href = gLink, 800); }
+                else { reset(); high(v); fb.style.display = 'block'; desc.innerText = "Please tell us what went wrong."; }
+            };
+        });
+        function high(v) { for (let i = 0; i < v; i++) stars[i].classList.add('active'); }
+        function reset() { stars.forEach(s => s.classList.remove('active')); }
+    </script>
+
+    <div class="trust-sidebar" style="position: fixed; left: 20px; top: 50%; transform: translateY(-50%); width: 180px; background: #fff; padding: 1.5rem; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); z-index: 900; text-align: center; border-top: 4px solid #1a5c34;">
+        <h4 style="font-size: 0.9rem; margin-bottom: 0.5rem;">Atlanta's Top Rated</h4>
+        <span style="font-size: 1.5rem; font-weight: 800; display: block;">4.8/5</span>
+        <div style="color: #ffc107; font-size: 0.8rem; margin-bottom: 1rem;">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+        </div>
+        <p style="font-size: 0.75rem; font-style: italic; color: #666;">"The beltline area has so many trees, these guards are a lifesaver in Atlanta."</p>
+    </div>
+
+</body>
+
+</html>

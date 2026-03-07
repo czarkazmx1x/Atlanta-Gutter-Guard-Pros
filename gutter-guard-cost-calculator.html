@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gutter Guard Cost Calculator | Atlanta Gutter Guard Quotes</title>
+        <!-- Performance Optimization: Preconnect to critical domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <meta name="google-site-verification" content="oXrtEq4U_a-CSmwdGes-R7jMTiY7fDZAj9NQUg0hVys" />
+<script src="js/tracking.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="calc-box">
+            <h1 style="text-align: center; margin-bottom: 2rem;">Gutter Guard Estimate Calculator</h1>
+            <div class="form-group">
+                <label>Total Gutter Length (Linear Feet)</label>
+                <input type="number" id="feet" class="form-control" placeholder="e.g. 150">
+            </div>
+            <div class="form-group">
+                <label>Gutter Guard Type</label>
+                <select id="type" class="form-control">
+                    <option value="8">Micro-Mesh (Premium Protection)</option>
+                    <option value="5">Screen Guards (Standard)</option>
+                    <option value="12">Leaf Filter Style (High-End)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Height / Levels</label>
+                <select id="levels" class="form-control">
+                    <option value="1.0">1 Story (Standard Access)</option>
+                    <option value="1.3">2 Stories (High Reach)</option>
+                    <option value="1.6">3 Stories / Very Steep</option>
+                </select>
+            </div>
+            <button onclick="calc()" class="btn btn-primary w-100"
+                style="width: 100%; padding: 1rem; background: #2563eb; color: #fff; border: none; border-radius: 6px; font-size: 1.1rem; cursor: pointer;">Calculate
+                Estimate</button>
+
+            <div id="res" class="results">
+                <div style="display: flex; justify-content: space-between;"><span>Estimated Labor:</span> <span
+                        id="lab">$0</span></div>
+                <div style="display: flex; justify-content: space-between;"><span>Estimated Materials:</span> <span
+                        id="mat">$0</span></div>
+                <div class="total" style="display: flex; justify-content: space-between;"><span>Estimated Total:</span>
+                    <span id="tot">$0</span></div>
+                <p style="font-size: 0.8rem; color: #666; margin-top: 1rem;">*Note: This is an approximation for the
+                    Atlanta metro area. Final pricing requires a visual inspection.</p>
+                <div style="text-align: center; margin-top: 1.5rem;">
+                    <a href="contact.html"
+                        style="background:#2563eb; color:#fff; padding: 0.8rem 2rem; text-decoration: none; border-radius: 5px;">Get
+                        Your Precise Quote</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function calc() {
+            const f = document.getElementById('feet').value;
+            const t = document.getElementById('type').value;
+            const l = document.getElementById('levels').value;
+            if (!f || f < 20) { alert("Enter linear feet"); return; }
+            const base = f * t * l;
+            document.getElementById('mat').innerText = '$' + (base * 0.4).toFixed(0);
+            document.getElementById('lab').innerText = '$' + (base * 0.6).toFixed(0);
+            document.getElementById('tot').innerText = '$' + base.toFixed(0);
+            document.getElementById('res').style.display = 'block';
+        }
+    </script>
+
+    <div class="trust-sidebar" style="position: fixed; left: 20px; top: 50%; transform: translateY(-50%); width: 180px; background: #fff; padding: 1.5rem; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); z-index: 900; text-align: center; border-top: 4px solid #1a5c34;">
+        <h4 style="font-size: 0.9rem; margin-bottom: 0.5rem;">Atlanta's Top Rated</h4>
+        <span style="font-size: 1.5rem; font-weight: 800; display: block;">4.8/5</span>
+        <div style="color: #ffc107; font-size: 0.8rem; margin-bottom: 1rem;">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+        </div>
+        <p style="font-size: 0.75rem; font-style: italic; color: #666;">"The beltline area has so many trees, these guards are a lifesaver in Atlanta."</p>
+    </div>
+
+</body>
+
+</html>
