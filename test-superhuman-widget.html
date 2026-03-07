@@ -4,7 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test - Atlanta Gutter Service Bot</title>
-    <link rel="icon" type="image/png" href="/images/favicon.png?v=2">
+        <!-- Performance Optimization: Preconnect to critical domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <meta name="google-site-verification" content="oXrtEq4U_a-CSmwdGes-R7jMTiY7fDZAj9NQUg0hVys" />
+<script src="js/tracking.js"></script>
 </head>
 <body>
     <h1>Atlanta Gutter Guard Pros - Service Bot Test</h1>
@@ -51,7 +56,7 @@
         <div class="rg-content">
             <button class="rg-close" onclick="closeReviewGate()" aria-label="Close">&times;</button>
             <div id="rg-step-1" class="rg-step">
-                <h3>How was your experience?</h3>
+                <h3>How was your experience? in Roswell</h3>
                 <p>Please rate our service to continue.</p>
                 <div class="rg-stars">
                     <span class="rg-star" data-rating="1">★</span>
@@ -63,14 +68,14 @@
             </div>
             <div id="rg-step-positive" class="rg-step" style="display:none;">
                 <div class="rg-icon">✨</div>
-                <h3>We're glad you're happy!</h3>
+                <h3>We're glad you're happy! in Roswell</h3>
                 <p>Would you mind sharing your experience on Google? It helps our small business a ton.</p>
                 <div class="rg-actions">
                     <a href="https://search.google.com/local/writereview?placeid=ChIJ8_I7K8I6j4AR-7L4W6m8G6Y" target="_blank" class="rg-btn rg-btn-google">Continue to Google</a>
                 </div>
             </div>
             <div id="rg-step-negative" class="rg-step" style="display:none;">
-                <h3>We're sorry to hear that</h3>
+                <h3>We're sorry to hear that in Roswell</h3>
                 <p>We'd love to make it right. Please let us know what went wrong so we can fix it.</p>
                 <form id="rg-feedback-form" action="https://formspree.io/f/PLACEHOLDER" method="POST">
                     <textarea name="feedback" placeholder="How can we help?" required></textarea>
@@ -81,7 +86,7 @@
             </div>
             <div id="rg-step-thanks" class="rg-step" style="display:none;">
                 <div class="rg-icon">✅</div>
-                <h3>Thank you!</h3>
+                <h3>Thank you! in Roswell</h3>
                 <p>We have received your feedback and will be in touch shortly.</p>
                 <button class="rg-btn" onclick="closeReviewGate()">Close</button>
             </div>
@@ -112,6 +117,16 @@
             }).catch(() => { btn.disabled = false; btn.innerText = 'Send Feedback'; });
         });
     </script>
+
+
+    <div class="trust-sidebar" style="position: fixed; left: 20px; top: 50%; transform: translateY(-50%); width: 180px; background: #fff; padding: 1.5rem; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); z-index: 900; text-align: center; border-top: 4px solid #1a5c34;">
+        <h4 style="font-size: 0.9rem; margin-bottom: 0.5rem;">Atlanta's Top Rated</h4>
+        <span style="font-size: 1.5rem; font-weight: 800; display: block;">4.8/5</span>
+        <div style="color: #ffc107; font-size: 0.8rem; margin-bottom: 1rem;">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+        </div>
+        <p style="font-size: 0.75rem; font-style: italic; color: #666;">"Best investment for my Roswell home. No more clogs!"</p>
+    </div>
 
 </body>
 </html>
